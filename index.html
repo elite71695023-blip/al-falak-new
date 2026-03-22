@@ -1,2124 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Al Falak Transport LLC — Dubai's Heavy Equipment Command</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Al Falak Transport LLC — Heavy Equipment Rental Dubai</title>
+  <meta name="description" content="Premier heavy equipment rental in Dubai. Boom lifts, excavators, cranes, forklifts and more. RTA-certified operators. 24/7 site support across all 7 Emirates.">
+  <meta property="og:title" content="Al Falak Transport LLC">
+  <meta property="og:description" content="Heavy equipment rental Dubai — modernized fleet, certified operators, 24h deployment.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1200&auto=format&fit=crop">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
-    rel="stylesheet">
-  <style>
-    :root {
-      --bg: #040404;
-      --s1: #090909;
-      --s2: #101010;
-      --s3: #161616;
-      --s4: #1d1d1d;
-      --border: rgba(255, 255, 255, .055);
-      --ba: rgba(212, 132, 26, .22);
-      --amber: #D4841A;
-      --a2: #F09820;
-      --adim: rgba(212, 132, 26, .1);
-      --w: #EDE9E3;
-      --g1: #7A766F;
-      --g2: #4A4640;
-      --D: 'Bebas Neue', cursive;
-      --M: 'DM Mono', monospace;
-      --B: 'DM Sans', sans-serif;
-    }
-
-    *,
-    *::before,
-    *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box
-    }
-
-    html {
-      scroll-behavior: smooth
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--w);
-      font-family: var(--B);
-      overflow-x: hidden;
-      cursor: none
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit
-    }
-
-    img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover
-    }
-
-    /* PRELOADER */
-    #PL {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      background: var(--bg);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 32px;
-      transition: opacity .55s ease, visibility .55s ease
-    }
-
-    #PL.done {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none
-    }
-
-    .pl-word {
-      font-family: var(--D);
-      font-size: clamp(48px, 8vw, 88px);
-      letter-spacing: .1em;
-      display: flex;
-      overflow: hidden
-    }
-
-    .pl-l {
-      display: inline-block;
-      transform: translateY(120%);
-      opacity: 0;
-      animation: plUp .5s cubic-bezier(.16, 1, .3, 1) forwards
-    }
-
-    .pl-bar-bg {
-      width: 200px;
-      height: 2px;
-      background: var(--g2)
-    }
-
-    .pl-bar {
-      height: 100%;
-      background: var(--amber);
-      width: 0;
-      transition: width 1.1s cubic-bezier(.16, 1, .3, 1)
-    }
-
-    .pl-st {
-      font-family: var(--M);
-      font-size: 9px;
-      letter-spacing: .28em;
-      color: var(--g1);
-      text-transform: uppercase
-    }
-
-    @keyframes plUp {
-      to {
-        transform: translateY(0);
-        opacity: 1
-      }
-    }
-
-    /* CURSOR */
-    #CUR {
-      width: 8px;
-      height: 8px;
-      background: var(--amber);
-      border-radius: 50%;
-      position: fixed;
-      pointer-events: none;
-      z-index: 9990;
-      transform: translate(-50%, -50%);
-      transition: width .2s, height .2s
-    }
-
-    #CUR2 {
-      width: 32px;
-      height: 32px;
-      border: 1px solid rgba(212, 132, 26, .45);
-      border-radius: 50%;
-      position: fixed;
-      pointer-events: none;
-      z-index: 9989;
-      transform: translate(-50%, -50%);
-      transition: all .25s
-    }
-
-    body.hov #CUR {
-      width: 13px;
-      height: 13px
-    }
-
-    body.hov #CUR2 {
-      width: 46px;
-      height: 46px;
-      border-color: var(--amber)
-    }
-
-    body.click #CUR {
-      transform: translate(-50%, -50%) scale(.6)
-    }
-
-    /* FLOATING WHATSAPP */
-    .wa-float {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      z-index: 8000;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 10px
-    }
-
-    .wa-bubble {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: #25D366;
-      padding: 14px 20px;
-      clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
-      cursor: pointer;
-      transition: transform .2s;
-      text-decoration: none;
-      box-shadow: 0 4px 24px rgba(37, 211, 102, .3)
-    }
-
-    .wa-bubble:hover {
-      transform: translateY(-3px)
-    }
-
-    .wa-bubble svg {
-      flex-shrink: 0
-    }
-
-    .wa-label {
-      font-family: var(--D);
-      font-size: 14px;
-      letter-spacing: .08em;
-      color: #fff;
-      white-space: nowrap
-    }
-
-    .wa-ping {
-      position: absolute;
-      top: -4px;
-      right: -4px;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #ff4444;
-      animation: ping 1.8s ease-in-out infinite
-    }
-
-    @keyframes ping {
-
-      0%,
-      100% {
-        transform: scale(1);
-        opacity: 1
-      }
-
-      50% {
-        transform: scale(1.5);
-        opacity: 0
-      }
-    }
-
-    /* NAV */
-    nav {
-      position: fixed;
-      top: 0;
-      inset-inline: 0;
-      z-index: 800;
-      height: 68px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 48px;
-      border-bottom: 1px solid transparent;
-      transition: background .4s, border-color .4s;
-      backdrop-filter: blur(0)
-    }
-
-    nav.scrolled {
-      background: rgba(4, 4, 4, .94);
-      border-color: var(--border);
-      backdrop-filter: blur(24px)
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px
-    }
-
-    .lt1 {
-      font-family: var(--D);
-      font-size: 22px;
-      letter-spacing: .12em;
-      line-height: 1;
-      color: var(--w)
-    }
-
-    .lt2 {
-      font-family: var(--M);
-      font-size: 8px;
-      letter-spacing: .24em;
-      color: var(--amber);
-      text-transform: uppercase
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 36px;
-      list-style: none
-    }
-
-    .nav-links a {
-      font-family: var(--M);
-      font-size: 9.5px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--g1);
-      transition: color .2s;
-      position: relative
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: var(--amber);
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform .3s
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--w)
-    }
-
-    .nav-links a:hover::after,
-    .nav-links a.active::after {
-      transform: scaleX(1);
-      transform-origin: left
-    }
-
-    .nav-cta {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 11px 24px;
-      background: var(--amber);
-      color: var(--bg);
-      font-family: var(--D);
-      font-size: 15px;
-      letter-spacing: .1em;
-      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
-      position: relative;
-      overflow: hidden;
-      transition: transform .2s
-    }
-
-    .nav-cta::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: var(--a2);
-      transform: translateX(-101%);
-      transition: transform .3s cubic-bezier(.16, 1, .3, 1)
-    }
-
-    .nav-cta span,
-    .nav-cta svg {
-      position: relative;
-      z-index: 1
-    }
-
-    .nav-cta:hover::before {
-      transform: translateX(0)
-    }
-
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      overflow: hidden;
-      padding: 100px 48px 88px
-    }
-
-    #heroCanvas {
-      position: absolute;
-      inset: 0;
-      z-index: 0
-    }
-
-    .h-grid {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background-image: repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(212, 132, 26, .024) 79px, rgba(212, 132, 26, .024) 80px), repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(212, 132, 26, .024) 79px, rgba(212, 132, 26, .024) 80px)
-    }
-
-    .h-scan {
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0, 0, 0, .07) 3px, rgba(0, 0, 0, .07) 4px);
-      pointer-events: none
-    }
-
-    .h-vig {
-      position: absolute;
-      inset: 0;
-      z-index: 3;
-      background: radial-gradient(ellipse at center, transparent 40%, rgba(4, 4, 4, .9) 100%);
-      pointer-events: none
-    }
-
-    .radar {
-      position: absolute;
-      right: 5%;
-      top: 50%;
-      transform: translateY(-50%);
-      width: clamp(250px, 32vw, 480px);
-      aspect-ratio: 1;
-      z-index: 2;
-      opacity: .15
-    }
-
-    .r-ring {
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      border: 1px solid var(--amber)
-    }
-
-    .r-ring:nth-child(2) {
-      inset: 22%
-    }
-
-    .r-ring:nth-child(3) {
-      inset: 44%
-    }
-
-    .r-ring:nth-child(4) {
-      inset: 66%
-    }
-
-    .r-cross {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(var(--amber), var(--amber)) center/1px 100% no-repeat, linear-gradient(var(--amber), var(--amber)) center/100% 1px no-repeat
-    }
-
-    .r-sweep {
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      overflow: hidden
-    }
-
-    .r-sweep::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 50%;
-      height: 2px;
-      background: linear-gradient(to right, transparent, var(--amber));
-      transform-origin: left center;
-      animation: sweep 4s linear infinite
-    }
-
-    @keyframes sweep {
-      from {
-        transform: rotate(0)
-      }
-
-      to {
-        transform: rotate(360deg)
-      }
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 5;
-      max-width: 820px
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 26px;
-      padding: 8px 16px;
-      border: 1px solid var(--ba);
-      background: var(--adim)
-    }
-
-    .hero-badge .dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #22c55e;
-      animation: blink 1.4s ease-in-out infinite;
-      flex-shrink: 0
-    }
-
-    .hero-badge span {
-      font-family: var(--M);
-      font-size: 9px;
-      letter-spacing: .22em;
-      color: var(--amber);
-      text-transform: uppercase
-    }
-
-    @keyframes blink {
-
-      0%,
-      100% {
-        opacity: 1
-      }
-
-      50% {
-        opacity: .25
-      }
-    }
-
-    .hero-h1 {
-      font-family: var(--D);
-      font-size: clamp(76px, 10.5vw, 162px);
-      line-height: .87;
-      letter-spacing: .02em;
-      text-transform: uppercase;
-      margin-bottom: 30px
-    }
-
-    .hero-h1 .line {
-      display: block;
-      overflow: hidden
-    }
-
-    .hero-h1 .line span {
-      display: block;
-      transform: translateY(110%);
-      animation: slideUp .9s cubic-bezier(.16, 1, .3, 1) forwards
-    }
-
-    .hero-h1 .l1 span {
-      animation-delay: .1s
-    }
-
-    .hero-h1 .l2 span {
-      animation-delay: .22s;
-      color: var(--amber)
-    }
-
-    .hero-h1 .l3 span {
-      animation-delay: .34s
-    }
-
-    .hero-h1 .stroke {
-      -webkit-text-stroke: 2px var(--w);
-      color: transparent
-    }
-
-    .hero-desc {
-      font-size: 15px;
-      line-height: 1.82;
-      color: var(--g1);
-      max-width: 500px;
-      margin-bottom: 44px;
-      opacity: 0;
-      animation: fadeUp .8s ease .7s forwards
-    }
-
-    .hero-ctas {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      opacity: 0;
-      animation: fadeUp .8s ease .86s forwards
-    }
-
-    .btn-fire {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 17px 36px;
-      background: var(--amber);
-      color: var(--bg);
-      font-family: var(--D);
-      font-size: 18px;
-      letter-spacing: .08em;
-      clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
-      position: relative;
-      overflow: hidden;
-      transition: transform .2s
-    }
-
-    .btn-fire::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: var(--a2);
-      transform: translateX(-101%);
-      transition: transform .35s cubic-bezier(.16, 1, .3, 1)
-    }
-
-    .btn-fire:hover {
-      transform: translateY(-3px)
-    }
-
-    .btn-fire:hover::before {
-      transform: translateX(0)
-    }
-
-    .btn-fire span,
-    .btn-fire svg {
-      position: relative;
-      z-index: 1
-    }
-
-    .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 16px 34px;
-      border: 1px solid var(--g2);
-      color: var(--w);
-      font-family: var(--D);
-      font-size: 18px;
-      letter-spacing: .08em;
-      transition: border-color .2s, color .2s, transform .2s
-    }
-
-    .btn-outline:hover {
-      border-color: var(--amber);
-      color: var(--amber);
-      transform: translateY(-3px)
-    }
-
-    .hero-strip {
-      position: absolute;
-      bottom: 0;
-      inset-inline: 0;
-      z-index: 5;
-      display: flex;
-      border-top: 1px solid var(--border);
-      background: rgba(4, 4, 4, .55);
-      backdrop-filter: blur(16px)
-    }
-
-    .hs-item {
-      flex: 1;
-      padding: 18px 24px;
-      border-right: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      gap: 5px
-    }
-
-    .hs-item:last-child {
-      border-right: none
-    }
-
-    .hs-lbl {
-      font-family: var(--M);
-      font-size: 7.5px;
-      letter-spacing: .22em;
-      color: var(--g1);
-      text-transform: uppercase
-    }
-
-    .hs-val {
-      font-family: var(--D);
-      font-size: 26px;
-      letter-spacing: .04em;
-      color: var(--w);
-      display: flex;
-      align-items: baseline;
-      gap: 3px
-    }
-
-    .hs-val .u {
-      font-size: 13px;
-      color: var(--amber)
-    }
-
-    /* TICKER */
-    .ticker {
-      background: var(--amber);
-      padding: 12px 0;
-      overflow: hidden
-    }
-
-    .ticker-track {
-      display: flex;
-      width: max-content;
-      animation: tickRoll 24s linear infinite
-    }
-
-    .ticker-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 0 30px;
-      white-space: nowrap;
-      font-family: var(--D);
-      font-size: 15px;
-      letter-spacing: .08em;
-      color: var(--bg)
-    }
-
-    .ticker-sep {
-      width: 4px;
-      height: 4px;
-      background: rgba(4, 4, 4, .3);
-      border-radius: 50%;
-      flex-shrink: 0
-    }
-
-    @keyframes tickRoll {
-      from {
-        transform: translateX(0)
-      }
-
-      to {
-        transform: translateX(-50%)
-      }
-    }
-
-    /* WHY SECTION — dark bg */
-    .why-sec {
-      padding: 110px 48px;
-      background: var(--s1)
-    }
-
-    .sec-label {
-      font-family: var(--M);
-      font-size: 9px;
-      letter-spacing: .3em;
-      color: var(--amber);
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 16px
-    }
-
-    .sec-label::before {
-      content: '';
-      width: 28px;
-      height: 1px;
-      background: var(--amber);
-      flex-shrink: 0
-    }
-
-    .sec-h {
-      font-family: var(--D);
-      font-size: clamp(50px, 6.5vw, 104px);
-      line-height: .88;
-      letter-spacing: .02em;
-      text-transform: uppercase
-    }
-
-    .sec-h .acc {
-      color: var(--amber)
-    }
-
-    .sec-h .ghost {
-      -webkit-text-stroke: 1px rgba(212, 132, 26, .25);
-      color: transparent
-    }
-
-    .why-layout {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 80px;
-      align-items: start;
-      margin-top: 64px
-    }
-
-    .why-sticky {
-      position: sticky;
-      top: 100px
-    }
-
-    .why-sub {
-      font-size: 15px;
-      line-height: 1.85;
-      color: var(--g1);
-      margin-top: 20px;
-      margin-bottom: 32px
-    }
-
-    .why-certs {
-      display: flex;
-      flex-direction: column;
-      gap: 4px
-    }
-
-    .cert-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 11px 16px;
-      border: 1px solid var(--border);
-      font-family: var(--M);
-      font-size: 9px;
-      letter-spacing: .14em;
-      color: var(--g1);
-      text-transform: uppercase;
-      transition: border-color .3s, color .3s, background .3s
-    }
-
-    .cert-row:hover {
-      border-color: var(--ba);
-      color: var(--amber);
-      background: rgba(212, 132, 26, .03)
-    }
-
-    .cert-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--amber);
-      flex-shrink: 0
-    }
-
-    .why-cards {
-      display: flex;
-      flex-direction: column;
-      gap: 2px
-    }
-
-    .wc {
-      display: grid;
-      grid-template-columns: 52px 1fr;
-      gap: 22px;
-      padding: 28px 34px;
-      background: var(--s2);
-      border: 1px solid var(--border);
-      border-top: none;
-      position: relative;
-      overflow: hidden;
-      transition: background .3s, border-color .3s;
-      cursor: default
-    }
-
-    .wc:first-child {
-      border-top: 1px solid var(--border)
-    }
-
-    .wc::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: var(--amber);
-      transform: scaleY(0);
-      transform-origin: bottom;
-      transition: transform .4s cubic-bezier(.16, 1, .3, 1)
-    }
-
-    .wc:hover {
-      background: var(--s3);
-      border-color: var(--ba)
-    }
-
-    .wc:hover::before {
-      transform: scaleY(1)
-    }
-
-    .wc-n {
-      font-family: var(--D);
-      font-size: 36px;
-      letter-spacing: .04em;
-      color: var(--g2);
-      align-self: center;
-      transition: color .3s
-    }
-
-    .wc:hover .wc-n {
-      color: var(--amber)
-    }
-
-    .wc-ttl {
-      font-family: var(--D);
-      font-size: 22px;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: var(--w);
-      margin-bottom: 6px
-    }
-
-    .wc-txt {
-      font-size: 13px;
-      line-height: 1.85;
-      color: var(--g1)
-    }
-
-    /* SECTORS — slightly lighter + amber line */
-    .sectors-sec {
-      background: var(--bg);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 80px 48px
-    }
-
-    .sectors-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      background: var(--border);
-      margin-top: 56px
-    }
-
-    .sector-card {
-      background: var(--s2);
-      padding: 40px 36px;
-      position: relative;
-      overflow: hidden;
-      transition: background .3s;
-      cursor: default
-    }
-
-    .sector-card:hover {
-      background: var(--s3)
-    }
-
-    .sc-icon {
-      width: 48px;
-      height: 48px;
-      margin-bottom: 22px;
-      color: var(--amber);
-      transition: transform .3s
-    }
-
-    .sector-card:hover .sc-icon {
-      transform: translateY(-3px)
-    }
-
-    .sc-ttl {
-      font-family: var(--D);
-      font-size: 24px;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: var(--w);
-      margin-bottom: 8px
-    }
-
-    .sc-txt {
-      font-size: 13px;
-      line-height: 1.8;
-      color: var(--g1)
-    }
-
-    .sc-ghost {
-      position: absolute;
-      right: 16px;
-      top: 8px;
-      font-family: var(--D);
-      font-size: 80px;
-      line-height: 1;
-      color: rgba(255, 255, 255, .02);
-      letter-spacing: -.02em;
-      pointer-events: none;
-      text-transform: uppercase;
-      transition: color .4s
-    }
-
-    .sector-card:hover .sc-ghost {
-      color: rgba(212, 132, 26, .04)
-    }
-
-    /* FLEET SECTION */
-    .fleet-sec {
-      background: var(--s1);
-      overflow: hidden
-    }
-
-    .fleet-hd {
-      padding: 88px 48px 0;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: end
-    }
-
-    .fleet-hd-right {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 12px
-    }
-
-    .fleet-hd-sub {
-      font-size: 14px;
-      color: var(--g1);
-      line-height: 1.75;
-      text-align: right;
-      max-width: 320px
-    }
-
-    .fleet-counts {
-      display: flex;
-      gap: 28px
-    }
-
-    .fc-item {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end
-    }
-
-    .fci-val {
-      font-family: var(--D);
-      font-size: 38px;
-      letter-spacing: .03em;
-      color: var(--w);
-      line-height: 1;
-      display: flex;
-      align-items: baseline;
-      gap: 2px
-    }
-
-    .fci-val span {
-      font-size: 18px;
-      color: var(--amber)
-    }
-
-    .fci-lbl {
-      font-family: var(--M);
-      font-size: 7.5px;
-      letter-spacing: .18em;
-      color: var(--g1);
-      text-transform: uppercase
-    }
-
-    .arsenal-bar {
-      margin-top: 28px;
-      padding: 18px 48px;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      background: rgba(212, 132, 26, .04);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px
-    }
-
-    .ab-title {
-      font-family: var(--D);
-      font-size: clamp(16px, 2vw, 24px);
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--w)
-    }
-
-    .ab-sub {
-      font-family: var(--M);
-      font-size: 8.5px;
-      letter-spacing: .18em;
-      color: var(--g1);
-      text-transform: uppercase
-    }
-
-    /* CATEGORY GRID — 4 col, machine SVG art */
-    .div-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2px;
-      background: var(--border)
-    }
-
-    .div-card {
-      background: var(--s2);
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-      transition: background .3s;
-      text-decoration: none;
-      color: inherit;
-      border: none
-    }
-
-    .div-card:hover {
-      background: var(--s3)
-    }
-
-    .div-img {
-      position: relative;
-      overflow: hidden;
-      flex-shrink: 0;
-      background: var(--s3);
-      aspect-ratio: 16/9
-    }
-
-    .div-img img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .6s cubic-bezier(.16, 1, .3, 1)
-    }
-
-    .div-card:hover .div-img img {
-      transform: scale(1.06)
-    }
-
-    .div-img svg.mach {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%
-    }
-
-    .div-body {
-      padding: 14px 16px 17px;
-      border-top: 1px solid var(--border);
-      transition: border-color .3s
-    }
-
-    .div-card:hover .div-body {
-      border-color: var(--ba)
-    }
-
-    .div-name {
-      font-family: var(--D);
-      font-size: 16px;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: var(--w);
-      margin-bottom: 5px;
-      transition: color .22s
-    }
-
-    .div-card:hover .div-name {
-      color: var(--amber)
-    }
-
-    .div-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center
-    }
-
-    .div-units {
-      font-family: var(--M);
-      font-size: 7.5px;
-      letter-spacing: .15em;
-      color: var(--g2);
-      text-transform: uppercase;
-      transition: color .2s
-    }
-
-    .div-card:hover .div-units {
-      color: rgba(212, 132, 26, .45)
-    }
-
-    .div-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-family: var(--M);
-      font-size: 7.5px;
-      letter-spacing: .13em;
-      text-transform: uppercase;
-      color: var(--g1);
-      transition: color .2s, gap .2s;
-      white-space: nowrap
-    }
-
-    .div-card:hover .div-cta {
-      color: var(--amber);
-      gap: 8px
-    }
-
-    .div-num {
-      position: absolute;
-      top: 8px;
-      left: 10px;
-      z-index: 3;
-      font-family: var(--M);
-      font-size: 7px;
-      letter-spacing: .2em;
-      color: rgba(212, 132, 26, .55);
-      background: rgba(4, 4, 4, .85);
-      padding: 2px 6px;
-      border: 1px solid rgba(212, 132, 26, .14)
-    }
-
-    .div-corner {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 0 34px 34px 0;
-      border-color: transparent var(--amber) transparent transparent;
-      z-index: 3;
-      opacity: 0;
-      transition: opacity .22s
-    }
-
-    .div-card:hover .div-corner {
-      opacity: 1
-    }
-
-    .fleet-more {
-      text-align: center;
-      padding: 48px;
-      border-top: 1px solid var(--border);
-      background: var(--s1)
-    }
-
-    /* PROCESS */
-    .process {
-      background: var(--bg);
-      border-top: 1px solid var(--border);
-      padding: 88px 48px
-    }
-
-    .proc-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2px;
-      background: var(--border);
-      margin-top: 56px
-    }
-
-    .proc-step {
-      background: var(--s2);
-      padding: 40px 32px;
-      position: relative;
-      overflow: hidden;
-      transition: background .3s
-    }
-
-    .proc-step:hover {
-      background: var(--s3)
-    }
-
-    .ps-n {
-      font-family: var(--D);
-      font-size: 80px;
-      letter-spacing: .01em;
-      color: rgba(255, 255, 255, .025);
-      line-height: 1;
-      margin-bottom: 14px;
-      transition: color .35s
-    }
-
-    .proc-step:hover .ps-n {
-      color: rgba(212, 132, 26, .1)
-    }
-
-    .ps-line {
-      width: 40px;
-      height: 2px;
-      background: var(--amber);
-      margin-bottom: 22px;
-      position: relative;
-      overflow: hidden
-    }
-
-    .ps-line::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: var(--a2);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform .5s cubic-bezier(.16, 1, .3, 1)
-    }
-
-    .proc-step:hover .ps-line::after {
-      transform: scaleX(1)
-    }
-
-    .ps-ttl {
-      font-family: var(--D);
-      font-size: 22px;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: var(--w);
-      margin-bottom: 8px
-    }
-
-    .ps-txt {
-      font-size: 13px;
-      line-height: 1.82;
-      color: var(--g1)
-    }
-
-    .ps-arrow {
-      position: absolute;
-      top: 40px;
-      right: 28px;
-      font-family: var(--D);
-      font-size: 28px;
-      color: var(--g2);
-      transition: color .3s, transform .3s
-    }
-
-    .proc-step:hover .ps-arrow {
-      color: var(--amber);
-      transform: translate(3px, -3px)
-    }
-
-    /* SERVICES — pure black bg for contrast */
-    .svc-sec {
-      background: var(--bg);
-      border-top: 3px solid var(--amber);
-      padding: 100px 48px
-    }
-
-    .svc-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2px;
-      background: var(--border);
-      margin-top: 64px
-    }
-
-    .svc-card {
-      background: var(--s1);
-      padding: 52px 48px;
-      position: relative;
-      overflow: hidden;
-      transition: background .3s
-    }
-
-    .svc-card:hover {
-      background: var(--s2)
-    }
-
-    .svc-num {
-      position: absolute;
-      right: 18px;
-      top: 6px;
-      font-family: var(--D);
-      font-size: 140px;
-      line-height: 1;
-      color: rgba(255, 255, 255, .02);
-      pointer-events: none;
-      transition: color .4s
-    }
-
-    .svc-card:hover .svc-num {
-      color: rgba(212, 132, 26, .04)
-    }
-
-    .svc-icon {
-      width: 52px;
-      height: 52px;
-      border: 1px solid var(--ba);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 26px;
-      color: var(--amber);
-      transition: background .3s
-    }
-
-    .svc-card:hover .svc-icon {
-      background: var(--adim)
-    }
-
-    .svc-ttl {
-      font-family: var(--D);
-      font-size: 28px;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      color: var(--w);
-      margin-bottom: 12px
-    }
-
-    .svc-txt {
-      font-size: 13.5px;
-      line-height: 1.85;
-      color: var(--g1);
-      margin-bottom: 22px
-    }
-
-    .svc-tags {
-      display: flex;
-      flex-direction: column;
-      gap: 6px
-    }
-
-    .svc-tag {
-      font-family: var(--M);
-      font-size: 8.5px;
-      letter-spacing: .15em;
-      color: rgba(212, 132, 26, .6);
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      gap: 10px
-    }
-
-    .svc-tag::before {
-      content: '';
-      width: 14px;
-      height: 1px;
-      background: var(--amber);
-      opacity: .4;
-      flex-shrink: 0
-    }
-
-    .svc-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 22px;
-      font-family: var(--M);
-      font-size: 9.5px;
-      letter-spacing: .16em;
-      color: var(--amber);
-      text-transform: uppercase;
-      transition: gap .2s
-    }
-
-    .svc-link:hover {
-      gap: 14px
-    }
-
-    /* SCALE — split amber / dark */
-    .scale {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      border-top: 1px solid var(--border)
-    }
-
-    .scale-left {
-      background: var(--amber);
-      padding: 96px 64px;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: center
-    }
-
-    .scale-left::before {
-      content: 'SCALE';
-      position: absolute;
-      bottom: -20px;
-      right: -10px;
-      font-family: var(--D);
-      font-size: 220px;
-      line-height: 1;
-      color: rgba(4, 4, 4, .07);
-      pointer-events: none;
-      letter-spacing: -.04em
-    }
-
-    .scale-h {
-      font-family: var(--D);
-      font-size: clamp(64px, 8vw, 140px);
-      line-height: .84;
-      text-transform: uppercase;
-      color: var(--bg);
-      position: relative;
-      z-index: 1
-    }
-
-    .scale-h .out {
-      -webkit-text-stroke: 2px rgba(4, 4, 4, .28);
-      color: transparent
-    }
-
-    .scale-sub {
-      font-size: 15px;
-      color: rgba(4, 4, 4, .45);
-      margin-top: 18px;
-      max-width: 280px;
-      line-height: 1.7;
-      position: relative;
-      z-index: 1
-    }
-
-    .scale-right {
-      background: var(--s1);
-      padding: 64px 64px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center
-    }
-
-    .sm {
-      padding: 26px 0;
-      border-bottom: 1px solid var(--border);
-      display: grid;
-      grid-template-columns: 150px 1fr;
-      gap: 20px;
-      align-items: center
-    }
-
-    .sm:first-child {
-      padding-top: 0
-    }
-
-    .sm:last-child {
-      border-bottom: none;
-      padding-bottom: 0
-    }
-
-    .sm-val {
-      font-family: var(--D);
-      font-size: clamp(40px, 4vw, 62px);
-      letter-spacing: .02em;
-      color: var(--w);
-      line-height: 1;
-      display: flex;
-      align-items: baseline;
-      gap: 3px
-    }
-
-    .sm-val .u {
-      font-size: .44em;
-      color: var(--amber)
-    }
-
-    .sm-ttl {
-      font-family: var(--D);
-      font-size: 17px;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: var(--w);
-      margin-bottom: 4px
-    }
-
-    .sm-sub {
-      font-size: 12px;
-      color: var(--g1);
-      line-height: 1.6
-    }
-
-    /* ABOUT TEASER */
-    .about-tease {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      border-top: 1px solid var(--border)
-    }
-
-    .at-left {
-      background: var(--s2);
-      padding: 80px 64px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      position: relative;
-      overflow: hidden
-    }
-
-    .at-left::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: var(--amber)
-    }
-
-    .at-label {
-      font-family: var(--M);
-      font-size: 9px;
-      letter-spacing: .28em;
-      color: var(--amber);
-      text-transform: uppercase;
-      margin-bottom: 20px
-    }
-
-    .at-h {
-      font-family: var(--D);
-      font-size: clamp(40px, 4.5vw, 72px);
-      line-height: .88;
-      text-transform: uppercase;
-      color: var(--w);
-      margin-bottom: 24px
-    }
-
-    .at-p {
-      font-size: 14px;
-      line-height: 1.9;
-      color: var(--g1);
-      margin-bottom: 28px
-    }
-
-    .btn-amber-ghost {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 30px;
-      border: 1px solid var(--amber);
-      color: var(--amber);
-      font-family: var(--D);
-      font-size: 16px;
-      letter-spacing: .08em;
-      clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
-      transition: background .2s, color .2s, transform .2s
-    }
-
-    .btn-amber-ghost:hover {
-      background: var(--amber);
-      color: var(--bg);
-      transform: translateY(-2px)
-    }
-
-    .at-right {
-      background: var(--s3);
-      padding: 80px 64px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 28px
-    }
-
-    .at-stat {
-      border-left: 2px solid var(--amber);
-      padding-left: 24px
-    }
-
-    .at-stat-val {
-      font-family: var(--D);
-      font-size: clamp(44px, 5vw, 76px);
-      letter-spacing: .02em;
-      color: var(--w);
-      line-height: 1;
-      display: flex;
-      align-items: baseline;
-      gap: 4px
-    }
-
-    .at-stat-val span {
-      color: var(--amber);
-      font-size: .45em
-    }
-
-    .at-stat-lbl {
-      font-family: var(--M);
-      font-size: 8.5px;
-      letter-spacing: .2em;
-      color: var(--g1);
-      text-transform: uppercase;
-      margin-top: 4px
-    }
-
-    /* CERT STRIP */
-    .cert-strip {
-      background: var(--s1);
-      border-top: 1px solid var(--border);
-      padding: 28px 48px;
-      display: flex;
-      align-items: center;
-      gap: 0;
-      overflow-x: auto
-    }
-
-    .cert-strip::-webkit-scrollbar {
-      display: none
-    }
-
-    .cst {
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      gap: 11px;
-      padding: 0 36px;
-      border-right: 1px solid var(--border)
-    }
-
-    .cst:first-child {
-      padding-left: 0
-    }
-
-    .cst:last-child {
-      border-right: none
-    }
-
-    .cst-d {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--amber);
-      flex-shrink: 0
-    }
-
-    .cst-t {
-      font-family: var(--M);
-      font-size: 8.5px;
-      letter-spacing: .17em;
-      color: var(--g1);
-      text-transform: uppercase;
-      white-space: nowrap;
-      transition: color .2s
-    }
-
-    .cst:hover .cst-t {
-      color: var(--amber)
-    }
-
-    /* CTA BAND */
-    .cta-band {
-      background: var(--amber);
-      padding: 88px 48px;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 40px;
-      flex-wrap: wrap
-    }
-
-    .cta-band::before {
-      content: '24/7';
-      position: absolute;
-      right: -10px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-family: var(--D);
-      font-size: 320px;
-      line-height: 1;
-      color: rgba(4, 4, 4, .055);
-      pointer-events: none;
-      white-space: nowrap;
-      letter-spacing: -.04em
-    }
-
-    .cta-h {
-      font-family: var(--D);
-      font-size: clamp(50px, 8vw, 118px);
-      line-height: .86;
-      letter-spacing: .01em;
-      text-transform: uppercase;
-      color: var(--bg);
-      position: relative;
-      z-index: 1
-    }
-
-    .cta-sub {
-      font-size: 15px;
-      color: rgba(4, 4, 4, .5);
-      margin-top: 12px;
-      font-weight: 500;
-      max-width: 340px
-    }
-
-    .cta-btns {
-      display: flex;
-      gap: 12px;
-      flex-shrink: 0;
-      position: relative;
-      z-index: 1
-    }
-
-    .btn-dark {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 16px 34px;
-      background: var(--bg);
-      color: var(--w);
-      font-family: var(--D);
-      font-size: 18px;
-      letter-spacing: .08em;
-      clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
-      transition: background .2s, transform .2s
-    }
-
-    .btn-dark:hover {
-      background: #1a1a1a;
-      transform: translateY(-2px)
-    }
-
-    .btn-ghost-dark {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 15px 32px;
-      border: 2px solid rgba(4, 4, 4, .22);
-      color: var(--bg);
-      font-family: var(--D);
-      font-size: 18px;
-      letter-spacing: .08em;
-      transition: background .2s, transform .2s
-    }
-
-    .btn-ghost-dark:hover {
-      background: rgba(4, 4, 4, .08);
-      transform: translateY(-2px)
-    }
-
-    /* FOOTER */
-    footer {
-      background: var(--s1);
-      border-top: 1px solid var(--border);
-      padding: 80px 48px 40px
-    }
-
-    .foot-top {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1.2fr;
-      gap: 48px;
-      padding-bottom: 56px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 36px
-    }
-
-    .foot-logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 16px
-    }
-
-    .foot-desc {
-      font-size: 13px;
-      line-height: 1.9;
-      color: var(--g1);
-      max-width: 260px
-    }
-
-    .fh {
-      font-family: var(--D);
-      font-size: 14px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--w);
-      margin-bottom: 18px
-    }
-
-    .ful {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 9px
-    }
-
-    .ful a {
-      font-size: 13px;
-      color: var(--g1);
-      transition: color .2s
-    }
-
-    .ful a:hover {
-      color: var(--amber)
-    }
-
-    .fci {
-      margin-bottom: 16px
-    }
-
-    .fci-lbl {
-      font-family: var(--M);
-      font-size: 7.5px;
-      letter-spacing: .2em;
-      color: var(--amber);
-      text-transform: uppercase;
-      margin-bottom: 3px
-    }
-
-    .fci-val {
-      font-size: 13px;
-      color: var(--g1);
-      display: block;
-      transition: color .2s
-    }
-
-    a.fci-val:hover {
-      color: var(--w)
-    }
-
-    .foot-bot {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px
-    }
-
-    .copy {
-      font-family: var(--M);
-      font-size: 9px;
-      letter-spacing: .12em;
-      color: var(--g2)
-    }
-
-    .legal {
-      display: flex;
-      gap: 20px
-    }
-
-    .legal a {
-      font-family: var(--M);
-      font-size: 9px;
-      letter-spacing: .12em;
-      color: var(--g2);
-      text-transform: uppercase;
-      transition: color .2s
-    }
-
-    .legal a:hover {
-      color: var(--g1)
-    }
-
-    /* REVEAL */
-    .rev {
-      opacity: 0;
-      transform: translateY(36px);
-      transition: opacity .9s ease, transform .9s cubic-bezier(.16, 1, .3, 1)
-    }
-
-    .rev.in {
-      opacity: 1;
-      transform: none
-    }
-
-    .d1 {
-      transition-delay: .1s
-    }
-
-    .d2 {
-      transition-delay: .2s
-    }
-
-    .d3 {
-      transition-delay: .3s
-    }
-
-    .d4 {
-      transition-delay: .4s
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(28px)
-      }
-
-      to {
-        opacity: 1;
-        transform: none
-      }
-    }
-
-    @keyframes slideUp {
-      from {
-        transform: translateY(110%)
-      }
-
-      to {
-        transform: translateY(0)
-      }
-    }
-
-    /* RESPONSIVE */
-    @media(max-width:1200px) {
-      .div-grid {
-        grid-template-columns: repeat(3, 1fr)
-      }
-
-      .fleet-hd {
-        grid-template-columns: 1fr
-      }
-
-      .fleet-hd-right {
-        align-items: flex-start
-      }
-
-      .scale {
-        grid-template-columns: 1fr
-      }
-
-      .scale-left {
-        padding: 72px 40px
-      }
-
-      .scale-right {
-        padding: 64px 40px
-      }
-
-      .about-tease {
-        grid-template-columns: 1fr
-      }
-    }
-
-    @media(max-width:900px) {
-      .why-layout {
-        grid-template-columns: 1fr
-      }
-
-      .why-sticky {
-        position: static
-      }
-
-      .svc-grid {
-        grid-template-columns: 1fr
-      }
-
-      .sectors-grid {
-        grid-template-columns: repeat(2, 1fr)
-      }
-
-      .proc-grid {
-        grid-template-columns: repeat(2, 1fr)
-      }
-
-      .foot-top {
-        grid-template-columns: 1fr 1fr
-      }
-    }
-
-    @media(max-width:700px) {
-      nav {
-        padding: 0 20px
-      }
-
-      .nav-links {
-        display: none
-      }
-
-      .hero {
-        padding: 90px 20px 72px
-      }
-
-      .hero-strip {
-        display: none
-      }
-
-      .why-sec,
-      .process,
-      .svc-sec,
-      .sectors-sec {
-        padding: 72px 20px
-      }
-
-      .fleet-hd {
-        padding: 64px 20px 0
-      }
-
-      .arsenal-bar {
-        padding: 14px 20px
-      }
-
-      .div-grid {
-        grid-template-columns: repeat(2, 1fr)
-      }
-
-      .fleet-more {
-        padding: 40px 20px
-      }
-
-      .sectors-grid {
-        grid-template-columns: 1fr;
-        padding: 0
-      }
-
-      .proc-grid {
-        grid-template-columns: 1fr
-      }
-
-      .scale-left,
-      .scale-right,
-      .at-left,
-      .at-right {
-        padding: 64px 24px
-      }
-
-      .cert-strip {
-        padding: 22px 20px
-      }
-
-      .cta-band {
-        padding: 72px 20px;
-        flex-direction: column
-      }
-
-      .cta-btns {
-        flex-direction: column;
-        width: 100%
-      }
-
-      footer {
-        padding: 64px 20px 36px
-      }
-
-      .foot-top {
-        grid-template-columns: 1fr;
-        gap: 28px
-      }
-
-      .foot-bot {
-        flex-direction: column;
-        text-align: center
-      }
-
-      .wa-float {
-        bottom: 16px;
-        right: 16px
-      }
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <!-- PRELOADER -->
-  <div id="PL">
-    <div class="pl-word" id="plWord"></div>
-    <div class="pl-bar-bg">
-      <div class="pl-bar" id="plBar"></div>
-    </div>
-    <div class="pl-st" id="plSt">Initializing fleet systems...</div>
-  </div>
-
-  <!-- CURSOR -->
-  <div id="CUR"></div>
-  <div id="CUR2"></div>
-
-  <!-- FLOATING WHATSAPP -->
-  <div class="wa-float">
-    <a href="https://wa.me/971551092200" class="wa-bubble" target="_blank" rel="noopener">
-      <div class="wa-ping"></div>
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
-        <path
-          d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37A9.86 9.86 0 01.16 11.89C.16 6.44 4.6 2 10.05 2c2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 012.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.81 11.81 0 0012.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 005.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 00-3.48-8.41" />
-      </svg>
-      <span class="wa-label">WhatsApp Us</span>
-    </a>
-  </div>
-
-  <!-- NAV -->
-  <nav id="nav">
-    <a href="index.html" class="logo">
-      <img src="images/ui/logo.jpg" alt="Al Falak Transport Logo" style="height:40px;width:auto;display:block;">
+  <!-- ═══════════════ NAV ═══════════════ -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="https://alfalaktransport.com/static/img/logo.png" alt="Al Falak Transport">
+      <div class="nav-logo-text">Al Falak <span>Transport LLC</span></div>
     </a>
     <ul class="nav-links">
       <li><a href="index.html" class="active">Home</a></li>
@@ -2127,717 +28,331 @@
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <a href="https://wa.me/971551092200" class="nav-cta">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-        <path
-          d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37A9.86 9.86 0 01.16 11.89C.16 6.44 4.6 2 10.05 2c2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 012.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.81 11.81 0 0012.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 005.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 00-3.48-8.41" />
-      </svg>
-      <span>GET QUOTE</span>
-    </a>
+    <div class="nav-right">
+      <a href="https://wa.me/971551092200" class="btn-primary" target="_blank" rel="noopener">Get Quote</a>
+      <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
   </nav>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html" class="active">Home</a>
+    <a href="fleet.html">Fleet Inventory</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://wa.me/971551092200" target="_blank" style="color:#25D366">WhatsApp Us</a>
+  </div>
 
-  <!-- HERO -->
+  <!-- ═══════════════ HERO ═══════════════ -->
   <section class="hero">
-    <canvas id="heroCanvas"></canvas>
-    <div class="h-grid"></div>
-    <div class="h-scan"></div>
-    <div class="h-vig"></div>
-    <img src="images/hero/hero_equipment.jpg" alt="Al Falak heavy equipment on site"
-      style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:1;opacity:0.6;">
-
-    <div class="radar">
-      <div class="r-ring"></div>
-      <div class="r-ring"></div>
-      <div class="r-ring"></div>
-      <div class="r-ring"></div>
-      <div class="r-cross"></div>
-      <div class="r-sweep"></div>
+    <div class="hero-bg">
+      <img
+        src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2070&auto=format&fit=crop"
+        alt="Heavy construction equipment operations"
+        fetchpriority="high"
+      >
     </div>
+    <div class="hero-gradient"></div>
+    <div class="hero-top-bar"></div>
+
     <div class="hero-content">
-      <div class="hero-badge"><span class="dot"></span><span>Fleet Online · Dubai, UAE · RTA Certified</span></div>
-      <h1 class="hero-h1">
-        <span class="line l1"><span>THE</span></span>
-        <span class="line l2"><span>OPERATIONAL</span></span>
-        <span class="line l3"><span class="stroke">BACKBONE.</span></span>
+      <div class="label-chip fade-up d1">Dubai's Premier Equipment Partner</div>
+      <h1 class="hero-headline fade-up d2">
+        The <span class="accent">Operational</span><br>
+        Backbone of<br>
+        <span class="stroke">Your Project</span>
       </h1>
-      <p class="hero-desc">Premier heavy equipment command for Dubai's most demanding infrastructure. 50+ certified
-        units, RTA-qualified operators, deployed to your site within 24 hours.</p>
-      <div class="hero-ctas">
-        <a href="fleet.html" class="btn-fire"><span>Command Fleet</span><svg width="16" height="16" viewBox="0 0 24 24"
-            fill="none" stroke="currentColor" stroke-width="2.5">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg></a>
-        <a href="https://wa.me/971551092200" class="btn-outline" target="_blank"><svg width="14" height="14"
-            viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37A9.86 9.86 0 01.16 11.89C.16 6.44 4.6 2 10.05 2c2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 012.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.81 11.81 0 0012.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 005.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 00-3.48-8.41" />
-          </svg>WhatsApp</a>
+      <p class="hero-sub fade-up d3">
+        We minimize downtime and maximize productivity with a modernized fleet
+        and RTA-certified operators — deployed anywhere across the UAE in 24 hours.
+      </p>
+      <div class="hero-actions fade-up d4">
+        <a href="fleet.html" class="btn-primary">Browse Fleet &nbsp;→</a>
+        <a href="https://wa.me/971551092200" class="btn-outline" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          WhatsApp Us
+        </a>
       </div>
     </div>
-    <div class="hero-strip">
-      <div class="hs-item">
-        <div class="hs-lbl">Fleet Units</div>
-        <div class="hs-val"><span class="counter" data-to="50">0</span><span class="u">+</span></div>
+
+    <div class="hero-stats">
+      <div class="stat-box">
+        <div class="stat-num" data-count="200" data-suffix="+">200+</div>
+        <div class="stat-label">Equipment Units</div>
       </div>
-      <div class="hs-item">
-        <div class="hs-lbl">Deploy Time</div>
-        <div class="hs-val"><span class="counter" data-to="24">0</span><span class="u">hr</span></div>
+      <div class="stat-box">
+        <div class="stat-num">24h</div>
+        <div class="stat-label">Deployment Time</div>
       </div>
-      <div class="hs-item">
-        <div class="hs-lbl">Categories</div>
-        <div class="hs-val"><span class="counter" data-to="14">0</span></div>
+      <div class="stat-box">
+        <div class="stat-num">7</div>
+        <div class="stat-label">Emirates Covered</div>
       </div>
-      <div class="hs-item">
-        <div class="hs-lbl">Emirates</div>
-        <div class="hs-val"><span class="counter" data-to="7">0</span></div>
-      </div>
-      <div class="hs-item">
-        <div class="hs-lbl">Status</div>
-        <div class="hs-val" style="font-size:13px;color:#22c55e;align-items:center;gap:7px"><span
-            style="width:7px;height:7px;border-radius:50%;background:#22c55e;flex-shrink:0;animation:blink 1.4s ease-in-out infinite;display:block"></span>LIVE
-        </div>
+      <div class="stat-box">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">RTA Certified Ops</div>
       </div>
     </div>
   </section>
 
-  <!-- TICKER -->
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker-track" id="tickerTrack"></div>
+  <!-- ═══════════════ TICKER ═══════════════ -->
+  <div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="ticker-item">Boom Lifts<span class="ticker-dot"></span></span>
+      <span class="ticker-item">Scissor Lifts<span class="ticker-dot"></span></span>
+      <span class="ticker-item">Excavators<span class="ticker-dot"></span></span>
+      <span class="ticker-item">Mobile Cranes<span class="ticker-dot"></span></span>
+      <span class="ticker-item">Forklifts<span class="ticker-dot"></span></span>
+      <span class="ticker-item">Telehandlers<span class="ticker-dot"></span></span>
+      <span class="ticker-item">Wheel Loaders<span class="ticker-dot"></span></span>
+      <span class="ticker-item">Generators<span class="ticker-dot"></span></span>
+      <span class="ticker-item">Spider Cranes<span class="ticker-dot"></span></span>
+      <span class="ticker-item">Spider Lifts<span class="ticker-dot"></span></span>
+      <span class="ticker-item">Manlifts<span class="ticker-dot"></span></span>
+      <span class="ticker-item">JCB Loaders<span class="ticker-dot"></span></span>
+      <!-- duplicate for seamless loop -->
+      <span class="ticker-item">Boom Lifts<span class="ticker-dot"></span></span>
+      <span class="ticker-item">Scissor Lifts<span class="ticker-dot"></span></span>
+      <span class="ticker-item">Excavators<span class="ticker-dot"></span></span>
+      <span class="ticker-item">Mobile Cranes<span class="ticker-dot"></span></span>
+      <span class="ticker-item">Forklifts<span class="ticker-dot"></span></span>
+      <span class="ticker-item">Telehandlers<span class="ticker-dot"></span></span>
+      <span class="ticker-item">Wheel Loaders<span class="ticker-dot"></span></span>
+      <span class="ticker-item">Generators<span class="ticker-dot"></span></span>
+      <span class="ticker-item">Spider Cranes<span class="ticker-dot"></span></span>
+      <span class="ticker-item">Spider Lifts<span class="ticker-dot"></span></span>
+      <span class="ticker-item">Manlifts<span class="ticker-dot"></span></span>
+      <span class="ticker-item">JCB Loaders<span class="ticker-dot"></span></span>
+    </div>
   </div>
 
-  <!-- WHY -->
-  <section class="why-sec">
-    <div class="sec-label rev">Industrial Advantage</div>
-    <h2 class="sec-h rev d1">WHY <span class="acc">AL FALAK</span></h2>
-    <div class="why-layout">
-      <div class="why-sticky rev d2">
-        <p class="why-sub">We don't just rent machines — we deliver the operational backbone Dubai's infrastructure
-          demands. Every deployment is backed by certified expertise, zero-harm protocols, and full accountability.</p>
-        <div class="why-certs">
-          <div class="cert-row"><span class="cert-dot"></span>RTA Certified Fleet & Operators</div>
-          <div class="cert-row"><span class="cert-dot"></span>Third-Party Inspection Certified</div>
-          <div class="cert-row"><span class="cert-dot"></span>HSE Safety Inducted Personnel</div>
-          <div class="cert-row"><span class="cert-dot"></span>UAE-Wide Oversize Load Permits</div>
-          <div class="cert-row"><span class="cert-dot"></span>Pre-Delivery Inspection Every Unit</div>
-          <div class="cert-row"><span class="cert-dot"></span>24/7 Emergency Recovery</div>
-        </div>
+  <!-- ═══════════════ WHY CHOOSE ═══════════════ -->
+  <section class="why-section">
+    <div class="why-header reveal">
+      <div>
+        <div class="section-label">Why Al Falak</div>
+        <h2 class="section-title">Industrial<br>Capability</h2>
       </div>
-      <div class="why-cards">
-        <div class="wc rev">
-          <div class="wc-n">01</div>
-          <div>
-            <div class="wc-ttl">Industrial Capability</div>
-            <div class="wc-txt">Complex site execution demands more than iron. We bring engineering expertise, logistics
-              intelligence, and field-proven operational reliability to every engagement in the UAE.</div>
-          </div>
-        </div>
-        <div class="wc rev d1">
-          <div class="wc-n">02</div>
-          <div>
-            <div class="wc-ttl">Heavy Logistics</div>
-            <div class="wc-txt">Precision movement of construction materials, aggregate, and oversized structural
-              components. Routing, compliance, and just-in-time delivery across all seven Emirates.</div>
-          </div>
-        </div>
-        <div class="wc rev d2">
-          <div class="wc-n">03</div>
-          <div>
-            <div class="wc-ttl">24-Hour Mobilization</div>
-            <div class="wc-txt">Deployment to greenfield and brownfield sites within 24 hours. Equipment arrives fueled,
-              inspected, certified, and site-ready for immediate operation.</div>
-          </div>
-        </div>
-        <div class="wc rev d1">
-          <div class="wc-n">04</div>
-          <div style="display:flex;gap:20px;align-items:start;">
-            <div>
-              <div class="wc-ttl">Certified Operators</div>
-              <div class="wc-txt">RTA-certified professionals with defensive driving training and HSE induction. We
-                supply
-                expertise and accountability — not just operators on machines.</div>
-            </div>
-            <img src="images/content/operator_certified.jpg" alt="Certified Operator"
-              style="width:120px;height:120px;object-fit:cover;border-radius:2px;border:1px solid var(--border);flex-shrink:0;">
-          </div>
-        </div>
-        <div class="wc rev d2">
-          <div class="wc-n">05</div>
-          <div>
-            <div class="wc-ttl">Zero Downtime Support</div>
-            <div class="wc-txt">24/7 breakdown recovery, mobile fueling, and preventative maintenance. Our support model
-              means your operation never stops.</div>
-          </div>
-        </div>
+      <p class="section-desc">
+        We don't just rent machines. We provide the operational reliability required for complex site execution — with a modernized fleet, certified operators, and round-the-clock support across all seven Emirates.
+      </p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-card-icon">🚛</div>
+        <h3>Heavy Logistics</h3>
+        <p>Precision planning for moving materials and oversized components. Routing, compliance, and timing handled end-to-end.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-card-icon">⚡</div>
+        <h3>Rapid Mobilization</h3>
+        <p>Deployment to greenfield and brownfield sites within 24 hours. Equipment arrives fueled, certified, and site-ready.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-card-icon">🪪</div>
+        <h3>Certified Operators</h3>
+        <p>All operators are RTA-certified, defensive driving trained, and HSE inducted to the highest UAE site standards.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-card-icon">🔧</div>
+        <h3>24/7 Site Support</h3>
+        <p>Breakdown recovery, on-site fuel management, and preventative maintenance — our Zero Harm philosophy, always on.</p>
       </div>
     </div>
   </section>
 
-  <!-- SECTORS WE SERVE -->
-  <section class="sectors-sec">
-    <div class="sec-label rev">Industries</div>
-    <h2 class="sec-h rev d1">SECTORS WE <span class="acc">SERVE</span></h2>
+  <!-- ═══════════════ FLEET GRID ═══════════════ -->
+  <section class="fleet-section">
+    <div class="fleet-header reveal">
+      <div>
+        <div class="section-label">The Arsenal</div>
+        <h2 class="section-title">Strategic Fleet<br>Inventory</h2>
+      </div>
+      <a href="fleet.html" class="btn-outline">View All Equipment →</a>
+    </div>
+    <div class="fleet-grid">
+      <a href="fleet.html#boom-lifts" class="fleet-card reveal">
+        <img src="http://res.cloudinary.com/dmkpvlwgw/image/upload/v1770993988/categories/kfricbmgzbwhkkepkf9e.webp" alt="Boom Lifts" loading="lazy">
+        <div class="fleet-card-overlay"></div>
+        <div class="fleet-card-body"><h3>Boom Lifts</h3><span class="fleet-cta">Enquire →</span></div>
+      </a>
+      <a href="fleet.html#scissor-lifts" class="fleet-card reveal">
+        <img src="http://res.cloudinary.com/dmkpvlwgw/image/upload/v1770994054/categories/r8ujchc24xx1vrybc73f.avif" alt="Scissor Lifts" loading="lazy">
+        <div class="fleet-card-overlay"></div>
+        <div class="fleet-card-body"><h3>Scissor Lifts</h3><span class="fleet-cta">Enquire →</span></div>
+      </a>
+      <a href="fleet.html#excavators" class="fleet-card reveal">
+        <img src="http://res.cloudinary.com/dmkpvlwgw/image/upload/v1770994123/categories/ahphn8ildqbwewgqq3kf.jpg" alt="Excavators" loading="lazy">
+        <div class="fleet-card-overlay"></div>
+        <div class="fleet-card-body"><h3>Excavators</h3><span class="fleet-cta">Enquire →</span></div>
+      </a>
+      <a href="fleet.html#wheel-loaders" class="fleet-card reveal">
+        <img src="http://res.cloudinary.com/dmkpvlwgw/image/upload/v1770994168/categories/rkgbv0efjoqdb1pewmnq.jpg" alt="Wheel Loaders" loading="lazy">
+        <div class="fleet-card-overlay"></div>
+        <div class="fleet-card-body"><h3>Wheel Loaders</h3><span class="fleet-cta">Enquire →</span></div>
+      </a>
+      <a href="fleet.html#generators" class="fleet-card reveal">
+        <img src="http://res.cloudinary.com/dmkpvlwgw/image/upload/v1770994216/categories/ocqpolpwwhoud8qkrcqq.webp" alt="Generators" loading="lazy">
+        <div class="fleet-card-overlay"></div>
+        <div class="fleet-card-body"><h3>Generators</h3><span class="fleet-cta">Enquire →</span></div>
+      </a>
+      <a href="fleet.html#forklifts" class="fleet-card reveal">
+        <img src="http://res.cloudinary.com/dmkpvlwgw/image/upload/v1770994295/categories/vlwkkldmefsomoeygt2w.jpg" alt="Forklifts" loading="lazy">
+        <div class="fleet-card-overlay"></div>
+        <div class="fleet-card-body"><h3>Forklifts</h3><span class="fleet-cta">Enquire →</span></div>
+      </a>
+      <a href="fleet.html#mini-excavators" class="fleet-card reveal">
+        <img src="http://res.cloudinary.com/dmkpvlwgw/image/upload/v1770994336/categories/drhhftrxgltteynu6kvv.webp" alt="Mini Excavators" loading="lazy">
+        <div class="fleet-card-overlay"></div>
+        <div class="fleet-card-body"><h3>Mini Excavators</h3><span class="fleet-cta">Enquire →</span></div>
+      </a>
+      <a href="fleet.html#bobcat" class="fleet-card reveal">
+        <img src="http://res.cloudinary.com/dmkpvlwgw/image/upload/v1770994416/categories/bbxvfqtkjsz06o39t8jk.jpg" alt="Bobcat Skid Steer" loading="lazy">
+        <div class="fleet-card-overlay"></div>
+        <div class="fleet-card-body"><h3>Bobcat Skid Steer</h3><span class="fleet-cta">Enquire →</span></div>
+      </a>
+      <a href="fleet.html#jcb-loaders" class="fleet-card reveal">
+        <img src="http://res.cloudinary.com/dmkpvlwgw/image/upload/v1770994481/categories/fhyjtjq7zbd7z7og46oc.webp" alt="JCB Loaders" loading="lazy">
+        <div class="fleet-card-overlay"></div>
+        <div class="fleet-card-body"><h3>JCB Loaders</h3><span class="fleet-cta">Enquire →</span></div>
+      </a>
+      <a href="fleet.html#telehandlers" class="fleet-card reveal">
+        <img src="http://res.cloudinary.com/dmkpvlwgw/image/upload/v1770994620/categories/ughuypg4ysam5yfojlug.webp" alt="Telehandlers" loading="lazy">
+        <div class="fleet-card-overlay"></div>
+        <div class="fleet-card-body"><h3>Telehandlers</h3><span class="fleet-cta">Enquire →</span></div>
+      </a>
+      <a href="fleet.html#mobile-cranes" class="fleet-card reveal">
+        <img src="http://res.cloudinary.com/dmkpvlwgw/image/upload/v1770994669/categories/qyil5d67hja2bh3lvnrl.jpg" alt="Mobile Cranes" loading="lazy">
+        <div class="fleet-card-overlay"></div>
+        <div class="fleet-card-body"><h3>Mobile Cranes</h3><span class="fleet-cta">Enquire →</span></div>
+      </a>
+      <a href="fleet.html#spider-cranes" class="fleet-card reveal">
+        <img src="http://res.cloudinary.com/dmkpvlwgw/image/upload/v1770994707/categories/u1zab8uiv9e76vcdkab4.webp" alt="Spider Cranes" loading="lazy">
+        <div class="fleet-card-overlay"></div>
+        <div class="fleet-card-body"><h3>Spider Cranes</h3><span class="fleet-cta">Enquire →</span></div>
+      </a>
+      <a href="fleet.html#spider-lifts" class="fleet-card reveal">
+        <img src="http://res.cloudinary.com/dmkpvlwgw/image/upload/v1770994747/categories/b6yr09yjtrsq8gm4slop.jpg" alt="Spider Lifts" loading="lazy">
+        <div class="fleet-card-overlay"></div>
+        <div class="fleet-card-body"><h3>Spider Lifts</h3><span class="fleet-cta">Enquire →</span></div>
+      </a>
+      <a href="fleet.html#manlifts" class="fleet-card reveal">
+        <img src="http://res.cloudinary.com/dmkpvlwgw/image/upload/v1770993920/categories/xbpddyloqe3m5i1vsbds.webp" alt="Manlifts" loading="lazy">
+        <div class="fleet-card-overlay"></div>
+        <div class="fleet-card-body"><h3>Manlifts</h3><span class="fleet-cta">Enquire →</span></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════════════ SECTORS ═══════════════ -->
+  <section class="sectors-section">
+    <div class="reveal">
+      <div class="section-label">Industries</div>
+      <h2 class="section-title">Sectors We Serve</h2>
+    </div>
     <div class="sectors-grid">
-      <div class="sector-card rev">
-        <div class="sc-ghost">01</div>
-        <div class="sc-icon"><svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="currentColor"
-            stroke-width="1.4">
-            <rect x="8" y="20" width="14" height="28" />
-            <rect x="26" y="12" width="14" height="36" />
-            <path d="M2 48h44" />
-            <path d="M14 8v12M30 4v8" />
-            <rect x="10" y="24" width="4" height="4" fill="currentColor" opacity=".4" />
-            <rect x="10" y="32" width="4" height="4" fill="currentColor" opacity=".4" />
-            <rect x="28" y="16" width="4" height="4" fill="currentColor" opacity=".4" />
-            <rect x="28" y="24" width="4" height="4" fill="currentColor" opacity=".4" />
-          </svg></div>
-        <div class="sc-ttl">High-Rise Construction</div>
-        <div class="sc-txt">Boom lifts, spider cranes, and mobile cranes for Dubai's most iconic towers. RTA-certified
-          equipment for safe elevated operations on major commercial and residential builds.</div>
+      <div class="sector-card reveal">
+        <div class="sector-icon">🏗️</div>
+        <h3>Construction</h3>
+        <p>Residential, commercial, and infrastructure projects across all seven Emirates.</p>
       </div>
-      <div class="sector-card rev d1">
-        <div class="sc-ghost">02</div>
-        <div class="sc-icon"><svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="currentColor"
-            stroke-width="1.4">
-            <path d="M4 40h40M8 40V24l8-8h16l8 8v16" />
-            <path d="M20 40V30h8v10" />
-            <circle cx="14" cy="28" r="2" fill="currentColor" opacity=".5" />
-            <circle cx="34" cy="28" r="2" fill="currentColor" opacity=".5" />
-            <path d="M24 8v8M16 16l8-8 8 8" />
-          </svg></div>
-        <div class="sc-ttl">Infrastructure & Highways</div>
-        <div class="sc-txt">Excavators, wheel loaders, and telehandlers supporting road works, bridges, and utility
-          installations across the UAE's expanding infrastructure network.</div>
+      <div class="sector-card reveal">
+        <div class="sector-icon">🛢️</div>
+        <h3>Oil & Gas</h3>
+        <p>Compliant equipment and operators for upstream and downstream projects.</p>
       </div>
-      <div class="sector-card rev d2">
-        <div class="sc-ghost">03</div>
-        <div class="sc-icon"><svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="currentColor"
-            stroke-width="1.4">
-            <circle cx="24" cy="24" r="10" />
-            <path
-              d="M24 4v6M24 38v6M4 24h6M38 24h6M9.17 9.17l4.24 4.24M34.59 34.59l4.24 4.24M9.17 38.83l4.24-4.24M34.59 13.41l4.24-4.24" />
-            <circle cx="24" cy="24" r="4" fill="currentColor" opacity=".3" />
-          </svg></div>
-        <div class="sc-ttl">Oil & Gas / Industrial</div>
-        <div class="sc-txt">Heavy-duty lifting and generator solutions for industrial plant, petrochemical facilities,
-          and large-scale manufacturing operations requiring certified, explosion-safe deployments.</div>
+      <div class="sector-card reveal">
+        <div class="sector-icon">🏭</div>
+        <h3>Industrial</h3>
+        <p>Warehousing, manufacturing plants, and heavy factory fit-outs.</p>
       </div>
-      <div class="sector-card rev">
-        <div class="sc-ghost">04</div>
-        <div class="sc-icon"><svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="currentColor"
-            stroke-width="1.4">
-            <rect x="4" y="16" width="40" height="28" rx="2" />
-            <path d="M16 16V10a8 8 0 0116 0v6" />
-            <path d="M14 30h20M14 36h12" />
-            <rect x="20" y="22" width="8" height="6" rx="1" fill="currentColor" opacity=".3" />
-          </svg></div>
-        <div class="sc-ttl">Events & Exhibitions</div>
-        <div class="sc-txt">Scissor lifts, telehandlers, and forklifts for venue installation, set construction, and
-          logistics at Dubai's world-class exhibitions, expos, and event productions.</div>
+      <div class="sector-card reveal">
+        <div class="sector-icon">🚢</div>
+        <h3>Marine & Port</h3>
+        <p>Port equipment handling, offshore support, and waterfront development.</p>
       </div>
-      <div class="sector-card rev d1">
-        <div class="sc-ghost">05</div>
-        <div class="sc-icon"><svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="currentColor"
-            stroke-width="1.4">
-            <path d="M6 42V18L24 6l18 12v24H6z" />
-            <path d="M16 42V28h16v14" />
-            <rect x="20" y="32" width="8" height="10" fill="currentColor" opacity=".2" />
-            <path d="M24 6v8" />
-            <circle cx="24" cy="18" r="4" />
-          </svg></div>
-        <div class="sc-ttl">Facilities Management</div>
-        <div class="sc-txt">Boom lifts and man lifts for ongoing maintenance, façade cleaning, MEP works, and access
-          solutions across Dubai's commercial and residential property portfolios.</div>
+      <div class="sector-card reveal">
+        <div class="sector-icon">⚡</div>
+        <h3>Energy & Utilities</h3>
+        <p>Solar installations, transmission lines, and power plant construction.</p>
       </div>
-      <div class="sector-card rev d2">
-        <div class="sc-ghost">06</div>
-        <div class="sc-icon"><svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="currentColor"
-            stroke-width="1.4">
-            <path d="M4 36h40v6H4zM8 36V22l6-6h20l6 6v14" />
-            <path d="M18 36v-8h12v8" />
-            <path d="M24 10V16M16 12l4 4M32 12l-4 4" />
-            <rect x="10" y="26" width="4" height="4" fill="currentColor" opacity=".4" />
-            <rect x="34" y="26" width="4" height="4" fill="currentColor" opacity=".4" />
-          </svg></div>
-        <div class="sc-ttl">Airport & Marine</div>
-        <div class="sc-txt">Specialist equipment for airport expansion projects, port infrastructure, and marine
-          facility construction requiring precise, certified heavy lift operations in constrained environments.</div>
+      <div class="sector-card reveal">
+        <div class="sector-icon">🏟️</div>
+        <h3>Events & Facilities</h3>
+        <p>Temporary structures, stage rigging, and large-scale event support.</p>
       </div>
     </div>
   </section>
 
-  <!-- FLEET -->
-  <section class="fleet-sec">
-    <div class="fleet-hd">
-      <div>
-        <div class="sec-label rev">Strategic Inventory</div>
-        <h2 class="sec-h rev d1">THE <span class="ghost">ARSENAL</span></h2>
-      </div>
-      <div class="fleet-hd-right rev d2">
-        <div class="fleet-hd-sub">14 equipment divisions, all RTA certified, maintained to manufacturer standard,
-          available for immediate deployment across the UAE.</div>
-        <div class="fleet-counts">
-          <div class="fc-item">
-            <div class="fci-val"><span class="counter" data-to="50">0</span><span>+</span></div>
-            <div class="fci-lbl">Units</div>
-          </div>
-          <div class="fc-item">
-            <div class="fci-val"><span class="counter" data-to="14">0</span></div>
-            <div class="fci-lbl">Categories</div>
-          </div>
-          <div class="fc-item">
-            <div class="fci-val"><span class="counter" data-to="7">0</span></div>
-            <div class="fci-lbl">Emirates</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="arsenal-bar">
-      <div class="ab-title">Strategic Fleet Inventory</div>
-      <div class="ab-sub">Click any division → Full unit specs & availability</div>
-    </div>
-    <div class="div-grid" id="divGrid"></div>
-    <div class="fleet-more rev">
-      <a href="fleet.html" class="btn-fire"><span>Browse All 50+ Units</span><svg width="16" height="16"
-          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <path d="M5 12h14M12 5l7 7-7 7" />
-        </svg></a>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <div class="process">
-    <div class="sec-label rev">Deployment Process</div>
-    <h2 class="sec-h rev d1">HOW IT <span class="acc">WORKS</span></h2>
-    <div class="proc-grid">
-      <div class="proc-step rev">
-        <div class="ps-n">01</div>
-        <div class="ps-line"></div>
-        <div class="ps-ttl">Enquiry</div>
-        <div class="ps-txt">Reach us via WhatsApp or email. Tell us your equipment needs, site, and timeline. Our ops
-          team responds within the hour — around the clock.</div>
-        <div class="ps-arrow">→</div>
-      </div>
-      <div class="proc-step rev d1">
-        <div class="ps-n">02</div>
-        <div class="ps-line"></div>
-        <div class="ps-ttl">Assessment</div>
-        <div class="ps-txt">Our logistics engineers configure the right equipment, operator, and support package. Site
-          surveys arranged for complex or multi-unit deployments.</div>
-        <div class="ps-arrow">→</div>
-      </div>
-      <div class="proc-step rev d2">
-        <div class="ps-n">03</div>
-        <div class="ps-line"></div>
-        <div class="ps-ttl">Mobilization</div>
-        <div class="ps-txt">Equipment is inspected, fueled, and certified. Dispatched within 24 hours — arriving on-site
-          ready for immediate, zero-delay operation.</div>
-        <div class="ps-arrow">→</div>
-      </div>
-      <div class="proc-step rev d3">
-        <div class="ps-n">04</div>
-        <div class="ps-line"></div>
-        <div class="ps-ttl">On-site Support</div>
-        <div class="ps-txt">Our team stays accountable throughout the engagement. Fuel, maintenance, and 24/7 breakdown
-          recovery are included from day one.</div>
-        <div class="ps-arrow" style="color:var(--amber)">✓</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SERVICES -->
-  <section class="svc-sec">
-    <div class="sec-label rev">What We Deliver</div>
-    <h2 class="sec-h rev d1">OPERATIONAL <span class="acc">SERVICES</span></h2>
-    <div class="svc-grid">
-      <div class="svc-card rev">
-        <div class="svc-num">01</div>
-        <div class="svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="1.5">
-            <path d="M3 21l5-5 5 5 6-10 3-6" />
-            <path d="M18 8l3-3-3-3" />
-          </svg></div>
-        <div class="svc-ttl">Heavy Transport Logistics</div>
-        <div class="svc-txt">Precision movement of materials and oversized components across all seven Emirates.
-          Routing, permits, and timing handled entirely by our team.</div>
-        <div class="svc-tags">
-          <div class="svc-tag">Route Surveying</div>
-          <div class="svc-tag">Oversize Permits</div>
-          <div class="svc-tag">Multi-modal Coordination</div>
-        </div>
-        <a href="services.html" class="svc-link">Learn More <svg width="11" height="11" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2.5">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg></a>
-      </div>
-      <div class="svc-card rev d1">
-        <div class="svc-num">02</div>
-        <div class="svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="1.5">
-            <rect x="2" y="14" width="20" height="8" rx="1" />
-            <path d="M10 14V9l4-4 4 4v5" />
-          </svg></div>
-        <div class="svc-ttl">Machinery Mobilization</div>
-        <div class="svc-txt">Rapid deployment to any UAE site. Fueled, certified, and operational within 24 hours from
-          our Dubai base.</div>
-        <div class="svc-tags">
-          <div class="svc-tag">24/7 Deployment</div>
-          <div class="svc-tag">Pre-delivery Inspection</div>
-          <div class="svc-tag">Site Coordination</div>
-        </div>
-        <a href="services.html" class="svc-link">Learn More <svg width="11" height="11" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2.5">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg></a>
-      </div>
-      <div class="svc-card rev">
-        <div class="svc-num">03</div>
-        <div class="svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="1.5">
-            <circle cx="12" cy="8" r="5" />
-            <path d="M3 21c0-5 9-5 9-5s9 0 9 5" />
-            <path d="M9 6l2 2 4-4" />
-          </svg></div>
-        <div class="svc-ttl">Technical Operator Supply</div>
-        <div class="svc-txt">RTA-certified operators with UAE site experience, HSE induction, and full accountability
-          from the first hour on-site.</div>
-        <div class="svc-tags">
-          <div class="svc-tag">RTA Certified</div>
-          <div class="svc-tag">HSE Inducted</div>
-          <div class="svc-tag">Multi-machine Competency</div>
-        </div>
-        <a href="services.html" class="svc-link">Learn More <svg width="11" height="11" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2.5">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg></a>
-      </div>
-      <div class="svc-card rev d1">
-        <div class="svc-num">04</div>
-        <div class="svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="1.5">
-            <path
-              d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
-            <circle cx="12" cy="12" r="4" />
-          </svg></div>
-        <div class="svc-ttl">Site Support Services</div>
-        <div class="svc-txt">24/7 breakdown recovery, mobile fueling, and preventative maintenance. Zero downtime is the
-          mission — we execute it on every deployment.</div>
-        <div class="svc-tags">
-          <div class="svc-tag">Mobile Fueling</div>
-          <div class="svc-tag">24/7 Breakdown Recovery</div>
-          <div class="svc-tag">Preventative Maintenance</div>
-        </div>
-        <a href="services.html" class="svc-link">Learn More <svg width="11" height="11" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2.5">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- SCALE -->
-  <div class="scale">
-    <div class="scale-left rev">
-      <div class="scale-h">BUILT<br>FOR<br><span class="out">SCALE.</span></div>
-      <p class="scale-sub">From 250-tonne mobile cranes to compact spider cranes — we have the reach, the capacity, and
-        the certification to handle any lift in the UAE.</p>
-    </div>
-    <div class="scale-right">
-      <div class="sm rev">
-        <div class="sm-val"><span class="counter" data-to="250">0</span><span class="u">T</span></div>
-        <div class="sm-txt">
-          <div class="sm-ttl">Max Mobile Crane Capacity</div>
-          <div class="sm-sub">All-terrain, RTA certified — structural & infrastructure lifts</div>
-        </div>
-      </div>
-      <div class="sm rev d1">
-        <div class="sm-val"><span class="counter" data-to="57">0</span><span class="u">M</span></div>
-        <div class="sm-txt">
-          <div class="sm-ttl">Max Boom Lift Height</div>
-          <div class="sm-sub">Telescopic and articulated for high-rise facade access</div>
-        </div>
-      </div>
-      <div class="sm rev d2">
-        <div class="sm-val"><span class="counter" data-to="52">0</span><span class="u">M</span></div>
-        <div class="sm-txt">
-          <div class="sm-ttl">Max Spider Lift Height</div>
-          <div class="sm-sub">Track-mounted for sensitive and indoor surfaces</div>
-        </div>
-      </div>
-      <div class="sm rev d3">
-        <div class="sm-val"><span class="counter" data-to="6">0</span><span class="u">T</span></div>
-        <div class="sm-txt">
-          <div class="sm-ttl">Max Spider Crane Capacity</div>
-          <div class="sm-sub">Restricted-access lifting through standard doorways</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ABOUT TEASER -->
-  <div class="about-tease">
-    <div class="at-left rev">
-      <div class="at-label">Who We Are</div>
-      <h2 class="at-h">DUBAI'S HEAVY<br>EQUIPMENT<br>BACKBONE</h2>
-      <p class="at-p">Al Falak Transport LLC is a Dubai-based heavy equipment specialist built for one purpose: to give
-        construction, infrastructure, and industrial operations the reliable, certified machinery they need to execute
-        without compromise.<br><br>We operate 50+ units across 14 categories from our Dubai Investment Park 2 base —
-        covering all seven Emirates with a team of RTA-certified professionals who treat your site like their own.</p>
-      <a href="about.html" class="btn-amber-ghost">Learn Our Story <svg width="13" height="13" viewBox="0 0 24 24"
-          fill="none" stroke="currentColor" stroke-width="2.5">
-          <path d="M5 12h14M12 5l7 7-7 7" />
-        </svg></a>
-    </div>
-    <div class="at-right">
-      <div class="at-stat rev">
-        <div class="at-stat-val"><span class="counter" data-to="50">0</span><span>+</span></div>
-        <div class="at-stat-lbl">Certified fleet units</div>
-      </div>
-      <div class="at-stat rev d1">
-        <div class="at-stat-val"><span class="counter" data-to="7">0</span></div>
-        <div class="at-stat-lbl">Emirates of coverage</div>
-      </div>
-      <div class="at-stat rev d2">
-        <div class="at-stat-val"><span class="counter" data-to="24">0</span><span>hr</span></div>
-        <div class="at-stat-lbl">Deployment timeline</div>
-      </div>
-      <div class="at-stat rev d3">
-        <div class="at-stat-val"><span class="counter" data-to="14">0</span></div>
-        <div class="at-stat-lbl">Equipment categories</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CERT STRIP -->
-  <div class="cert-strip">
-    <div class="cst"><span class="cst-d"></span><span class="cst-t">RTA Certified Fleet</span></div>
-    <div class="cst"><span class="cst-d"></span><span class="cst-t">Third-Party Inspection Certified</span></div>
-    <div class="cst"><span class="cst-d"></span><span class="cst-t">HSE Safety Inducted Operators</span></div>
-    <div class="cst"><span class="cst-d"></span><span class="cst-t">UAE-Wide Oversize Permits</span></div>
-    <div class="cst"><span class="cst-d"></span><span class="cst-t">Defensive Driving Trained</span></div>
-    <div class="cst"><span class="cst-d"></span><span class="cst-t">Pre-Delivery Inspection Every Unit</span></div>
-    <div class="cst"><span class="cst-d"></span><span class="cst-t">24/7 Emergency Recovery</span></div>
-  </div>
-
-  <!-- CTA BAND -->
-  <div class="cta-band">
+  <!-- ═══════════════ CTA BANNER ═══════════════ -->
+  <div class="cta-banner reveal">
     <div>
-      <div class="cta-h">READY TO<br>MOBILIZE?</div>
-      <p class="cta-sub">Our logistics team is live 24/7 for immediate deployment anywhere across the UAE.</p>
+      <h2>Ready to<br>Mobilize?</h2>
+      <p>Get a custom equipment plan — same-day response guaranteed.</p>
     </div>
-    <div class="cta-btns">
-      <a href="https://wa.me/971551092200" class="btn-dark" target="_blank"><svg width="15" height="15"
-          viewBox="0 0 24 24" fill="currentColor">
-          <path
-            d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37A9.86 9.86 0 01.16 11.89C.16 6.44 4.6 2 10.05 2c2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 012.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.81 11.81 0 0012.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 005.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 00-3.48-8.41" />
-        </svg>WhatsApp Now</a>
-      <a href="contact.html" class="btn-ghost-dark">Request Quote</a>
-    </div>
+    <a href="https://wa.me/971551092200" class="btn-dark" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      WhatsApp Our Team
+    </a>
   </div>
 
-  <!-- FOOTER -->
+  <!-- ═══════════════ FOOTER ═══════════════ -->
   <footer>
-    <div class="foot-top">
-      <div>
-        <div class="foot-logo">
-          <img src="images/ui/logo.jpg" alt="Al Falak Transport Logo" style="height:40px;width:auto;display:block;">
-        </div>
-        <p class="foot-desc">The operational backbone for Dubai's infrastructure. Heavy equipment solutions built on
-          certification, reliability, and zero-downtime commitment.</p>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html"><img src="https://alfalaktransport.com/static/img/logo.png" alt="Al Falak Transport"></a>
+        <p>The operational backbone for Dubai's infrastructure. We deliver integrated heavy equipment solutions, not just rentals.</p>
       </div>
-      <div>
-        <div class="fh">Company</div>
-        <ul class="ful">
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
           <li><a href="about.html">About Us</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="fleet.html">Fleet Inventory</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
-      <div>
-        <div class="fh">Fleet</div>
-        <ul class="ful">
-          <li><a href="fleet.html">Mobile Cranes</a></li>
-          <li><a href="fleet.html">Spider Cranes</a></li>
-          <li><a href="fleet.html">Boom Lifts</a></li>
-          <li><a href="fleet.html">Excavators</a></li>
-          <li><a href="fleet.html">View All 14 Categories →</a></li>
+      <div class="footer-col">
+        <h4>Fleet</h4>
+        <ul>
+          <li><a href="fleet.html#boom-lifts">Boom Lifts</a></li>
+          <li><a href="fleet.html#excavators">Excavators</a></li>
+          <li><a href="fleet.html#mobile-cranes">Mobile Cranes</a></li>
+          <li><a href="fleet.html#forklifts">Forklifts</a></li>
+          <li><a href="fleet.html#telehandlers">Telehandlers</a></li>
         </ul>
       </div>
-      <div>
-        <div class="fh">Contact</div>
-        <div class="fci">
-          <div class="fci-lbl">WhatsApp / Phone</div><a href="tel:+971551092200" class="fci-val">+971 55 109 2200</a>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-row">
+          <span class="footer-contact-icon">📍</span>
+          <p>Dubai Investment Park 2,<br>Dubai, UAE</p>
         </div>
-        <div class="fci">
-          <div class="fci-lbl">Email</div><a href="mailto:info@alfalaktransport.com"
-            class="fci-val">info@alfalaktransport.com</a>
+        <div class="footer-contact-row">
+          <span class="footer-contact-icon">📞</span>
+          <p><a href="tel:+971551092200">+971 55 109 2200</a></p>
         </div>
-        <div class="fci">
-          <div class="fci-lbl">Location</div><span class="fci-val">Dubai Investment Park 2, Dubai, UAE</span>
+        <div class="footer-contact-row">
+          <span class="footer-contact-icon">✉️</span>
+          <p><a href="mailto:info@alfalaktransport.com">info@alfalaktransport.com</a></p>
         </div>
       </div>
     </div>
-    <div class="foot-bot">
-      <div class="copy">© 2026 Al Falak Transport LLC. All rights reserved.</div>
-      <div class="legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Sitemap</a></div>
+    <div class="footer-bottom">
+      <p>© 2026 Al Falak Transport LLC. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
     </div>
   </footer>
 
-  <script>
-    // ── PRELOADER ──
-    const WORD = 'AL FALAK';
-    const plW = document.getElementById('plWord');
-    WORD.split('').forEach((c, i) => {
-      const s = document.createElement('span'); s.textContent = c === ' ' ? '\u00A0' : c;
-      s.className = 'pl-l'; s.style.animationDelay = (i * .065 + .1) + 's'; plW.appendChild(s);
-    });
-    document.getElementById('plBar').style.transition = 'width 1.1s cubic-bezier(.16,1,.3,1)';
-    setTimeout(() => document.getElementById('plBar').style.width = '100%', 80);
-    const sts = ['Initializing fleet systems...', 'Verifying certifications...', 'Fleet online.'];
-    let si = 0;
-    const si2 = setInterval(() => { si++; si < sts.length && (document.getElementById('plSt').textContent = sts[si]); si >= sts.length && clearInterval(si2); }, 440);
-    setTimeout(() => { document.getElementById('PL').classList.add('done'); startCounters(); }, 1650);
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/971551092200" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
 
-    // ── CURSOR ──
-    const cur = document.getElementById('CUR'), cur2 = document.getElementById('CUR2');
-    let mx = 0, my = 0, rx = 0, ry = 0;
-    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cur.style.left = mx + 'px'; cur.style.top = my + 'px'; });
-    (function l() { rx += (mx - rx) * .12; ry += (my - ry) * .12; cur2.style.left = rx + 'px'; cur2.style.top = ry + 'px'; requestAnimationFrame(l); })();
-    document.querySelectorAll('a,button').forEach(el => { el.addEventListener('mouseenter', () => document.body.classList.add('hov')); el.addEventListener('mouseleave', () => document.body.classList.remove('hov')); });
-    document.addEventListener('mousedown', () => document.body.classList.add('click'));
-    document.addEventListener('mouseup', () => document.body.classList.remove('click'));
-
-    // ── NAV ──
-    window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', scrollY > 60));
-
-    // ── CANVAS ──
-    const canvas = document.getElementById('heroCanvas'), ctx = canvas.getContext('2d');
-    let W, H, pts = [];
-    function resize() { W = canvas.width = innerWidth; H = canvas.height = innerHeight; }
-    resize(); window.addEventListener('resize', resize);
-    class Pt { constructor() { this.reset(); } reset() { this.x = Math.random() * W; this.y = Math.random() * H; this.vx = (Math.random() - .5) * .22; this.vy = (Math.random() - .5) * .22; this.r = Math.random() * 1.3 + .4; this.life = 0; this.max = 180 + Math.random() * 240; this.ab = Math.random() > .38; } draw() { this.life++; if (this.life > this.max) this.reset(); const p = this.life / this.max, f = p < .2 ? p / .2 : p > .8 ? (1 - p) / .2 : 1; ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2); ctx.fillStyle = this.ab ? `rgba(212,132,26,${f * .42})` : `rgba(180,165,140,${f * .13})`; ctx.fill(); if (this.ab && f > .5) { ctx.beginPath(); ctx.arc(this.x, this.y, this.r * 3, 0, Math.PI * 2); ctx.fillStyle = `rgba(212,132,26,${f * .05})`; ctx.fill(); } this.x += this.vx; this.y += this.vy; } }
-    for (let i = 0; i < 90; i++) { const p = new Pt(); p.life = Math.random() * p.max; pts.push(p); }
-    (function loop() { ctx.clearRect(0, 0, W, H); pts.forEach(p => p.draw()); requestAnimationFrame(loop); })();
-
-    // ── TICKER ──
-    const TITEMS = ['RTA Certified Fleet', '24hr Deployment', 'All 7 Emirates', 'Zero Harm Philosophy', '3rd Party Certified', 'Rapid Mobilization', 'Mobile Fueling On-site', 'HSE Safety Inducted', 'Oversize Load Permits', '24/7 Breakdown Recovery', '50+ Fleet Units', 'Dubai Investment Park 2'];
-    const tt = document.getElementById('tickerTrack');
-    tt.innerHTML = [...TITEMS, ...TITEMS].map(t => `<span class="ticker-item"><span class="ticker-sep"></span>${t}</span>`).join('');
-
-    // ── FLEET DIVISION CARDS ──
-    // Each card has a CSS-gradient + SVG background that creates a real machine silhouette look
-    const CATS = [
-      {
-        name: 'Boom Lifts', units: 7, cat: 'Boom+Lifts',
-        bg: 'linear-gradient(160deg,#0c0c0c 0%,#141008 100%)',
-        svg: `<svg viewBox="0 0 200 120" class="mach"><defs><radialGradient id="g1" cx="70%" cy="40%"><stop offset="0%" stop-color="#D4841A" stop-opacity=".18"/><stop offset="100%" stop-color="#D4841A" stop-opacity="0"/></radialGradient></defs><rect width="200" height="120" fill="url(#g1)"/><rect x="30" y="72" width="60" height="30" rx="2" fill="#1e1a14"/><rect x="52" y="52" width="14" height="22" fill="#D4841A" opacity=".5"/><circle cx="42" cy="104" r="8" fill="none" stroke="#D4841A" stroke-width="1.2" opacity=".4"/><circle cx="78" cy="104" r="8" fill="none" stroke="#D4841A" stroke-width="1.2" opacity=".4"/><line x1="90" y1="72" x2="170" y2="18" stroke="#D4841A" stroke-width="2.2" opacity=".6"/><rect x="163" y="10" width="22" height="12" rx="1" fill="#D4841A" opacity=".35"/><line x1="148" y1="28" x2="148" y2="72" stroke="#D4841A" stroke-width=".8" stroke-dasharray="3 2" opacity=".25"/><text x="14" y="14" font-family="monospace" font-size="7" fill="#D4841A" opacity=".3" letter-spacing="2">BOOM LIFT</text></svg>`
-      },
-      {
-        name: 'Scissor Lifts', units: 7, cat: 'Scissor+Lifts',
-        bg: 'linear-gradient(160deg,#0b0b0c 0%,#0d0f16 100%)',
-        svg: `<svg viewBox="0 0 200 120" class="mach"><defs><radialGradient id="g2" cx="50%" cy="30%"><stop offset="0%" stop-color="#D4841A" stop-opacity=".14"/><stop offset="100%" stop-color="#D4841A" stop-opacity="0"/></radialGradient></defs><rect width="200" height="120" fill="url(#g2)"/><rect x="60" y="24" width="80" height="20" rx="1" fill="#D4841A" opacity=".3"/><rect x="56" y="20" width="88" height="6" fill="#D4841A" opacity=".15"/><line x1="70" y1="44" x2="90" y2="96" stroke="#D4841A" stroke-width="2" opacity=".45"/><line x1="90" y1="44" x2="70" y2="96" stroke="#D4841A" stroke-width="2" opacity=".45"/><line x1="100" y1="44" x2="120" y2="96" stroke="#D4841A" stroke-width="2" opacity=".45"/><line x1="120" y1="44" x2="100" y2="96" stroke="#D4841A" stroke-width="2" opacity=".45"/><rect x="55" y="93" width="90" height="10" rx="1" fill="#1e1e1e"/><circle cx="72" cy="108" r="6" fill="none" stroke="#D4841A" stroke-width="1" opacity=".35"/><circle cx="128" cy="108" r="6" fill="none" stroke="#D4841A" stroke-width="1" opacity=".35"/><text x="14" y="14" font-family="monospace" font-size="7" fill="#D4841A" opacity=".3" letter-spacing="2">SCISSOR LIFT</text></svg>`
-      },
-      {
-        name: 'Excavators', units: 3, cat: 'Excavators',
-        bg: 'linear-gradient(160deg,#0c0b09 0%,#161208 100%)',
-        svg: `<svg viewBox="0 0 200 120" class="mach"><defs><radialGradient id="g3" cx="30%" cy="60%"><stop offset="0%" stop-color="#D4841A" stop-opacity=".16"/><stop offset="100%" stop-color="#D4841A" stop-opacity="0"/></radialGradient></defs><rect width="200" height="120" fill="url(#g3)"/><rect x="20" y="84" width="100" height="22" rx="3" fill="#1e1a12"/><rect x="20" y="84" width="100" height="4" fill="#D4841A" opacity=".15"/><rect x="30" y="62" width="50" height="26" rx="2" fill="#1a1812"/><rect x="52" y="64" width="12" height="10" fill="#D4841A" opacity=".3"/><path d="M80 72 Q120 50 138 56 Q148 62 140 74 Q130 84 112 82Z" fill="#161410"/><path d="M138 60 L178 30 Q186 24 188 36 L158 78Z" fill="#D4841A" opacity=".2"/><text x="14" y="14" font-family="monospace" font-size="7" fill="#D4841A" opacity=".3" letter-spacing="2">EXCAVATOR</text></svg>`
-      },
-      {
-        name: 'Wheel Loaders', units: 1, cat: 'Wheel+Loaders',
-        bg: 'linear-gradient(160deg,#0b0c0a 0%,#121610 100%)',
-        svg: `<svg viewBox="0 0 200 120" class="mach"><defs><radialGradient id="g4" cx="40%" cy="50%"><stop offset="0%" stop-color="#D4841A" stop-opacity=".14"/><stop offset="100%" stop-color="#D4841A" stop-opacity="0"/></radialGradient></defs><rect width="200" height="120" fill="url(#g4)"/><rect x="50" y="66" width="120" height="38" rx="3" fill="#1a1a16"/><rect x="68" y="48" width="52" height="22" rx="2" fill="#1a1a16"/><rect x="74" y="52" width="18" height="12" fill="#D4841A" opacity=".25"/><circle cx="78" cy="107" r="10" fill="none" stroke="#D4841A" stroke-width="1.5" opacity=".45"/><circle cx="148" cy="107" r="10" fill="none" stroke="#D4841A" stroke-width="1.5" opacity=".45"/><path d="M15 82 L50 66 L50 104 L15 104Z" fill="#D4841A" opacity=".25"/><path d="M10 104 L50 104 L50 80 L22 92Z" fill="#D4841A" opacity=".1"/><text x="14" y="14" font-family="monospace" font-size="7" fill="#D4841A" opacity=".3" letter-spacing="2">WHEEL LOADER</text></svg>`
-      },
-      {
-        name: 'Generators', units: 2, cat: 'Generators',
-        bg: 'linear-gradient(160deg,#0c0c0c 0%,#100e0c 100%)',
-        svg: `<svg viewBox="0 0 200 120" class="mach"><defs><radialGradient id="g5" cx="60%" cy="50%"><stop offset="0%" stop-color="#D4841A" stop-opacity=".2"/><stop offset="100%" stop-color="#D4841A" stop-opacity="0"/></radialGradient></defs><rect width="200" height="120" fill="url(#g5)"/><rect x="30" y="38" width="140" height="64" rx="3" fill="#1a1614"/><rect x="30" y="38" width="140" height="8" fill="#D4841A" opacity=".12"/><rect x="40" y="52" width="50" height="36" rx="1" fill="#231e18"/><rect x="44" y="58" width="22" height="16" rx="1" fill="#D4841A" opacity=".12"/><path d="M110 66 L124 66 L118 78 L132 78 L114 100 L120 82 L106 82Z" fill="#D4841A" opacity=".5"/><rect x="155" y="26" width="8" height="14" rx="2" fill="#1a1614"/><rect x="155" y="24" width="8" height="4" fill="#D4841A" opacity=".3"/><rect x="30" y="100" width="140" height="4" rx="1" fill="#D4841A" opacity=".15"/><text x="14" y="14" font-family="monospace" font-size="7" fill="#D4841A" opacity=".3" letter-spacing="2">GENERATOR</text></svg>`
-      },
-      {
-        name: 'Forklifts', units: 2, cat: 'Forklifts',
-        bg: 'linear-gradient(160deg,#0b0b0d 0%,#0e0e14 100%)',
-        svg: `<svg viewBox="0 0 200 120" class="mach"><defs><radialGradient id="g6" cx="50%" cy="55%"><stop offset="0%" stop-color="#D4841A" stop-opacity=".13"/><stop offset="100%" stop-color="#D4841A" stop-opacity="0"/></radialGradient></defs><rect width="200" height="120" fill="url(#g6)"/><rect x="70" y="50" width="100" height="60" rx="3" fill="#1a1a1e"/><rect x="84" y="54" width="34" height="22" rx="1" fill="#231e2a"/><rect x="88" y="58" width="14" height="10" fill="#D4841A" opacity=".22"/><circle cx="90" cy="113" r="7" fill="none" stroke="#D4841A" stroke-width="1.2" opacity=".4"/><circle cx="150" cy="113" r="7" fill="none" stroke="#D4841A" stroke-width="1.2" opacity=".4"/><rect x="36" y="42" width="36" height="4" rx="1" fill="#D4841A" opacity=".5"/><rect x="36" y="50" width="36" height="4" rx="1" fill="#D4841A" opacity=".5"/><rect x="30" y="42" width="10" height="68" rx="1" fill="#1a1820"/><rect x="48" y="62" width="22" height="4" fill="#D4841A" opacity=".2"/><text x="14" y="14" font-family="monospace" font-size="7" fill="#D4841A" opacity=".3" letter-spacing="2">FORKLIFT</text></svg>`
-      },
-      {
-        name: 'Mini Excavators', units: 3, cat: 'Mini+Excavators',
-        bg: 'linear-gradient(160deg,#0c0b0a 0%,#141108 100%)',
-        svg: `<svg viewBox="0 0 200 120" class="mach"><defs><radialGradient id="g7" cx="35%" cy="60%"><stop offset="0%" stop-color="#D4841A" stop-opacity=".15"/><stop offset="100%" stop-color="#D4841A" stop-opacity="0"/></radialGradient></defs><rect width="200" height="120" fill="url(#g7)"/><rect x="30" y="88" width="90" height="20" rx="3" fill="#1e1a12"/><rect x="38" y="68" width="44" height="24" rx="2" fill="#1a1610"/><rect x="52" y="72" width="14" height="10" fill="#D4841A" opacity=".28"/><path d="M82 78 Q112 62 128 66 Q136 70 130 78 Q122 88 106 86Z" fill="#161210"/><path d="M128 68 L162 46 Q168 42 170 50 L144 76Z" fill="#D4841A" opacity=".22"/><text x="14" y="14" font-family="monospace" font-size="7" fill="#D4841A" opacity=".3" letter-spacing="2">MINI EXCAVATOR</text></svg>`
-      },
-      {
-        name: 'Bobcat Skid Steer', units: 2, cat: 'Bobcat+Skid+Steer+Loaders',
-        bg: 'linear-gradient(160deg,#0b0c0a 0%,#0f1208 100%)',
-        svg: `<svg viewBox="0 0 200 120" class="mach"><defs><radialGradient id="g8" cx="45%" cy="55%"><stop offset="0%" stop-color="#D4841A" stop-opacity=".14"/><stop offset="100%" stop-color="#D4841A" stop-opacity="0"/></radialGradient></defs><rect width="200" height="120" fill="url(#g8)"/><rect x="46" y="68" width="108" height="38" rx="3" fill="#1a1c14"/><rect x="60" y="50" width="56" height="22" rx="2" fill="#1a1c14"/><rect x="68" y="54" width="20" height="12" fill="#D4841A" opacity=".22"/><circle cx="68" cy="109" r="8" fill="none" stroke="#D4841A" stroke-width="1.2" opacity=".4"/><circle cx="136" cy="109" r="8" fill="none" stroke="#D4841A" stroke-width="1.2" opacity=".4"/><path d="M18 80 L46 68 L46 106 Z" fill="#D4841A" opacity=".22"/><path d="M12 106 L46 106 L46 76 L26 90Z" fill="#D4841A" opacity=".08"/><text x="14" y="14" font-family="monospace" font-size="7" fill="#D4841A" opacity=".3" letter-spacing="2">BOBCAT SKID STEER</text></svg>`
-      },
-      {
-        name: 'JCB Loaders', units: 2, cat: 'JCB+Loaders',
-        bg: 'linear-gradient(160deg,#0c0c0a 0%,#141410 100%)',
-        svg: `<svg viewBox="0 0 200 120" class="mach"><defs><radialGradient id="g9" cx="50%" cy="55%"><stop offset="0%" stop-color="#D4841A" stop-opacity=".14"/><stop offset="100%" stop-color="#D4841A" stop-opacity="0"/></radialGradient></defs><rect width="200" height="120" fill="url(#g9)"/><rect x="44" y="72" width="112" height="34" rx="3" fill="#1e1c14"/><rect x="60" y="52" width="50" height="24" rx="2" fill="#1e1c14"/><rect x="68" y="58" width="18" height="12" fill="#D4841A" opacity=".22"/><circle cx="64" cy="108" r="9" fill="none" stroke="#D4841A" stroke-width="1.3" opacity=".42"/><circle cx="144" cy="108" r="9" fill="none" stroke="#D4841A" stroke-width="1.3" opacity=".42"/><path d="M16 82 L44 70 L44 106Z" fill="#D4841A" opacity=".2"/><path d="M156 78 Q176 62 184 68 L180 106 L156 106Z" fill="#1a1a14"/><path d="M174 68 L164 86" stroke="#D4841A" stroke-width="2" opacity=".4"/><text x="14" y="14" font-family="monospace" font-size="7" fill="#D4841A" opacity=".3" letter-spacing="2">JCB LOADER</text></svg>`
-      },
-      {
-        name: 'Telehandlers', units: 2, cat: 'Telehandlers',
-        bg: 'linear-gradient(160deg,#0b0b0c 0%,#0e0e12 100%)',
-        svg: `<svg viewBox="0 0 200 120" class="mach"><defs><radialGradient id="g10" cx="55%" cy="50%"><stop offset="0%" stop-color="#D4841A" stop-opacity=".15"/><stop offset="100%" stop-color="#D4841A" stop-opacity="0"/></radialGradient></defs><rect width="200" height="120" fill="url(#g10)"/><rect x="38" y="70" width="108" height="36" rx="3" fill="#181820"/><rect x="52" y="52" width="52" height="22" rx="2" fill="#181820"/><rect x="60" y="56" width="18" height="12" fill="#D4841A" opacity=".22"/><circle cx="58" cy="109" r="9" fill="none" stroke="#D4841A" stroke-width="1.3" opacity=".42"/><circle cx="130" cy="109" r="9" fill="none" stroke="#D4841A" stroke-width="1.3" opacity=".42"/><line x1="144" y1="70" x2="188" y2="34" stroke="#D4841A" stroke-width="2.2" opacity=".55"/><line x1="144" y1="78" x2="188" y2="42" stroke="#D4841A" stroke-width="1" opacity=".2"/><rect x="183" y="28" width="14" height="14" rx="1" fill="#D4841A" opacity=".3"/><text x="14" y="14" font-family="monospace" font-size="7" fill="#D4841A" opacity=".3" letter-spacing="2">TELEHANDLER</text></svg>`
-      },
-      {
-        name: 'Mobile Cranes', units: 5, cat: 'Mobile+Cranes',
-        bg: 'linear-gradient(160deg,#0c0c0c 0%,#100d0a 100%)',
-        svg: `<svg viewBox="0 0 200 120" class="mach"><defs><radialGradient id="g11" cx="50%" cy="40%"><stop offset="0%" stop-color="#D4841A" stop-opacity=".2"/><stop offset="100%" stop-color="#D4841A" stop-opacity="0"/></radialGradient></defs><rect width="200" height="120" fill="url(#g11)"/><rect x="36" y="76" width="128" height="30" rx="3" fill="#1a1610"/><rect x="52" y="56" width="60" height="24" rx="2" fill="#1a1610"/><rect x="62" y="60" width="20" height="14" fill="#D4841A" opacity=".22"/><circle cx="56" cy="110" r="8" fill="none" stroke="#D4841A" stroke-width="1.2" opacity=".4"/><circle cx="100" cy="110" r="8" fill="none" stroke="#D4841A" stroke-width="1.2" opacity=".4"/><circle cx="148" cy="110" r="8" fill="none" stroke="#D4841A" stroke-width="1.2" opacity=".4"/><line x1="112" y1="56" x2="112" y2="10" stroke="#D4841A" stroke-width="2.2" opacity=".55"/><line x1="112" y1="10" x2="182" y2="34" stroke="#D4841A" stroke-width="2" opacity=".55"/><line x1="112" y1="10" x2="56" y2="30" stroke="#D4841A" stroke-width="1.2" opacity=".25"/><line x1="164" y1="24" x2="164" y2="68" stroke="#D4841A" stroke-width=".8" stroke-dasharray="3 2" opacity=".25"/><rect x="157" y="66" width="14" height="10" fill="#D4841A" opacity=".25"/><text x="14" y="14" font-family="monospace" font-size="7" fill="#D4841A" opacity=".3" letter-spacing="2">MOBILE CRANE</text></svg>`
-      },
-      {
-        name: 'Spider Cranes', units: 6, cat: 'Spider+Cranes',
-        bg: 'linear-gradient(160deg,#0c0b0c 0%,#100e12 100%)',
-        svg: `<svg viewBox="0 0 200 120" class="mach"><defs><radialGradient id="g12" cx="50%" cy="50%"><stop offset="0%" stop-color="#D4841A" stop-opacity=".2"/><stop offset="100%" stop-color="#D4841A" stop-opacity="0"/></radialGradient></defs><rect width="200" height="120" fill="url(#g12)"/><rect x="80" y="68" width="40" height="40" rx="2" fill="#1e1820"/><line x1="80" y1="88" x2="22" y2="110" stroke="#D4841A" stroke-width="1.8" opacity=".35"/><line x1="80" y1="76" x2="24" y2="58" stroke="#D4841A" stroke-width="1.8" opacity=".35"/><line x1="120" y1="88" x2="178" y2="110" stroke="#D4841A" stroke-width="1.8" opacity=".35"/><line x1="120" y1="76" x2="176" y2="58" stroke="#D4841A" stroke-width="1.8" opacity=".35"/><line x1="100" y1="68" x2="100" y2="14" stroke="#D4841A" stroke-width="2.5" opacity=".6"/><line x1="100" y1="14" x2="166" y2="38" stroke="#D4841A" stroke-width="2" opacity=".6"/><line x1="100" y1="14" x2="46" y2="34" stroke="#D4841A" stroke-width="1.2" opacity=".3"/><line x1="148" y1="28" x2="148" y2="62" stroke="#D4841A" stroke-width=".8" stroke-dasharray="3 2" opacity=".25"/><text x="14" y="14" font-family="monospace" font-size="7" fill="#D4841A" opacity=".3" letter-spacing="2">SPIDER CRANE</text></svg>`
-      },
-      {
-        name: 'Spider Lifts', units: 4, cat: 'Spider+Lifts',
-        bg: 'linear-gradient(160deg,#0b0c0c 0%,#0c1010 100%)',
-        svg: `<svg viewBox="0 0 200 120" class="mach"><defs><radialGradient id="g13" cx="50%" cy="45%"><stop offset="0%" stop-color="#D4841A" stop-opacity=".18"/><stop offset="100%" stop-color="#D4841A" stop-opacity="0"/></radialGradient></defs><rect width="200" height="120" fill="url(#g13)"/><rect x="82" y="84" width="36" height="28" rx="2" fill="#141a1a"/><line x1="82" y1="98" x2="24" y2="112" stroke="#D4841A" stroke-width="1.8" opacity=".3"/><line x1="82" y1="90" x2="26" y2="74" stroke="#D4841A" stroke-width="1.8" opacity=".3"/><line x1="118" y1="98" x2="176" y2="112" stroke="#D4841A" stroke-width="1.8" opacity=".3"/><line x1="118" y1="90" x2="174" y2="74" stroke="#D4841A" stroke-width="1.8" opacity=".3"/><rect x="90" y="8" width="20" height="10" rx="1" fill="#D4841A" opacity=".35"/><line x1="100" y1="84" x2="100" y2="18" stroke="#D4841A" stroke-width="3" opacity=".55"/><text x="14" y="14" font-family="monospace" font-size="7" fill="#D4841A" opacity=".3" letter-spacing="2">SPIDER LIFT</text></svg>`
-      },
-      {
-        name: 'Manlifts', units: 2, cat: 'Manlifts',
-        bg: 'linear-gradient(160deg,#0b0b0c 0%,#0d0d12 100%)',
-        svg: `<svg viewBox="0 0 200 120" class="mach"><defs><radialGradient id="g14" cx="50%" cy="45%"><stop offset="0%" stop-color="#D4841A" stop-opacity=".15"/><stop offset="100%" stop-color="#D4841A" stop-opacity="0"/></radialGradient></defs><rect width="200" height="120" fill="url(#g14)"/><rect x="70" y="86" width="60" height="26" rx="2" fill="#18181e"/><circle cx="88" cy="114" r="7" fill="none" stroke="#D4841A" stroke-width="1.2" opacity=".4"/><circle cx="112" cy="114" r="7" fill="none" stroke="#D4841A" stroke-width="1.2" opacity=".4"/><rect x="90" y="14" width="20" height="12" rx="1" fill="#D4841A" opacity=".3"/><rect x="86" y="24" width="28" height="5" fill="#D4841A" opacity=".18"/><rect x="96" y="86" width="8" height="6" fill="#D4841A" opacity=".2"/><line x1="100" y1="86" x2="100" y2="29" stroke="#D4841A" stroke-width="3.5" opacity=".5"/><text x="14" y="14" font-family="monospace" font-size="7" fill="#D4841A" opacity=".3" letter-spacing="2">MANLIFT</text></svg>`
-      },
-    ];
-
-    const dl = document.createElement('style');
-    dl.textContent = CATS.map((c, i) => `.dc-${i}{background:${c.bg}}`).join('');
-    document.head.appendChild(dl);
-
-    document.getElementById('divGrid').innerHTML = CATS.map((c, i) => {
-      const delay = i % 4 === 1 ? ' d1' : i % 4 === 2 ? ' d2' : i % 4 === 3 ? ' d3' : '';
-      return `<a href="fleet.html?cat=${c.cat}" class="div-card rev${delay}">
-    <div class="div-num">${String(i + 1).padStart(2, '0')}</div>
-    <div class="div-img dc-${i}">
-      ${c.svg}
-      <img src="images/fleet/cat-${c.cat.toLowerCase().replace(/\+/g, '-')}.png" alt="${c.name}" loading="lazy" onerror="this.style.display='none'">
-    </div>
-    <div class="div-body">
-      <div class="div-name">${c.name}</div>
-      <div class="div-meta">
-        <div class="div-units">${c.units} Unit${c.units !== 1 ? 's' : ''}</div>
-        <div class="div-cta">View Division <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </div>
-    </div>
-    <div class="div-corner"></div>
-  </a>`;
-    }).join('');
-
-    // ── COUNTERS ──
-    function startCounters() {
-      const io = new IntersectionObserver(e => e.forEach(el => {
-        if (el.isIntersecting && !el.target.dataset.done) {
-          el.target.dataset.done = 1;
-          const to = +el.target.dataset.to; let v = 0;
-          const t = setInterval(() => { v = Math.min(v + Math.ceil(to / 44), to); el.target.textContent = v; if (v >= to) clearInterval(t); }, 22);
-        }
-      }), { threshold: .4 });
-      document.querySelectorAll('.counter').forEach(el => io.observe(el));
-    }
-
-    // ── SCROLL REVEAL ──
-    const io = new IntersectionObserver(e => e.forEach(el => { if (el.isIntersecting) el.target.classList.add('in'); }), { threshold: .07 });
-    document.querySelectorAll('.rev').forEach(el => io.observe(el));
-  </script>
+  <script src="main.js" defer></script>
 </body>
-
 </html>

@@ -1,1053 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>About — Al Falak Transport LLC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — Al Falak Transport LLC</title>
+  <meta name="description" content="Al Falak Transport LLC — established to serve the UAE's dynamic construction sector, built on integrity, safety, and operational excellence.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
-    rel="stylesheet">
-  <style>
-    :root {
-      --bg: #040404;
-      --s1: #0a0a0a;
-      --s2: #111;
-      --border: rgba(255, 255, 255, .06);
-      --ba: rgba(212, 132, 26, .25);
-      --amber: #D4841A;
-      --a2: #F09820;
-      --adim: rgba(212, 132, 26, .1);
-      --w: #EDE9E3;
-      --g1: #7A766F;
-      --g2: #4A4640;
-      --D: 'Bebas Neue', cursive;
-      --M: 'DM Mono', monospace;
-      --B: 'DM Sans', sans-serif;
-    }
-
-    *,
-    *::before,
-    *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box
-    }
-
-    html {
-      scroll-behavior: smooth
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--w);
-      font-family: var(--B);
-      overflow-x: hidden;
-      cursor: none
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit
-    }
-
-    #CUR {
-      width: 8px;
-      height: 8px;
-      background: var(--amber);
-      border-radius: 50%;
-      position: fixed;
-      pointer-events: none;
-      z-index: 9990;
-      transform: translate(-50%, -50%);
-      transition: width .2s, height .2s
-    }
-
-    #CUR2 {
-      width: 32px;
-      height: 32px;
-      border: 1px solid rgba(212, 132, 26, .5);
-      border-radius: 50%;
-      position: fixed;
-      pointer-events: none;
-      z-index: 9989;
-      transform: translate(-50%, -50%);
-      transition: width .25s, height .25s, border-color .25s
-    }
-
-    body.hov #CUR {
-      width: 14px;
-      height: 14px
-    }
-
-    body.hov #CUR2 {
-      width: 48px;
-      height: 48px;
-      border-color: var(--amber)
-    }
-
-    nav {
-      position: fixed;
-      top: 0;
-      inset-inline: 0;
-      z-index: 800;
-      height: 68px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 48px;
-      background: rgba(4, 4, 4, .94);
-      border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(24px)
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 14px
-    }
-
-    .logo svg {
-      width: 36px;
-      height: 36px
-    }
-
-    .t1 {
-      font-family: var(--D);
-      font-size: 22px;
-      letter-spacing: .12em;
-      color: var(--w)
-    }
-
-    .t2 {
-      font-family: var(--M);
-      font-size: 8px;
-      letter-spacing: .24em;
-      color: var(--amber);
-      text-transform: uppercase
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 40px;
-      list-style: none
-    }
-
-    .nav-links a {
-      font-family: var(--M);
-      font-size: 10px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--g1);
-      transition: color .2s;
-      position: relative
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: var(--amber);
-      transform: scaleX(0);
-      transition: transform .3s
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--w)
-    }
-
-    .nav-links a.active::after,
-    .nav-links a:hover::after {
-      transform: scaleX(1)
-    }
-
-    .nav-cta {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 11px 24px;
-      background: var(--amber);
-      color: var(--bg);
-      font-family: var(--D);
-      font-size: 15px;
-      letter-spacing: .1em;
-      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
-      transition: background .2s
-    }
-
-    .nav-cta:hover {
-      background: var(--a2)
-    }
-
-    /* HERO — FULL BLEED AMBER SPLIT */
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 85vh;
-      margin-top: 68px
-    }
-
-    .hero-left {
-      background: var(--amber);
-      padding: 80px 64px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-      overflow: hidden
-    }
-
-    .hero-left::before {
-      content: 'FALAK';
-      position: absolute;
-      bottom: -40px;
-      right: -20px;
-      font-family: var(--D);
-      font-size: 200px;
-      line-height: 1;
-      color: rgba(4, 4, 4, .06);
-      letter-spacing: -.04em;
-      pointer-events: none
-    }
-
-    .hl-tag {
-      font-family: var(--M);
-      font-size: 9px;
-      letter-spacing: .3em;
-      color: rgba(4, 4, 4, .45);
-      text-transform: uppercase;
-      margin-bottom: auto
-    }
-
-    .hl-h {
-      font-family: var(--D);
-      font-size: clamp(72px, 8vw, 128px);
-      line-height: .84;
-      letter-spacing: .01em;
-      text-transform: uppercase;
-      color: var(--bg);
-      position: relative;
-      z-index: 1;
-      margin-bottom: 32px
-    }
-
-    .hl-sub {
-      font-size: 15px;
-      line-height: 1.8;
-      color: rgba(4, 4, 4, .5);
-      max-width: 380px;
-      position: relative;
-      z-index: 1
-    }
-
-    .hl-bottom {
-      display: flex;
-      gap: 12px;
-      position: relative;
-      z-index: 1;
-      margin-top: 40px
-    }
-
-    .btn-dark {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 16px 32px;
-      background: var(--bg);
-      color: var(--w);
-      font-family: var(--D);
-      font-size: 17px;
-      letter-spacing: .08em;
-      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
-      transition: background .2s, transform .2s
-    }
-
-    .btn-dark:hover {
-      background: #1a1a1a;
-      transform: translateY(-2px)
-    }
-
-    .btn-gd {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 15px 30px;
-      border: 2px solid rgba(4, 4, 4, .22);
-      color: var(--bg);
-      font-family: var(--D);
-      font-size: 17px;
-      letter-spacing: .08em;
-      transition: background .2s, transform .2s
-    }
-
-    .btn-gd:hover {
-      background: rgba(4, 4, 4, .08);
-      transform: translateY(-2px)
-    }
-
-    .hero-right {
-      background: var(--s2);
-      padding: 80px 64px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      position: relative;
-      overflow: hidden
-    }
-
-    .hero-right::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(212, 132, 26, .03) 79px, rgba(212, 132, 26, .03) 80px), repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(212, 132, 26, .03) 79px, rgba(212, 132, 26, .03) 80px)
-    }
-
-    .hr-tag {
-      font-family: var(--M);
-      font-size: 9px;
-      letter-spacing: .3em;
-      color: var(--amber);
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 48px;
-      position: relative;
-      z-index: 1
-    }
-
-    .hr-tag::before {
-      content: '';
-      width: 28px;
-      height: 1px;
-      background: var(--amber)
-    }
-
-    .hr-body {
-      position: relative;
-      z-index: 1
-    }
-
-    .hr-body p {
-      font-size: 15px;
-      line-height: 1.9;
-      color: var(--g1);
-      margin-bottom: 24px
-    }
-
-    .hr-body p strong {
-      color: var(--w);
-      font-weight: 500
-    }
-
-    /* STATS */
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border)
-    }
-
-    .stat {
-      padding: 52px 48px;
-      border-right: 1px solid var(--border);
-      position: relative;
-      overflow: hidden;
-      transition: background .3s
-    }
-
-    .stat:last-child {
-      border-right: none
-    }
-
-    .stat:hover {
-      background: var(--s1)
-    }
-
-    .stat::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      inset-inline: 0;
-      height: 2px;
-      background: var(--amber);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform .5s cubic-bezier(.16, 1, .3, 1)
-    }
-
-    .stat:hover::before {
-      transform: scaleX(1)
-    }
-
-    .sv {
-      font-family: var(--D);
-      font-size: clamp(48px, 5.5vw, 80px);
-      letter-spacing: .02em;
-      line-height: 1;
-      color: var(--w);
-      display: flex;
-      align-items: baseline;
-      gap: 4px
-    }
-
-    .su {
-      font-size: .5em;
-      color: var(--amber)
-    }
-
-    .sl {
-      font-family: var(--M);
-      font-size: 9px;
-      letter-spacing: .2em;
-      color: var(--g1);
-      text-transform: uppercase;
-      margin-top: 10px
-    }
-
-    /* STORY */
-    .story {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 80px;
-      padding: 100px 48px;
-      align-items: start
-    }
-
-    .story-aside {
-      position: sticky;
-      top: 100px
-    }
-
-    .sa-label {
-      font-family: var(--M);
-      font-size: 9px;
-      letter-spacing: .3em;
-      color: var(--amber);
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 16px
-    }
-
-    .sa-label::before {
-      content: '';
-      width: 28px;
-      height: 1px;
-      background: var(--amber)
-    }
-
-    .sa-h {
-      font-family: var(--D);
-      font-size: clamp(48px, 5vw, 80px);
-      line-height: .86;
-      letter-spacing: .02em;
-      text-transform: uppercase;
-      margin-bottom: 28px
-    }
-
-    .sa-h .a {
-      color: var(--amber)
-    }
-
-    .sa-img {
-      width: 100%;
-      aspect-ratio: 3/4;
-      background: var(--s2);
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--border);
-      margin-top: 36px
-    }
-
-    .sa-img-ph {
-      text-align: center;
-      padding: 24px
-    }
-
-    .sa-img-ph .phi {
-      font-size: 48px;
-      opacity: .06;
-      display: block;
-      margin-bottom: 8px
-    }
-
-    .sa-img-ph p {
-      font-family: var(--M);
-      font-size: 7.5px;
-      letter-spacing: .16em;
-      color: rgba(212, 132, 26, .2);
-      line-height: 1.7
-    }
-
-    .story-body {
-      display: flex;
-      flex-direction: column;
-      gap: 48px;
-      padding-top: 8px
-    }
-
-    .sb-block {
-      border-left: 2px solid var(--border);
-      padding-left: 32px;
-      transition: border-color .3s
-    }
-
-    .sb-block:hover {
-      border-color: var(--amber)
-    }
-
-    .sbb-ttl {
-      font-family: var(--D);
-      font-size: 24px;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: var(--w);
-      margin-bottom: 12px
-    }
-
-    .sbb-txt {
-      font-size: 14px;
-      line-height: 1.9;
-      color: var(--g1)
-    }
-
-    /* VALUES */
-    .values {
-      background: var(--s1);
-      border-top: 1px solid var(--border);
-      padding: 100px 48px
-    }
-
-    .val-head {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      margin-bottom: 64px;
-      align-items: end
-    }
-
-    .vh-h {
-      font-family: var(--D);
-      font-size: clamp(52px, 6vw, 96px);
-      line-height: .86;
-      letter-spacing: .02em;
-      text-transform: uppercase
-    }
-
-    .vh-h .a {
-      color: var(--amber)
-    }
-
-    .vh-h .stroke {
-      -webkit-text-stroke: 2px rgba(212, 132, 26, .3);
-      color: transparent
-    }
-
-    .vh-sub {
-      font-size: 15px;
-      line-height: 1.82;
-      color: var(--g1)
-    }
-
-    .val-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      background: var(--border)
-    }
-
-    .val-card {
-      background: var(--s1);
-      padding: 44px 40px;
-      position: relative;
-      overflow: hidden;
-      transition: background .3s
-    }
-
-    .val-card:hover {
-      background: var(--s2)
-    }
-
-    .vc-num {
-      font-family: var(--D);
-      font-size: 72px;
-      letter-spacing: .02em;
-      color: var(--g2);
-      line-height: 1;
-      margin-bottom: 16px;
-      transition: color .35s
-    }
-
-    .val-card:hover .vc-num {
-      color: rgba(212, 132, 26, .15)
-    }
-
-    .vc-line {
-      width: 40px;
-      height: 2px;
-      background: var(--amber);
-      margin-bottom: 20px;
-      transition: width .4s cubic-bezier(.16, 1, .3, 1)
-    }
-
-    .val-card:hover .vc-line {
-      width: 72px
-    }
-
-    .vc-ttl {
-      font-family: var(--D);
-      font-size: 22px;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: var(--w);
-      margin-bottom: 10px
-    }
-
-    .vc-txt {
-      font-size: 13px;
-      line-height: 1.85;
-      color: var(--g1)
-    }
-
-    /* TEAM / CERTS */
-    .certs {
-      padding: 80px 48px;
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 72px;
-      align-items: center;
-      border-top: 1px solid var(--border)
-    }
-
-
-
-    .cl-tag {
-      font-family: var(--M);
-      font-size: 9px;
-      letter-spacing: .3em;
-      color: var(--amber);
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 16px
-    }
-
-    .cl-tag::before {
-      content: '';
-      width: 28px;
-      height: 1px;
-      background: var(--amber)
-    }
-
-    .cl-h {
-      font-family: var(--D);
-      font-size: clamp(40px, 4vw, 64px);
-      line-height: .86;
-      letter-spacing: .02em;
-      text-transform: uppercase;
-      margin-bottom: 24px
-    }
-
-    .cl-h .a {
-      color: var(--amber)
-    }
-
-    .cl-txt {
-      font-size: 14px;
-      line-height: 1.85;
-      color: var(--g1);
-      max-width: 480px;
-      margin-bottom: 40px
-    }
-
-    .cert-badges {
-      display: flex;
-      flex-direction: column;
-      gap: 3px
-    }
-
-    .cert-badge {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 16px 22px;
-      background: var(--s1);
-      border: 1px solid var(--border);
-      transition: border-color .3s, background .3s
-    }
-
-    .cert-badge:hover {
-      background: var(--s2);
-      border-color: var(--ba)
-    }
-
-    .cb-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--amber);
-      flex-shrink: 0
-    }
-
-    .cb-text {
-      font-family: var(--M);
-      font-size: 10px;
-      letter-spacing: .14em;
-      color: var(--w);
-      text-transform: uppercase
-    }
-
-    .cb-note {
-      font-family: var(--M);
-      font-size: 8.5px;
-      letter-spacing: .1em;
-      color: var(--g1);
-      margin-left: auto
-    }
-
-    .cert-right {
-      display: flex;
-      flex-direction: column;
-      gap: 28px
-    }
-
-    .cri-block {
-      padding: 28px;
-      background: var(--s1);
-      border: 1px solid var(--border);
-      position: relative;
-      overflow: hidden;
-      transition: border-color .3s
-    }
-
-    .cri-block:hover {
-      border-color: var(--ba)
-    }
-
-    .cri-val {
-      font-family: var(--D);
-      font-size: 52px;
-      letter-spacing: .02em;
-      color: var(--w);
-      line-height: 1;
-      display: flex;
-      align-items: baseline;
-      gap: 3px
-    }
-
-    .cri-val .u {
-      font-size: 26px;
-      color: var(--amber)
-    }
-
-    .cri-lbl {
-      font-family: var(--M);
-      font-size: 8.5px;
-      letter-spacing: .2em;
-      color: var(--g1);
-      text-transform: uppercase;
-      margin-top: 6px
-    }
-
-    /* CTA */
-    .cta-band {
-      background: var(--amber);
-      padding: 80px 48px;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 32px;
-      flex-wrap: wrap
-    }
-
-    .cta-band::before {
-      content: 'JOIN US';
-      position: absolute;
-      right: -20px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-family: var(--D);
-      font-size: 240px;
-      line-height: 1;
-      color: rgba(4, 4, 4, .06);
-      pointer-events: none;
-      white-space: nowrap;
-      letter-spacing: -.04em
-    }
-
-    .cta-h {
-      font-family: var(--D);
-      font-size: clamp(48px, 7vw, 108px);
-      line-height: .86;
-      text-transform: uppercase;
-      color: var(--bg);
-      position: relative;
-      z-index: 1
-    }
-
-    .cta-sub {
-      font-size: 15px;
-      color: rgba(4, 4, 4, .5);
-      margin-top: 12px;
-      font-weight: 500
-    }
-
-    .cta-btns {
-      display: flex;
-      gap: 12px;
-      position: relative;
-      z-index: 1;
-      flex-wrap: wrap
-    }
-
-    footer {
-      background: var(--s1);
-      border-top: 1px solid var(--border);
-      padding: 52px 48px 32px
-    }
-
-    .foot-bot {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px
-    }
-
-    .foot-links {
-      display: flex;
-      gap: 32px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 36px
-    }
-
-    .foot-links a {
-      font-family: var(--M);
-      font-size: 9px;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: var(--g2);
-      transition: color .2s
-    }
-
-    .foot-links a:hover {
-      color: var(--amber)
-    }
-
-    .copy {
-      font-family: var(--M);
-      font-size: 9px;
-      letter-spacing: .12em;
-      color: var(--g2)
-    }
-
-    .legal {
-      display: flex;
-      gap: 22px
-    }
-
-    .legal a {
-      font-family: var(--M);
-      font-size: 9px;
-      letter-spacing: .12em;
-      color: var(--g2);
-      text-transform: uppercase;
-      transition: color .2s
-    }
-
-    .legal a:hover {
-      color: var(--g1)
-    }
-
-    .rev {
-      opacity: 0;
-      transform: translateY(36px);
-      transition: opacity .9s ease, transform .9s cubic-bezier(.16, 1, .3, 1)
-    }
-
-    .rev.in {
-      opacity: 1;
-      transform: none
-    }
-
-    .d1 {
-      transition-delay: .1s
-    }
-
-    .d2 {
-      transition-delay: .2s
-    }
-
-    .d3 {
-      transition-delay: .3s
-    }
-
-    .d4 {
-      transition-delay: .4s
-    }
-
-    @media(max-width:1100px) {
-      .story {
-        grid-template-columns: 1fr
-      }
-
-      .story-aside {
-        position: static
-      }
-
-      .val-grid {
-        grid-template-columns: repeat(2, 1fr)
-      }
-
-      .certs {
-        grid-template-columns: 1fr
-      }
-    }
-
-    @media(max-width:900px) {
-      .hero {
-        grid-template-columns: 1fr
-      }
-
-      .val-head {
-        grid-template-columns: 1fr
-      }
-
-      .stats {
-        grid-template-columns: repeat(2, 1fr)
-      }
-    }
-
-    @media(max-width:700px) {
-      nav {
-        padding: 0 20px
-      }
-
-      .nav-links {
-        display: none
-      }
-
-      .hero-left,
-      .hero-right {
-        padding: 60px 24px
-      }
-
-      .stats .stat {
-        padding: 36px 24px
-      }
-
-      .story,
-      .values,
-      .certs {
-        padding: 64px 24px
-      }
-
-      .cta-band {
-        padding: 64px 24px;
-        flex-direction: column
-      }
-
-      .cta-btns {
-        flex-direction: column;
-        width: 100%
-      }
-
-      .val-grid {
-        grid-template-columns: 1fr
-      }
-
-      footer {
-        padding: 40px 20px 24px
-      }
-    }
-
-    .wa-float {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      z-index: 8000
-    }
-
-    .wa-bubble {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: #25D366;
-      padding: 14px 20px;
-      clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
-      cursor: pointer;
-      transition: transform .2s;
-      text-decoration: none;
-      box-shadow: 0 4px 24px rgba(37, 211, 102, .3)
-    }
-
-    .wa-bubble:hover {
-      transform: translateY(-3px)
-    }
-
-    .wa-label {
-      font-family: var(--D);
-      font-size: 14px;
-      letter-spacing: .08em;
-      color: #fff;
-      white-space: nowrap
-    }
-
-    .wa-ping {
-      position: absolute;
-      top: -4px;
-      right: -4px;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #ff4444;
-      animation: waping 1.8s ease-in-out infinite
-    }
-
-    @keyframes waping {
-
-      0%,
-      100% {
-        transform: scale(1);
-        opacity: 1
-      }
-
-      50% {
-        transform: scale(1.5);
-        opacity: 0
-      }
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <div class="wa-float"><a href="https://wa.me/971551092200" class="wa-bubble" target="_blank" rel="noopener">
-      <div class="wa-ping"
-        style="position:absolute;top:-4px;right:-4px;width:12px;height:12px;border-radius:50%;background:#ff4444;animation:waping 1.8s ease-in-out infinite">
-      </div><svg width="22" height="22" viewBox="0 0 24 24" fill="white">
-        <path
-          d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37A9.86 9.86 0 01.16 11.89C.16 6.44 4.6 2 10.05 2c2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 012.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.81 11.81 0 0012.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 005.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 00-3.48-8.41" />
-      </svg><span class="wa-label">WhatsApp Us</span>
-    </a></div>
-  <div id="CUR"></div>
-  <div id="CUR2"></div>
-  <nav>
-    <a href="index.html" class="logo">
-      <img src="images/ui/logo.jpg" alt="Al Falak Transport Logo" style="height:40px;width:auto;display:block;">
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="https://alfalaktransport.com/static/img/logo.png" alt="Al Falak Transport">
+      <div class="nav-logo-text">Al Falak <span>Transport LLC</span></div>
     </a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
@@ -1056,239 +25,179 @@
       <li><a href="about.html" class="active">About</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <a href="https://wa.me/971551092200" class="nav-cta">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-        <path
-          d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37A9.86 9.86 0 01.16 11.89C.16 6.44 4.6 2 10.05 2c2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 012.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.81 11.81 0 0012.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 005.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 00-3.48-8.41" />
-      </svg>
-      GET QUOTE
-    </a>
+    <div class="nav-right">
+      <a href="https://wa.me/971551092200" class="btn-primary" target="_blank" rel="noopener">Get Quote</a>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
   </nav>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="fleet.html">Fleet Inventory</a>
+    <a href="services.html">Services</a>
+    <a href="about.html" class="active">About Us</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://wa.me/971551092200" target="_blank" style="color:#25D366">WhatsApp Us</a>
+  </div>
 
-  <!-- HERO SPLIT -->
-  <div class="hero">
-    <div class="hero-left">
-      <div class="hl-tag">Est. Dubai, UAE</div>
-      <h1 class="hl-h">DUBAI'S<br>HEAVY<br>BACKBONE.</h1>
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-bg">
+      <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1800&auto=format&fit=crop" alt="" loading="eager">
+    </div>
+    <div class="page-hero-gradient"></div>
+    <div class="page-hero-content">
+      <p class="breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; <span>About Us</span></p>
+      <div class="section-label fade-up d1">Our Story</div>
+      <h1 class="section-title fade-up d2" style="font-size: clamp(52px,7vw,96px);">Building the<br>Future of UAE<br>Infrastructure</h1>
+    </div>
+  </div>
+
+  <!-- STORY + IMAGE SPLIT -->
+  <section style="padding: 100px 60px;">
+    <div class="about-split reveal">
       <div>
-        <p class="hl-sub">We are Al Falak Transport — the integrated heavy equipment partner behind Dubai's most
-          demanding infrastructure projects.</p>
-        <div class="hl-bottom">
-          <a href="fleet.html" class="btn-dark">Our Fleet</a>
-          <a href="contact.html" class="btn-gd">Get in Touch</a>
+        <div class="section-label">The Mandate</div>
+        <h2 class="section-title">The Operational<br>Backbone</h2>
+        <p style="font-size: 16px; color: var(--text-muted); line-height: 1.8; margin-bottom: 24px;">
+          Established to serve the region's dynamic construction sector, Al Falak Transport LLC has evolved into a critical operational partner for major infrastructure developers across the UAE.
+        </p>
+        <p style="font-size: 16px; color: var(--text-muted); line-height: 1.8; margin-bottom: 24px;">
+          Our mandate is simple: to provide the operational backbone required for complex site execution. Through a combination of rigorous safety protocols, a modernized fleet, and highly skilled human capital, we minimize downtime and maximize site productivity.
+        </p>
+        <p style="font-size: 16px; color: var(--text-muted); line-height: 1.8;">
+          We understand that in construction, time is the most expensive commodity. That's why we don't just supply machines — we supply reliability.
+        </p>
+
+        <!-- Vision quote -->
+        <div style="margin-top: 40px; padding: 28px 32px; border-left: 3px solid var(--accent); background: var(--bg-card);">
+          <p style="font-family: var(--font-display); font-size: 20px; letter-spacing: 0.04em; line-height: 1.4; color: var(--text); margin-bottom: 12px;">
+            "To become the undisputed leader in UAE construction support services — recognized for setting the benchmark in safety, reliability, and operational excellence."
+          </p>
+          <span style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent);">Our Vision</span>
+        </div>
+      </div>
+      <div>
+        <div class="about-img">
+          <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=900&auto=format&fit=crop" alt="Al Falak Transport operations" loading="lazy">
+          <div class="about-img-badge">Dubai Investment Park 2, UAE</div>
         </div>
       </div>
     </div>
-    <div class="hero-right">
-      <div class="hr-tag">Who We Are</div>
-      <div class="hr-body">
-        <p><strong>Al Falak Transport LLC is a Dubai-based heavy equipment rental and logistics company</strong>
-          operating across all seven Emirates. We serve construction, infrastructure, oil & gas, and industrial clients
-          who demand more than just a machine on-site.</p>
-        <p>Based at <strong>Dubai Investment Park 2</strong>, our fleet spans 14 equipment categories — from 250-tonne
-          mobile cranes to compact spider lifts — all RTA-certified, maintained to the highest standard, and supported
-          by our in-house operations team 24/7.</p>
-        <p>Our difference is simple: <strong>we provide the operational backbone</strong>, not just the iron. Every
-          deployment is backed by certified operators, logistics planning, and round-the-clock support — because on your
-          site, downtime is never an option.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- STATS -->
-  <div class="stats">
-    <div class="stat rev">
-      <div class="sv"><span class="counter" data-to="50">0</span><span class="su">+</span></div>
-      <div class="sl">Fleet Units</div>
-    </div>
-    <div class="stat rev d1">
-      <div class="sv"><span class="counter" data-to="14">0</span></div>
-      <div class="sl">Equipment Categories</div>
-    </div>
-    <div class="stat rev d2">
-      <div class="sv"><span class="counter" data-to="7">0</span></div>
-      <div class="sl">Emirates Covered</div>
-    </div>
-    <div class="stat rev d3">
-      <div class="sv"><span class="counter" data-to="24">0</span><span class="su">hr</span></div>
-      <div class="sl">Deployment Time</div>
-    </div>
-  </div>
-
-  <!-- STORY -->
-  <div class="sa-img">
-    <img src="images/content/fleet_yard.jpg" alt="Al Falak fleet in yard"
-      style="width:100%;height:100%;object-fit:cover;">
-  </div>
-  </div>
-  <div class="story-body">
-    <div class="sb-block rev">
-      <div class="sbb-ttl">The Mission</div>
-      <div class="sbb-txt">Al Falak was founded on a single conviction: that Dubai's construction industry deserved a
-        heavy equipment partner that operated with the same precision and accountability expected on the sites it
-        served. Not just machines for rent — a full operational capability that project managers could rely on from
-        mobilization day to project completion.</div>
-    </div>
-    <div class="sb-block rev d1">
-      <div class="sbb-ttl">The Fleet Philosophy</div>
-      <div class="sbb-txt">Our fleet is built around versatility and specialization in equal measure. From 250-tonne
-        all-terrain mobile cranes capable of major infrastructure lifts, to sub-one-tonne spider cranes that can ride
-        elevators to upper floors — we invest in equipment that solves the problems other companies say are
-        impossible. Every unit is RTA-certified, third-party inspected, and maintained to manufacturer standards by
-        our in-house team.</div>
-    </div>
-    <div class="sb-block rev d2">
-      <div class="sbb-ttl">The People</div>
-      <div class="sbb-txt">Every operator in our team is RTA-certified, HSE safety inducted, and trained in defensive
-        operation protocols specific to UAE site conditions. We don't sub out our operator supply — our team is ours,
-        which means every engagement is backed by people who understand and uphold the Al Falak standard of zero harm
-        and complete accountability.</div>
-    </div>
-    <div class="sb-block rev d3">
-      <div class="sbb-ttl">The Commitment</div>
-      <div class="sbb-txt">Our 24/7 operations model means that when your site needs emergency recovery, unplanned
-        fuel management, or same-day additional equipment, you reach a real person who can mobilize immediately. We're
-        based in Dubai Investment Park 2, positioned for rapid response across all seven Emirates. That's not a
-        marketing line — it's the reason our clients call us back project after project.</div>
-    </div>
-  </div>
-  </div>
+  </section>
 
   <!-- VALUES -->
-  <div class="values">
-    <div class="val-head rev">
-      <div>
-        <h2 class="vh-h">OUR <span class="stroke">CORE</span><br><span class="a">VALUES</span></h2>
-      </div>
-      <p class="vh-sub">The principles that govern every decision we make — from how we maintain our fleet to how we
-        support our clients on the most demanding days.</p>
+  <section style="padding: 0 60px 100px; background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 80px 60px;">
+    <div class="reveal" style="margin-bottom: 8px;">
+      <div class="section-label">What We Stand For</div>
+      <h2 class="section-title">Core Values</h2>
     </div>
-    <div class="val-grid">
-      <div class="val-card rev">
-        <div class="vc-num">01</div>
-        <div class="vc-line"></div>
-        <div class="vc-ttl">Zero Harm</div>
-        <div class="vc-txt">Safety is not a policy — it's our operating philosophy. Every operator, every machine, every
-          site visit is governed by a commitment to zero incidents and complete personal accountability.</div>
+    <div class="values-grid">
+      <div class="value-card reveal">
+        <h3>Integrity</h3>
+        <p>Transparent billing, honest timelines, and straightforward communication — no hidden costs, no empty promises. We earn long-term partnerships through accountability.</p>
       </div>
-      <div class="val-card rev d1">
-        <div class="vc-num">02</div>
-        <div class="vc-line"></div>
-        <div class="vc-ttl">Operational Excellence</div>
-        <div class="vc-txt">We hold ourselves to the standards of the sites we serve. Reliable machines. Certified
-          operators. Pre-delivery inspections. On-time arrival. Every time, without exception.</div>
+      <div class="value-card reveal">
+        <h3>Safety</h3>
+        <p>Our "Zero Harm" philosophy is not a slogan — it's embedded in every deployment decision, every operator induction, and every piece of equipment we dispatch to site.</p>
       </div>
-      <div class="val-card rev d2">
-        <div class="vc-num">03</div>
-        <div class="vc-line"></div>
-        <div class="vc-ttl">Partnership, Not Rental</div>
-        <div class="vc-txt">We don't drop off iron and disappear. We engage as a logistics partner — planning alongside
-          your team, responding to site changes, and supporting your timeline as if it were our own.</div>
+      <div class="value-card reveal">
+        <h3>Partnership</h3>
+        <p>We see ourselves as stakeholders in your project's success. When your project runs on time, we've done our job. We measure our performance against your milestones.</p>
       </div>
-      <div class="val-card rev">
-        <div class="vc-num">04</div>
-        <div class="vc-line"></div>
-        <div class="vc-ttl">Rapid Response</div>
-        <div class="vc-txt">Infrastructure doesn't pause. Neither do we. Our 24/7 operations capability means your call
-          at 2am for emergency recovery is answered by someone with the authority and resources to act immediately.
+    </div>
+  </section>
+
+  <!-- HSE COMMITMENT -->
+  <section style="padding: 100px 60px;">
+    <div class="reveal">
+      <div class="section-label">Health, Safety & Environment</div>
+      <h2 class="section-title">Safety First.<br>Always.</h2>
+      <p class="section-desc" style="margin-top: 16px;">
+        HSE is the cornerstone of our corporate ethos. In an industry defined by risk, we operate with a "Zero Harm" philosophy — and the systems to back it up.
+      </p>
+    </div>
+    <div class="hse-grid">
+      <div class="hse-card reveal">
+        <h3>Operator Certification</h3>
+        <p>Mandatory third-party certification and comprehensive HSE safety induction for all operators before any site deployment. No exceptions.</p>
+      </div>
+      <div class="hse-card reveal">
+        <h3>Equipment Integrity</h3>
+        <p>All lifting gear and heavy machinery carry valid third-party inspection certificates. Regular preventative maintenance ensures fleet reliability.</p>
+      </div>
+      <div class="hse-card reveal">
+        <h3>Risk Assessment</h3>
+        <p>Every deployment plan includes a site-specific risk assessment to identify overhead hazards, access constraints, and ground condition risks before work begins.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <div class="cta-banner reveal">
+    <div>
+      <h2>Work With<br>The Best.</h2>
+      <p>Let's discuss how Al Falak can become the operational backbone of your next project.</p>
+    </div>
+    <a href="https://wa.me/971551092200" class="btn-dark" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      Get In Touch
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html"><img src="https://alfalaktransport.com/static/img/logo.png" alt="Al Falak Transport"></a>
+        <p>The operational backbone for Dubai's infrastructure. We deliver integrated heavy equipment solutions, not just rentals.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="fleet.html">Fleet Inventory</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Fleet</h4>
+        <ul>
+          <li><a href="fleet.html#boom-lifts">Boom Lifts</a></li>
+          <li><a href="fleet.html#excavators">Excavators</a></li>
+          <li><a href="fleet.html#mobile-cranes">Mobile Cranes</a></li>
+          <li><a href="fleet.html#forklifts">Forklifts</a></li>
+          <li><a href="fleet.html#telehandlers">Telehandlers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-row">
+          <span class="footer-contact-icon">📍</span>
+          <p>Dubai Investment Park 2,<br>Dubai, UAE</p>
+        </div>
+        <div class="footer-contact-row">
+          <span class="footer-contact-icon">📞</span>
+          <p><a href="tel:+971551092200">+971 55 109 2200</a></p>
+        </div>
+        <div class="footer-contact-row">
+          <span class="footer-contact-icon">✉️</span>
+          <p><a href="mailto:info@alfalaktransport.com">info@alfalaktransport.com</a></p>
         </div>
       </div>
-      <div class="val-card rev d1">
-        <div class="vc-num">05</div>
-        <div class="vc-line"></div>
-        <div class="vc-ttl">Expertise First</div>
-        <div class="vc-txt">Our operators are selected for their proven expertise in UAE conditions. Multi-machine
-          competency, defensive driving, and site-specific knowledge — not just a licence and a hard hat.</div>
-      </div>
-      <div class="val-card rev d2">
-        <div class="vc-num">06</div>
-        <div class="vc-line"></div>
-        <div class="vc-ttl">Total Compliance</div>
-        <div class="vc-txt">Every machine in our fleet is RTA-certified and third-party inspected. Every oversize
-          movement is fully permitted. Full regulatory compliance is not optional — it's foundational.</div>
-      </div>
     </div>
-  </div>
-
-  <!-- CERTIFICATIONS -->
-  <div class="certs">
-    <div class="cert-left rev">
-      <div class="cl-tag">Credentials</div>
-      <h2 class="cl-h">CERTIFIED.<br>TRUSTED.<br><span class="a">ACCOUNTABLE.</span></h2>
-      <p class="cl-txt">Every piece of equipment we operate carries the full weight of UAE regulatory compliance. RTA
-        certification, third-party inspection, and HSE-inducted operators — the complete standard for
-        infrastructure-grade deployment.</p>
-      <div class="cert-badges">
-        <div class="cert-badge"><span class="cb-dot"></span><span class="cb-text">RTA Fleet Certification</span><span
-            class="cb-note">All units</span></div>
-        <div class="cert-badge"><span class="cb-dot"></span><span class="cb-text">Third-Party Inspection
-            Certified</span><span class="cb-note">Annual</span></div>
-        <div class="cert-badge"><span class="cb-dot"></span><span class="cb-text">HSE Safety Induction</span><span
-            class="cb-note">All operators</span></div>
-        <div class="cert-badge"><span class="cb-dot"></span><span class="cb-text">Oversize Load Permits</span><span
-            class="cb-note">All 7 Emirates</span></div>
-        <div class="cert-badge"><span class="cb-dot"></span><span class="cb-text">Defensive Driving Protocol</span><span
-            class="cb-note">All drivers</span></div>
-      </div>
-    </div>
-    <div class="cert-right">
-      <img src="images/content/site_operation_wide.jpg" alt="Al Falak site operations"
-        style="width:100%;height:300px;object-fit:cover;margin-bottom:28px;border:1px solid var(--border);">
-      <div class="cri-block rev">
-        <div class="cri-val"><span class="counter" data-to="50">0</span><span class="u">+</span></div>
-        <div class="cri-lbl">RTA Certified Fleet Units</div>
-      </div>
-      <div class="cri-block rev d1">
-        <div class="cri-val"><span class="counter" data-to="250">0</span><span class="u">T</span></div>
-        <div class="cri-lbl">Maximum Lift Capacity</div>
-      </div>
-      <div class="cri-block rev d2">
-        <div class="cri-val"><span class="counter" data-to="57">0</span><span class="u">M</span></div>
-        <div class="cri-lbl">Maximum Working Height</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CTA -->
-  <div class="cta-band">
-    <div>
-      <div class="cta-h">WORK WITH<br>AL FALAK.</div>
-      <p class="cta-sub">Ready to mobilize? Our team is available 24/7 for immediate fleet deployment.</p>
-    </div>
-    <div class="cta-btns">
-      <a href="https://wa.me/971551092200" class="btn-dark">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-          <path
-            d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37A9.86 9.86 0 01.16 11.89C.16 6.44 4.6 2 10.05 2c2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 012.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.81 11.81 0 0012.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 005.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 00-3.48-8.41" />
-        </svg>
-        WhatsApp Now
-      </a>
-      <a href="contact.html" class="btn-gd" style="border-color:rgba(4,4,4,.22)">View Services</a>
-    </div>
-  </div>
-
-  <footer>
-    <div class="foot-links">
-      <a href="index.html">Home</a><a href="fleet.html">Fleet</a><a href="services.html">Services</a><a
-        href="about.html">About</a><a href="contact.html">Contact</a>
-    </div>
-    <div class="foot-bot">
-      <div class="copy">© 2026 Al Falak Transport LLC. All rights reserved.</div>
-      <div class="legal"><a href="#">Privacy</a><a href="#">Terms</a></div>
+    <div class="footer-bottom">
+      <p>© 2026 Al Falak Transport LLC. All rights reserved.</p>
+      <div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
     </div>
   </footer>
 
-  <script>
-    const cur = document.getElementById('CUR'), cur2 = document.getElementById('CUR2');
-    let mx = 0, my = 0, rx = 0, ry = 0;
-    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cur.style.left = mx + 'px'; cur.style.top = my + 'px'; });
-    (function l() { rx += (mx - rx) * .12; ry += (my - ry) * .12; cur2.style.left = rx + 'px'; cur2.style.top = ry + 'px'; requestAnimationFrame(l); })();
-    document.querySelectorAll('a,button').forEach(el => { el.addEventListener('mouseenter', () => document.body.classList.add('hov')); el.addEventListener('mouseleave', () => document.body.classList.remove('hov')); });
-    const io = new IntersectionObserver(e => e.forEach(el => { if (el.isIntersecting) el.target.classList.add('in'); }), { threshold: .1 });
-    document.querySelectorAll('.rev').forEach(el => io.observe(el));
-    const cio = new IntersectionObserver(e => e.forEach(el => { if (el.isIntersecting && !el.target.dataset.done) { el.target.dataset.done = 1; const to = parseInt(el.target.dataset.to); let v = 0; const t = setInterval(() => { v = Math.min(v + Math.ceil(to / 48), to); el.target.textContent = v; if (v >= to) clearInterval(t); }, 22); } }), { threshold: .5 });
-    document.querySelectorAll('.counter').forEach(el => cio.observe(el));
-  </script>
-</body>
+  <a href="https://wa.me/971551092200" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
 
+  <script src="main.js" defer></script>
+</body>
 </html>

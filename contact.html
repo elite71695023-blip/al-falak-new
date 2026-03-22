@@ -1,1090 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact — Al Falak Transport LLC</title>
+  <meta name="description" content="Contact Al Falak Transport LLC. Dubai Investment Park 2. WhatsApp +971 55 109 2200. Same-day response for all equipment enquiries.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
-    rel="stylesheet">
-  <style>
-    :root {
-      --bg: #040404;
-      --s1: #0a0a0a;
-      --s2: #111;
-      --border: rgba(255, 255, 255, .06);
-      --ba: rgba(212, 132, 26, .25);
-      --amber: #D4841A;
-      --a2: #F09820;
-      --adim: rgba(212, 132, 26, .1);
-      --w: #EDE9E3;
-      --g1: #7A766F;
-      --g2: #4A4640;
-      --D: 'Bebas Neue', cursive;
-      --M: 'DM Mono', monospace;
-      --B: 'DM Sans', sans-serif;
-    }
-
-    *,
-    *::before,
-    *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box
-    }
-
-    html {
-      scroll-behavior: smooth
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--w);
-      font-family: var(--B);
-      overflow-x: hidden;
-      cursor: none
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit
-    }
-
-    #CUR {
-      width: 8px;
-      height: 8px;
-      background: var(--amber);
-      border-radius: 50%;
-      position: fixed;
-      pointer-events: none;
-      z-index: 9990;
-      transform: translate(-50%, -50%);
-      transition: width .2s, height .2s
-    }
-
-    #CUR2 {
-      width: 32px;
-      height: 32px;
-      border: 1px solid rgba(212, 132, 26, .5);
-      border-radius: 50%;
-      position: fixed;
-      pointer-events: none;
-      z-index: 9989;
-      transform: translate(-50%, -50%);
-      transition: width .25s, height .25s, border-color .25s
-    }
-
-    body.hov #CUR {
-      width: 14px;
-      height: 14px
-    }
-
-    body.hov #CUR2 {
-      width: 48px;
-      height: 48px;
-      border-color: var(--amber)
-    }
-
-    /* NAV */
-    nav {
-      position: fixed;
-      top: 0;
-      inset-inline: 0;
-      z-index: 800;
-      height: 68px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 48px;
-      background: rgba(4, 4, 4, .94);
-      border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(24px)
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 14px
-    }
-
-    .logo svg {
-      width: 36px;
-      height: 36px
-    }
-
-    .t1 {
-      font-family: var(--D);
-      font-size: 22px;
-      letter-spacing: .12em;
-      color: var(--w)
-    }
-
-    .t2 {
-      font-family: var(--M);
-      font-size: 8px;
-      letter-spacing: .24em;
-      color: var(--amber);
-      text-transform: uppercase
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 40px;
-      list-style: none
-    }
-
-    .nav-links a {
-      font-family: var(--M);
-      font-size: 10px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--g1);
-      transition: color .2s;
-      position: relative
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: var(--amber);
-      transform: scaleX(0);
-      transition: transform .3s
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--w)
-    }
-
-    .nav-links a.active::after,
-    .nav-links a:hover::after {
-      transform: scaleX(1)
-    }
-
-    .nav-cta {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 11px 24px;
-      background: var(--amber);
-      color: var(--bg);
-      font-family: var(--D);
-      font-size: 15px;
-      letter-spacing: .1em;
-      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
-      transition: background .2s
-    }
-
-    .nav-cta:hover {
-      background: var(--a2)
-    }
-
-    /* PAGE HERO */
-    .page-hd {
-      padding: 130px 48px 72px;
-      border-bottom: 1px solid var(--border);
-      position: relative;
-      overflow: hidden
-    }
-
-    .page-hd::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(212, 132, 26, .028) 79px, rgba(212, 132, 26, .028) 80px), repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(212, 132, 26, .028) 79px, rgba(212, 132, 26, .028) 80px)
-    }
-
-    .page-hd::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at right center, rgba(212, 132, 26, .08) 0%, transparent 52%)
-    }
-
-    .ph-label {
-      font-family: var(--M);
-      font-size: 9px;
-      letter-spacing: .3em;
-      color: var(--amber);
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 16px;
-      position: relative;
-      z-index: 1
-    }
-
-    .ph-label::before {
-      content: '';
-      width: 28px;
-      height: 1px;
-      background: var(--amber)
-    }
-
-    .page-hd h1 {
-      font-family: var(--D);
-      font-size: clamp(64px, 10vw, 148px);
-      line-height: .86;
-      letter-spacing: .02em;
-      text-transform: uppercase;
-      position: relative;
-      z-index: 1
-    }
-
-    .page-hd h1 .a {
-      color: var(--amber)
-    }
-
-    .page-hd h1 .stroke {
-      -webkit-text-stroke: 2px rgba(212, 132, 26, .3);
-      color: transparent
-    }
-
-    .ph-sub {
-      font-size: 15px;
-      line-height: 1.75;
-      color: var(--g1);
-      max-width: 480px;
-      margin-top: 24px;
-      position: relative;
-      z-index: 1
-    }
-
-    .ph-ghost {
-      position: absolute;
-      right: -10px;
-      bottom: -30px;
-      font-family: var(--D);
-      font-size: 300px;
-      line-height: 1;
-      color: rgba(255, 255, 255, .015);
-      letter-spacing: -.04em;
-      pointer-events: none;
-      text-transform: uppercase;
-      z-index: 0
-    }
-
-    /* ONLINE STATUS BAR */
-    .status-bar {
-      background: var(--s1);
-      border-bottom: 1px solid var(--border);
-      padding: 14px 48px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap
-    }
-
-    .sb-live {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--M);
-      font-size: 9px;
-      letter-spacing: .2em;
-      color: #22c55e;
-      text-transform: uppercase
-    }
-
-    .sb-live .dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #22c55e;
-      animation: blink 1.4s ease-in-out infinite
-    }
-
-    .sb-divider {
-      width: 1px;
-      height: 14px;
-      background: var(--border)
-    }
-
-    .sb-note {
-      font-family: var(--M);
-      font-size: 9px;
-      letter-spacing: .16em;
-      color: var(--g1);
-      text-transform: uppercase
-    }
-
-    .sb-note span {
-      color: var(--amber)
-    }
-
-    @keyframes blink {
-
-      0%,
-      100% {
-        opacity: 1
-      }
-
-      50% {
-        opacity: .25
-      }
-    }
-
-    /* CONTACT SPLIT */
-    .contact-body {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 700px
-    }
-
-    /* LEFT PANEL */
-    .con-left {
-      padding: 72px 64px;
-      border-right: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      gap: 0
-    }
-
-    /* WA HERO BLOCK */
-    .wa-hero {
-      background: var(--amber);
-      padding: 40px;
-      margin-bottom: 2px;
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-      transition: background .2s
-    }
-
-    .wa-hero:hover {
-      background: var(--a2)
-    }
-
-    .wa-hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(4, 4, 4, .04)
-    }
-
-    .wah-label {
-      font-family: var(--M);
-      font-size: 8.5px;
-      letter-spacing: .24em;
-      color: rgba(4, 4, 4, .45);
-      text-transform: uppercase;
-      margin-bottom: 12px
-    }
-
-    .wah-h {
-      font-family: var(--D);
-      font-size: 42px;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-      color: var(--bg);
-      line-height: .9;
-      margin-bottom: 14px
-    }
-
-    .wah-sub {
-      font-size: 13px;
-      color: rgba(4, 4, 4, .5);
-      line-height: 1.7;
-      margin-bottom: 24px;
-      max-width: 280px
-    }
-
-    .wah-num {
-      font-family: var(--D);
-      font-size: 28px;
-      letter-spacing: .05em;
-      color: var(--bg);
-      display: flex;
-      align-items: center;
-      gap: 10px
-    }
-
-    .wah-num svg {
-      opacity: .6
-    }
-
-    .wah-arrow {
-      position: absolute;
-      top: 24px;
-      right: 28px;
-      font-family: var(--D);
-      font-size: 36px;
-      color: rgba(4, 4, 4, .2);
-      transition: transform .3s, color .3s
-    }
-
-    .wa-hero:hover .wah-arrow {
-      transform: translate(4px, -4px);
-      color: rgba(4, 4, 4, .4)
-    }
-
-    /* DETAIL CARDS */
-    .detail-cards {
-      display: flex;
-      flex-direction: column;
-      gap: 2px
-    }
-
-    .dc {
-      display: flex;
-      gap: 18px;
-      align-items: flex-start;
-      padding: 22px 24px;
-      background: var(--s1);
-      border: 1px solid var(--border);
-      border-top: none;
-      transition: background .3s, border-color .3s;
-      position: relative;
-      overflow: hidden
-    }
-
-    .dc:first-child {
-      border-top: 1px solid var(--border)
-    }
-
-    .dc::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: var(--amber);
-      transform: scaleY(0);
-      transform-origin: bottom;
-      transition: transform .4s cubic-bezier(.16, 1, .3, 1)
-    }
-
-    .dc:hover {
-      background: var(--s2);
-      border-color: var(--ba)
-    }
-
-    .dc:hover::before {
-      transform: scaleY(1)
-    }
-
-    .dc-icon {
-      width: 40px;
-      height: 40px;
-      border: 1px solid var(--ba);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--amber);
-      flex-shrink: 0;
-      transition: background .3s
-    }
-
-    .dc:hover .dc-icon {
-      background: var(--adim)
-    }
-
-    .dc-lbl {
-      font-family: var(--M);
-      font-size: 8px;
-      letter-spacing: .22em;
-      color: var(--amber);
-      text-transform: uppercase;
-      margin-bottom: 4px
-    }
-
-    .dc-val {
-      font-size: 14px;
-      color: var(--w);
-      font-weight: 500;
-      transition: color .2s;
-      display: block
-    }
-
-    a.dc-val:hover {
-      color: var(--amber)
-    }
-
-    .dc-sub {
-      font-size: 11px;
-      color: var(--g1);
-      margin-top: 2px
-    }
-
-    /* HOURS */
-    .hours-block {
-      padding: 28px 24px;
-      background: var(--s2);
-      border: 1px solid var(--border);
-      margin-top: 2px
-    }
-
-    .hb-title {
-      font-family: var(--D);
-      font-size: 16px;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--w);
-      margin-bottom: 16px
-    }
-
-    .hb-rows {
-      display: flex;
-      flex-direction: column;
-      gap: 8px
-    }
-
-    .hb-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--border)
-    }
-
-    .hb-row:last-child {
-      border-bottom: none;
-      padding-bottom: 0
-    }
-
-    .hb-day {
-      font-family: var(--M);
-      font-size: 9px;
-      letter-spacing: .16em;
-      color: var(--g1);
-      text-transform: uppercase
-    }
-
-    .hb-time {
-      font-family: var(--M);
-      font-size: 9px;
-      letter-spacing: .14em;
-      color: var(--w)
-    }
-
-    .hb-time.green {
-      color: #22c55e
-    }
-
-    /* RIGHT PANEL — MAP + INFO */
-    .con-right {
-      display: flex;
-      flex-direction: column;
-      background: var(--s2)
-    }
-
-    /* Map */
-    .map-zone {
-      flex: 1;
-      min-height: 400px;
-      background: var(--s1);
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center
-    }
-
-    .map-zone::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(212, 132, 26, .04) 39px, rgba(212, 132, 26, .04) 40px), repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(212, 132, 26, .04) 39px, rgba(212, 132, 26, .04) 40px)
-    }
-
-    /* Animated radar pulse for map placeholder */
-    .map-radar {
-      position: relative;
-      width: 100px;
-      height: 100px
-    }
-
-    .mr-pulse {
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      border: 1px solid var(--amber);
-      animation: radarPulse 2.4s ease-out infinite;
-      opacity: 0
-    }
-
-    .mr-pulse:nth-child(2) {
-      animation-delay: .8s
-    }
-
-    .mr-pulse:nth-child(3) {
-      animation-delay: 1.6s
-    }
-
-    .mr-dot {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: var(--amber)
-    }
-
-    .map-ph-txt {
-      position: absolute;
-      bottom: 0;
-      inset-inline: 0;
-      text-align: center;
-      padding: 16px;
-      font-family: var(--M);
-      font-size: 8px;
-      letter-spacing: .18em;
-      color: rgba(212, 132, 26, .25);
-      text-transform: uppercase;
-      line-height: 1.8;
-      background: linear-gradient(to top, rgba(4, 4, 4, .8), transparent)
-    }
-
-    @keyframes radarPulse {
-      0% {
-        transform: scale(0.5);
-        opacity: .7
-      }
-
-      100% {
-        transform: scale(3.5);
-        opacity: 0
-      }
-    }
-
-    /* Pin card overlay */
-    .pin-card {
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      right: 20px;
-      background: rgba(4, 4, 4, .92);
-      backdrop-filter: blur(12px);
-      border: 1px solid var(--ba);
-      padding: 20px 22px;
-      z-index: 2
-    }
-
-    .pc-lbl {
-      font-family: var(--M);
-      font-size: 8px;
-      letter-spacing: .2em;
-      color: var(--amber);
-      text-transform: uppercase;
-      margin-bottom: 6px
-    }
-
-    .pc-addr {
-      font-size: 14px;
-      color: var(--w);
-      font-weight: 500;
-      line-height: 1.6
-    }
-
-    .pc-note {
-      font-size: 11px;
-      color: var(--g1);
-      margin-top: 4px
-    }
-
-    /* Info panel below map */
-    .info-panel {
-      border-top: 1px solid var(--border);
-      padding: 36px 40px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px
-    }
-
-
-
-    .ip-lbl {
-      font-family: var(--M);
-      font-size: 8px;
-      letter-spacing: .22em;
-      color: var(--amber);
-      text-transform: uppercase;
-      margin-bottom: 8px
-    }
-
-    .ip-val {
-      font-size: 14px;
-      color: var(--w);
-      line-height: 1.6;
-      font-weight: 500
-    }
-
-    .ip-sub {
-      font-size: 11px;
-      color: var(--g1);
-      margin-top: 3px
-    }
-
-    /* EMERGENCY STRIP */
-    .emergency {
-      background: rgba(212, 132, 26, .08);
-      border: 1px solid rgba(212, 132, 26, .2);
-      border-left: 3px solid var(--amber);
-      margin: 0 48px 48px;
-      padding: 22px 28px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: space-between
-    }
-
-    .em-left {
-      display: flex;
-      align-items: center;
-      gap: 14px
-    }
-
-    .em-icon {
-      width: 36px;
-      height: 36px;
-      color: var(--amber);
-      flex-shrink: 0
-    }
-
-    .em-ttl {
-      font-family: var(--D);
-      font-size: 18px;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: var(--w)
-    }
-
-    .em-sub {
-      font-size: 12px;
-      color: var(--g1);
-      margin-top: 2px
-    }
-
-    .btn-fire-sm {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 24px;
-      background: var(--amber);
-      color: var(--bg);
-      font-family: var(--D);
-      font-size: 16px;
-      letter-spacing: .08em;
-      clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
-      transition: background .2s, transform .2s;
-      flex-shrink: 0
-    }
-
-    .btn-fire-sm:hover {
-      background: var(--a2);
-      transform: translateY(-2px)
-    }
-
-    /* CTA BAND */
-    .cta-band {
-      background: var(--amber);
-      padding: 80px 48px;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 32px;
-      flex-wrap: wrap
-    }
-
-    .cta-band::before {
-      content: 'CONNECT';
-      position: absolute;
-      right: -20px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-family: var(--D);
-      font-size: 260px;
-      line-height: 1;
-      color: rgba(4, 4, 4, .06);
-      pointer-events: none;
-      white-space: nowrap;
-      letter-spacing: -.04em
-    }
-
-    .cta-h {
-      font-family: var(--D);
-      font-size: clamp(44px, 6.5vw, 100px);
-      line-height: .86;
-      text-transform: uppercase;
-      color: var(--bg);
-      position: relative;
-      z-index: 1
-    }
-
-    .cta-sub {
-      font-size: 15px;
-      color: rgba(4, 4, 4, .5);
-      margin-top: 12px;
-      font-weight: 500;
-      max-width: 340px
-    }
-
-    .cta-btns {
-      display: flex;
-      gap: 12px;
-      position: relative;
-      z-index: 1;
-      flex-wrap: wrap
-    }
-
-    .btn-dark {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 16px 34px;
-      background: var(--bg);
-      color: var(--w);
-      font-family: var(--D);
-      font-size: 17px;
-      letter-spacing: .08em;
-      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
-      transition: background .2s, transform .2s
-    }
-
-    .btn-dark:hover {
-      background: #1a1a1a;
-      transform: translateY(-2px)
-    }
-
-    .btn-gd {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 15px 32px;
-      border: 2px solid rgba(4, 4, 4, .22);
-      color: var(--bg);
-      font-family: var(--D);
-      font-size: 17px;
-      letter-spacing: .08em;
-      transition: background .2s, transform .2s
-    }
-
-    .btn-gd:hover {
-      background: rgba(4, 4, 4, .08);
-      transform: translateY(-2px)
-    }
-
-    /* FOOTER */
-    footer {
-      background: var(--s1);
-      border-top: 1px solid var(--border);
-      padding: 52px 48px 32px
-    }
-
-    .foot-bot {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px
-    }
-
-    .foot-links {
-      display: flex;
-      gap: 32px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 36px
-    }
-
-    .foot-links a {
-      font-family: var(--M);
-      font-size: 9px;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: var(--g2);
-      transition: color .2s
-    }
-
-    .foot-links a:hover {
-      color: var(--amber)
-    }
-
-    .copy {
-      font-family: var(--M);
-      font-size: 9px;
-      letter-spacing: .12em;
-      color: var(--g2)
-    }
-
-    .legal {
-      display: flex;
-      gap: 22px
-    }
-
-    .legal a {
-      font-family: var(--M);
-      font-size: 9px;
-      letter-spacing: .12em;
-      color: var(--g2);
-      text-transform: uppercase;
-      transition: color .2s
-    }
-
-    .legal a:hover {
-      color: var(--g1)
-    }
-
-    .rev {
-      opacity: 0;
-      transform: translateY(36px);
-      transition: opacity .9s ease, transform .9s cubic-bezier(.16, 1, .3, 1)
-    }
-
-    .rev.in {
-      opacity: 1;
-      transform: none
-    }
-
-    .d1 {
-      transition-delay: .1s
-    }
-
-    .d2 {
-      transition-delay: .2s
-    }
-
-    .d3 {
-      transition-delay: .3s
-    }
-
-    @media(max-width:900px) {
-      .contact-body {
-        grid-template-columns: 1fr
-      }
-    }
-
-    @media(max-width:700px) {
-      nav {
-        padding: 0 20px
-      }
-
-      .nav-links {
-        display: none
-      }
-
-      .page-hd {
-        padding: 100px 20px 56px
-      }
-
-      .status-bar {
-        padding: 12px 20px
-      }
-
-      .con-left {
-        padding: 48px 20px
-      }
-
-      .emergency {
-        margin: 0 20px 40px
-      }
-
-      .cta-band {
-        padding: 64px 20px;
-        flex-direction: column
-      }
-
-      .cta-btns {
-        flex-direction: column;
-        width: 100%
-      }
-
-      .info-panel {
-        grid-template-columns: 1fr
-      }
-
-      footer {
-        padding: 40px 20px 24px
-      }
-    }
-
-    .wa-float {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      z-index: 8000
-    }
-
-    .wa-bubble {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: #25D366;
-      padding: 14px 20px;
-      clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
-      cursor: pointer;
-      transition: transform .2s;
-      text-decoration: none;
-      box-shadow: 0 4px 24px rgba(37, 211, 102, .3)
-    }
-
-    .wa-bubble:hover {
-      transform: translateY(-3px)
-    }
-
-    .wa-label {
-      font-family: var(--D);
-      font-size: 14px;
-      letter-spacing: .08em;
-      color: #fff;
-      white-space: nowrap
-    }
-
-    .wa-ping {
-      position: absolute;
-      top: -4px;
-      right: -4px;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #ff4444;
-      animation: waping 1.8s ease-in-out infinite
-    }
-
-    @keyframes waping {
-
-      0%,
-      100% {
-        transform: scale(1);
-        opacity: 1
-      }
-
-      50% {
-        transform: scale(1.5);
-        opacity: 0
-      }
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <div class="wa-float"><a href="https://wa.me/971551092200" class="wa-bubble" target="_blank" rel="noopener">
-      <div class="wa-ping"
-        style="position:absolute;top:-4px;right:-4px;width:12px;height:12px;border-radius:50%;background:#ff4444;animation:waping 1.8s ease-in-out infinite">
-      </div><svg width="22" height="22" viewBox="0 0 24 24" fill="white">
-        <path
-          d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37A9.86 9.86 0 01.16 11.89C.16 6.44 4.6 2 10.05 2c2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 012.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.81 11.81 0 0012.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 005.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 00-3.48-8.41" />
-      </svg><span class="wa-label">WhatsApp Us</span>
-    </a></div>
-  <div id="CUR"></div>
-  <div id="CUR2"></div>
 
-  <nav>
-    <a href="index.html" class="logo">
-      <img src="images/ui/logo.jpg" alt="Al Falak Transport Logo" style="height:40px;width:auto;display:block;">
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="https://alfalaktransport.com/static/img/logo.png" alt="Al Falak Transport">
+      <div class="nav-logo-text">Al Falak <span>Transport LLC</span></div>
     </a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
@@ -1093,260 +25,177 @@
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html" class="active">Contact</a></li>
     </ul>
-    <a href="https://wa.me/971551092200" class="nav-cta">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-        <path
-          d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37A9.86 9.86 0 01.16 11.89C.16 6.44 4.6 2 10.05 2c2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 012.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.81 11.81 0 0012.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 005.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 00-3.48-8.41" />
-      </svg>
-      GET QUOTE
-    </a>
+    <div class="nav-right">
+      <a href="https://wa.me/971551092200" class="btn-primary" target="_blank" rel="noopener">Get Quote</a>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
   </nav>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="fleet.html">Fleet Inventory</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html" class="active">Contact</a>
+    <a href="https://wa.me/971551092200" target="_blank" style="color:#25D366">WhatsApp Us</a>
+  </div>
 
   <!-- PAGE HERO -->
-  <div class="page-hd">
-    <div class="ph-label">Reach Our Team</div>
-    <h1><span class="a">GET</span> IN<br><span class="stroke">TOUCH.</span></h1>
-    <p class="ph-sub">Ready to mobilize? Our operations team is active 24/7 for fleet availability checks, immediate
-      deployment, and custom logistics planning.</p>
-    <div class="ph-ghost">CONNECT</div>
-  </div>
-
-  <!-- ONLINE STATUS -->
-  <div class="status-bar">
-    <div class="sb-live"><span class="dot"></span>Operations Team Online</div>
-    <div class="sb-divider"></div>
-    <div class="sb-note">Response time: <span>Under 1 hour</span></div>
-    <div class="sb-divider"></div>
-    <div class="sb-note">WhatsApp: <span>+971 55 109 2200</span></div>
-  </div>
-
-  <!-- CONTACT BODY -->
-  <div class="contact-body">
-
-    <!-- LEFT: Contact details -->
-    <div class="con-left">
-
-      <!-- WhatsApp CTA Hero -->
-      <a href="https://wa.me/971551092200" class="wa-hero rev">
-        <div class="wah-label">Fastest Response Channel</div>
-        <div class="wah-h">CHAT ON<br>WHATSAPP</div>
-        <p class="wah-sub">Get an immediate response from our logistics team. Available around the clock for quotes,
-          availability checks, and urgent deployments.</p>
-        <div class="wah-num">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37A9.86 9.86 0 01.16 11.89C.16 6.44 4.6 2 10.05 2c2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 012.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.81 11.81 0 0012.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 005.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 00-3.48-8.41" />
-          </svg>
-          +971 55 109 2200
-        </div>
-        <div class="wah-arrow">↗</div>
-      </a>
-
-      <!-- Detail cards -->
-      <div class="detail-cards">
-        <div class="dc rev d1">
-          <div class="dc-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path
-                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.02v2.9z" />
-            </svg>
-          </div>
-          <div>
-            <div class="dc-lbl">Phone</div>
-            <a href="tel:+971551092200" class="dc-val">+971 55 109 2200</a>
-            <div class="dc-sub">Also available on WhatsApp</div>
-          </div>
-        </div>
-
-        <div class="dc rev d1">
-          <div class="dc-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-              <polyline points="22,6 12,13 2,6" />
-            </svg>
-          </div>
-          <div>
-            <div class="dc-lbl">Email</div>
-            <a href="/cdn-cgi/l/email-protection#7910171f163918151f181518120d0b18170a09160b0d571a1614"
-              class="dc-val"><span class="__cf_email__"
-                data-cfemail="2a43444c456a4b464c4b464b415e584b44595a45585e04494547">[email&#160;protected]</span></a>
-            <div class="dc-sub">For formal inquiries and quotes</div>
-          </div>
-        </div>
-
-        <div class="dc rev d2">
-          <div class="dc-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-              <circle cx="12" cy="10" r="3" />
-            </svg>
-          </div>
-          <div>
-            <div class="dc-lbl">Head Office</div>
-            <span class="dc-val">Office No. 204, Hilal Hamoud Sulaiman Al Ayal Naser, Deira, Dubai, UAE</span>
-            <div class="dc-sub">P.O. Box 6356, Dubai</div>
-          </div>
-        </div>
-
-        <div class="dc rev d2">
-          <div class="dc-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <rect x="2" y="7" width="20" height="14" rx="2" />
-              <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" />
-              <line x1="12" y1="12" x2="12" y2="16" />
-              <line x1="10" y1="14" x2="14" y2="14" />
-            </svg>
-          </div>
-          <div>
-            <div class="dc-lbl">Operations Base</div>
-            <span class="dc-val">Dubai Investment Park 2, Dubai, UAE</span>
-            <div class="dc-sub">Equipment depot and dispatch hub</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Hours -->
-      <div class="hours-block rev d3" style="margin-top:2px">
-        <div class="hb-title">Operating Hours</div>
-        <div class="hb-rows">
-          <div class="hb-row"><span class="hb-day">Monday – Friday</span><span class="hb-time green">24/7
-              Available</span></div>
-          <div class="hb-row"><span class="hb-day">Saturday</span><span class="hb-time green">24/7 Available</span>
-          </div>
-          <div class="hb-row"><span class="hb-day">Sunday</span><span class="hb-time green">24/7 Available</span></div>
-          <div class="hb-row"><span class="hb-day">Emergency Recovery</span><span class="hb-time green">Always On</span>
-          </div>
-        </div>
-      </div>
-
+  <div class="page-hero">
+    <div class="page-hero-bg">
+      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1800&auto=format&fit=crop" alt="" loading="eager">
     </div>
-
-    <!-- RIGHT: Map + Info -->
-    <div class="con-right">
-      <div class="map-zone">
-        <!--
-        EMBED GOOGLE MAPS:
-        <iframe src="https://www.google.com/maps/embed?pb=..."
-          width="100%" height="100%" style="border:0;position:absolute;inset:0;"
-          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      -->
-        <!-- Placeholder until map is embedded -->
-        <div class="map-radar">
-          <div class="mr-pulse"></div>
-          <div class="mr-pulse"></div>
-          <div class="mr-pulse"></div>
-          <div class="mr-dot"></div>
-        </div>
-        <div class="map-ph-txt">
-          EMBED GOOGLE MAP HERE<br>
-          Dubai Investment Park 2, Dubai, UAE<br>
-          Replace this block with &lt;iframe src="maps.google.com/embed..."&gt;
-        </div>
-        <div class="pin-card">
-          <div class="pc-lbl">Operations Base</div>
-          <div class="pc-addr">Dubai Investment Park 2<br>Dubai, United Arab Emirates</div>
-          <div class="pc-note">P.O. Box 6356 · Head Office: Deira, Dubai</div>
-        </div>
-      </div>
-
-      <div class="info-panel">
-        <div class="ip-block">
-          <div class="ip-lbl">Service Coverage</div>
-          <div class="ip-val">All 7 Emirates</div>
-          <div class="ip-sub">Dubai · Abu Dhabi · Sharjah · Ajman · RAK · Fujairah · UAQ</div>
-        </div>
-        <div class="ip-block">
-          <div class="ip-lbl">Deployment Time</div>
-          <div class="ip-val">Within 24 Hours</div>
-          <div class="ip-sub">From enquiry to equipment on-site</div>
-        </div>
-        <div class="ip-block">
-          <div class="ip-lbl">Fleet Availability</div>
-          <div class="ip-val" style="color:#22c55e;display:flex;align-items:center;gap:8px">
-            <span
-              style="width:8px;height:8px;border-radius:50%;background:#22c55e;display:inline-block;animation:blink 1.4s ease-in-out infinite"></span>
-            Online Now
-          </div>
-          <div class="ip-sub">50+ units ready for deployment</div>
-        </div>
-        <div class="ip-block">
-          <div class="ip-lbl">Enquiry Response</div>
-          <div class="ip-val">Under 1 Hour</div>
-          <div class="ip-sub">Via WhatsApp, 24 hours a day</div>
-        </div>
-      </div>
+    <div class="page-hero-gradient"></div>
+    <div class="page-hero-content">
+      <p class="breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; <span>Contact</span></p>
+      <div class="section-label fade-up d1">Reach Us</div>
+      <h1 class="section-title fade-up d2" style="font-size: clamp(52px,7vw,96px);">Let's Build<br>Together</h1>
+      <p class="section-desc fade-up d3">Same-day response guaranteed. Our team is ready to put together a custom equipment plan for your project.</p>
     </div>
-
   </div>
 
-  <!-- EMERGENCY STRIP -->
-  <div class="emergency rev">
-    <div class="em-left">
-      <svg class="em-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4">
-        <circle cx="18" cy="18" r="14" />
-        <line x1="18" y1="10" x2="18" y2="18" />
-        <line x1="18" y1="22" x2="18" y2="25" />
-      </svg>
+  <!-- CONTACT LAYOUT -->
+  <section style="padding: 100px 60px;">
+    <div class="contact-layout reveal">
+
+      <!-- Left: Contact Info -->
       <div>
-        <div class="em-ttl">Emergency Site Support</div>
-        <div class="em-sub">24/7 breakdown recovery, emergency fuel, and rapid equipment replacement — call us directly.
+        <div class="section-label">Direct Channels</div>
+        <h2 class="section-title" style="margin-bottom: 40px;">Get in Touch</h2>
+
+        <div class="contact-info-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <h4>Address</h4>
+            <p>Dubai Investment Park 2<br>Dubai, United Arab Emirates</p>
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <h4>Phone</h4>
+            <a href="tel:+971551092200">+971 55 109 2200</a>
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <h4>Email</h4>
+            <a href="mailto:info@alfalaktransport.com">info@alfalaktransport.com</a>
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="contact-icon">🕐</div>
+          <div>
+            <h4>Operating Hours</h4>
+            <p>Saturday – Thursday: 7:00 AM – 6:00 PM<br>
+            Friday: By appointment<br>
+            <span style="color: var(--accent); font-size: 13px;">24/7 Emergency Breakdown Support</span></p>
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="contact-icon">🗺️</div>
+          <div>
+            <h4>Coverage Area</h4>
+            <p>All seven Emirates — Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah, Umm Al Quwain.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Action Card -->
+      <div>
+        <div class="contact-card reveal">
+          <h3>Request a Quote</h3>
+          <p>The fastest way to get a price and availability confirmation is via WhatsApp. Our team responds within hours during business hours.</p>
+
+          <a href="https://wa.me/971551092200" class="wa-button-large" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Chat on WhatsApp &nbsp;+971 55 109 2200
+          </a>
+
+          <a href="tel:+971551092200" class="phone-button-large">
+            <span style="font-size: 20px;">📞</span>
+            Call &nbsp;+971 55 109 2200
+          </a>
+
+          <p class="contact-note">
+            For complex projects, include your equipment requirement, project location, and rental duration in your message — this helps our team prepare an accurate quote faster.
+          </p>
+
+          <!-- Quick links -->
+          <div style="margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--border);">
+            <p style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 16px;">Quick Enquiry Links</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+              <a href="https://wa.me/971551092200?text=I'm%20interested%20in%20renting%20a%20Boom%20Lift" target="_blank" style="font-size: 12px; padding: 7px 14px; border: 1px solid var(--border); color: var(--text-muted); transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-muted)'">Boom Lifts</a>
+              <a href="https://wa.me/971551092200?text=I'm%20interested%20in%20renting%20an%20Excavator" target="_blank" style="font-size: 12px; padding: 7px 14px; border: 1px solid var(--border); color: var(--text-muted); transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-muted)'">Excavators</a>
+              <a href="https://wa.me/971551092200?text=I'm%20interested%20in%20renting%20a%20Mobile%20Crane" target="_blank" style="font-size: 12px; padding: 7px 14px; border: 1px solid var(--border); color: var(--text-muted); transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-muted)'">Mobile Cranes</a>
+              <a href="https://wa.me/971551092200?text=I'm%20interested%20in%20renting%20a%20Forklift" target="_blank" style="font-size: 12px; padding: 7px 14px; border: 1px solid var(--border); color: var(--text-muted); transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-muted)'">Forklifts</a>
+              <a href="https://wa.me/971551092200?text=I'm%20interested%20in%20renting%20a%20Generator" target="_blank" style="font-size: 12px; padding: 7px 14px; border: 1px solid var(--border); color: var(--text-muted); transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-muted)'">Generators</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html"><img src="https://alfalaktransport.com/static/img/logo.png" alt="Al Falak Transport"></a>
+        <p>The operational backbone for Dubai's infrastructure. We deliver integrated heavy equipment solutions, not just rentals.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="fleet.html">Fleet Inventory</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Fleet</h4>
+        <ul>
+          <li><a href="fleet.html#boom-lifts">Boom Lifts</a></li>
+          <li><a href="fleet.html#excavators">Excavators</a></li>
+          <li><a href="fleet.html#mobile-cranes">Mobile Cranes</a></li>
+          <li><a href="fleet.html#forklifts">Forklifts</a></li>
+          <li><a href="fleet.html#telehandlers">Telehandlers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-row">
+          <span class="footer-contact-icon">📍</span>
+          <p>Dubai Investment Park 2,<br>Dubai, UAE</p>
+        </div>
+        <div class="footer-contact-row">
+          <span class="footer-contact-icon">📞</span>
+          <p><a href="tel:+971551092200">+971 55 109 2200</a></p>
+        </div>
+        <div class="footer-contact-row">
+          <span class="footer-contact-icon">✉️</span>
+          <p><a href="mailto:info@alfalaktransport.com">info@alfalaktransport.com</a></p>
         </div>
       </div>
     </div>
-    <a href="tel:+971551092200" class="btn-fire-sm">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-        <path
-          d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.02v2.9z" />
-      </svg>
-      Call Now
-    </a>
-  </div>
-
-  <!-- CTA -->
-  <div class="cta-band">
-    <div>
-      <div class="cta-h">LET'S BUILD<br>SOMETHING BIG.</div>
-      <p class="cta-sub">From a single unit rental to a full site mobilization — Al Falak is ready.</p>
-    </div>
-    <div class="cta-btns">
-      <a href="https://wa.me/971551092200" class="btn-dark">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-          <path
-            d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37A9.86 9.86 0 01.16 11.89C.16 6.44 4.6 2 10.05 2c2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 012.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.81 11.81 0 0012.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 005.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 00-3.48-8.41" />
-        </svg>
-        WhatsApp Us
-      </a>
-      <a href="fleet.html" class="btn-gd">View Fleet</a>
-    </div>
-  </div>
-
-  <footer>
-    <div class="foot-links">
-      <a href="index.html">Home</a><a href="fleet.html">Fleet</a>
-      <a href="services.html">Services</a><a href="about.html">About</a><a href="contact.html">Contact</a>
-    </div>
-    <div class="foot-bot">
-      <div class="copy">© 2026 Al Falak Transport LLC. All rights reserved.</div>
-      <div class="legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Sitemap</a></div>
+    <div class="footer-bottom">
+      <p>© 2026 Al Falak Transport LLC. All rights reserved.</p>
+      <div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
     </div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-  <script>
-    const cur = document.getElementById('CUR'), cur2 = document.getElementById('CUR2');
-    let mx = 0, my = 0, rx = 0, ry = 0;
-    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cur.style.left = mx + 'px'; cur.style.top = my + 'px'; });
-    (function l() { rx += (mx - rx) * .12; ry += (my - ry) * .12; cur2.style.left = rx + 'px'; cur2.style.top = ry + 'px'; requestAnimationFrame(l); })();
-    document.querySelectorAll('a,button').forEach(el => {
-      el.addEventListener('mouseenter', () => document.body.classList.add('hov'));
-      el.addEventListener('mouseleave', () => document.body.classList.remove('hov'));
-    });
-    const io = new IntersectionObserver(e => e.forEach(el => {
-      if (el.isIntersecting) el.target.classList.add('in');
-    }), { threshold: .1 });
-    document.querySelectorAll('.rev').forEach(el => io.observe(el));
-  </script>
-</body>
+  <a href="https://wa.me/971551092200" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
 
+  <script src="main.js" defer></script>
+</body>
 </html>

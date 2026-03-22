@@ -1,1108 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fleet Inventory — Al Falak Transport LLC</title>
+  <meta name="description" content="Browse Al Falak Transport's full heavy equipment fleet — boom lifts, excavators, cranes, forklifts, telehandlers and more. Available for rent across Dubai and UAE.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
-    rel="stylesheet">
-  <style>
-    :root {
-      --bg: #040404;
-      --s1: #0a0a0a;
-      --s2: #111;
-      --s3: #181818;
-      --border: rgba(255, 255, 255, .06);
-      --borderamber: rgba(212, 132, 26, .25);
-      --amber: #D4841A;
-      --amber2: #F09820;
-      --amberdim: rgba(212, 132, 26, .1);
-      --w: #EDE9E3;
-      --g1: #7A766F;
-      --g2: #4A4640;
-      --D: 'Bebas Neue', cursive;
-      --M: 'DM Mono', monospace;
-      --B: 'DM Sans', sans-serif;
-    }
-
-    *,
-    *::before,
-    *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box
-    }
-
-    html {
-      scroll-behavior: smooth
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--w);
-      font-family: var(--B);
-      overflow-x: hidden;
-      cursor: none
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit
-    }
-
-    #CUR {
-      width: 8px;
-      height: 8px;
-      background: var(--amber);
-      border-radius: 50%;
-      position: fixed;
-      pointer-events: none;
-      z-index: 9990;
-      transform: translate(-50%, -50%);
-      transition: width .2s, height .2s
-    }
-
-    #CUR2 {
-      width: 32px;
-      height: 32px;
-      border: 1px solid rgba(212, 132, 26, .5);
-      border-radius: 50%;
-      position: fixed;
-      pointer-events: none;
-      z-index: 9989;
-      transform: translate(-50%, -50%);
-      transition: width .25s, height .25s, border-color .25s
-    }
-
-    body.hov #CUR {
-      width: 14px;
-      height: 14px
-    }
-
-    body.hov #CUR2 {
-      width: 48px;
-      height: 48px;
-      border-color: var(--amber)
-    }
-
-    nav {
-      position: fixed;
-      top: 0;
-      inset-inline: 0;
-      z-index: 800;
-      height: 68px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 48px;
-      background: rgba(4, 4, 4, .94);
-      border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(24px)
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 14px
-    }
-
-    .logo-icon svg {
-      width: 36px;
-      height: 36px
-    }
-
-    .t1 {
-      font-family: var(--D);
-      font-size: 22px;
-      letter-spacing: .12em;
-      color: var(--w)
-    }
-
-    .t2 {
-      font-family: var(--M);
-      font-size: 8px;
-      letter-spacing: .24em;
-      color: var(--amber);
-      text-transform: uppercase
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 40px;
-      list-style: none
-    }
-
-    .nav-links a {
-      font-family: var(--M);
-      font-size: 10px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--g1);
-      transition: color .2s;
-      position: relative
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: var(--amber);
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform .3s
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--w)
-    }
-
-    .nav-links a.active::after,
-    .nav-links a:hover::after {
-      transform: scaleX(1);
-      transform-origin: left
-    }
-
-    .nav-cta {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 11px 24px;
-      background: var(--amber);
-      color: var(--bg);
-      font-family: var(--D);
-      font-size: 15px;
-      letter-spacing: .1em;
-      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
-      transition: background .2s
-    }
-
-    .nav-cta:hover {
-      background: var(--amber2)
-    }
-
-    /* PAGE HEADER */
-    .page-hd {
-      padding: 120px 48px 64px;
-      position: relative;
-      overflow: hidden;
-      border-bottom: 1px solid var(--border)
-    }
-
-    .page-hd::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(212, 132, 26, .028) 79px, rgba(212, 132, 26, .028) 80px), repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(212, 132, 26, .028) 79px, rgba(212, 132, 26, .028) 80px)
-    }
-
-    .page-hd::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at left center, rgba(212, 132, 26, .07) 0%, transparent 55%)
-    }
-
-    .ph-label {
-      font-family: var(--M);
-      font-size: 9px;
-      letter-spacing: .3em;
-      color: var(--amber);
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 16px;
-      position: relative;
-      z-index: 1
-    }
-
-    .ph-label::before {
-      content: '';
-      width: 28px;
-      height: 1px;
-      background: var(--amber)
-    }
-
-    .page-hd h1 {
-      font-family: var(--D);
-      font-size: clamp(64px, 10vw, 148px);
-      line-height: .86;
-      letter-spacing: .02em;
-      text-transform: uppercase;
-      position: relative;
-      z-index: 1
-    }
-
-    .page-hd h1 .a {
-      color: var(--amber)
-    }
-
-    .page-hd h1 .stroke {
-      -webkit-text-stroke: 2px rgba(212, 132, 26, .35);
-      color: transparent
-    }
-
-    .ph-ghost {
-      position: absolute;
-      right: -10px;
-      bottom: -10px;
-      font-family: var(--D);
-      font-size: 280px;
-      line-height: 1;
-      color: rgba(255, 255, 255, .018);
-      letter-spacing: -.04em;
-      pointer-events: none;
-      text-transform: uppercase;
-      z-index: 0
-    }
-
-    .ph-meta {
-      display: flex;
-      gap: 40px;
-      margin-top: 28px;
-      position: relative;
-      z-index: 1;
-      flex-wrap: wrap
-    }
-
-    .pm-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-family: var(--M);
-      font-size: 9px;
-      letter-spacing: .18em;
-      color: var(--g1);
-      text-transform: uppercase
-    }
-
-    .pm-item::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      background: var(--amber);
-      border-radius: 50%;
-      flex-shrink: 0
-    }
-
-    /* FILTERS */
-    .filter-bar {
-      position: sticky;
-      top: 68px;
-      z-index: 700;
-      background: rgba(4, 4, 4, .96);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-      padding: 0
-    }
-
-    .filter-scroll {
-      display: flex;
-      overflow-x: auto;
-      scrollbar-width: none;
-      padding: 14px 48px;
-      gap: 4px
-    }
-
-    .filter-scroll::-webkit-scrollbar {
-      display: none
-    }
-
-    .f-btn {
-      padding: 8px 18px;
-      font-family: var(--M);
-      font-size: 8.5px;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--g1);
-      cursor: pointer;
-      transition: all .2s;
-      white-space: nowrap;
-      flex-shrink: 0
-    }
-
-    .f-btn:hover,
-    .f-btn.on {
-      background: var(--amber);
-      border-color: var(--amber);
-      color: var(--bg)
-    }
-
-    /* GRID */
-    .grid-wrap {
-      padding: 48px
-    }
-
-    .grid-info {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 24px;
-      flex-wrap: wrap;
-      gap: 12px
-    }
-
-    .gi-count {
-      font-family: var(--M);
-      font-size: 9px;
-      letter-spacing: .2em;
-      color: var(--g1);
-      text-transform: uppercase
-    }
-
-    .gi-count strong {
-      color: var(--amber)
-    }
-
-    .gi-sort {
-      display: flex;
-      gap: 3px
-    }
-
-    .sort-btn {
-      padding: 7px 14px;
-      font-family: var(--M);
-      font-size: 8px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--g1);
-      cursor: pointer;
-      transition: all .2s
-    }
-
-    .sort-btn:hover,
-    .sort-btn.on {
-      background: var(--s2);
-      border-color: var(--borderamber);
-      color: var(--w)
-    }
-
-    .f-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2px;
-      background: rgba(255, 255, 255, .025)
-    }
-
-    .fleet-card {
-      background: var(--s2);
-      position: relative;
-      overflow: hidden;
-      aspect-ratio: 4/3;
-      cursor: pointer
-    }
-
-    .fc-img {
-      position: absolute;
-      inset: 0;
-      transition: transform .6s cubic-bezier(.16, 1, .3, 1);
-      background: var(--s3);
-      display: flex;
-      align-items: center;
-      justify-content: center
-    }
-
-    .fc-img img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover
-    }
-
-    .fleet-card:hover .fc-img {
-      transform: scale(1.07)
-    }
-
-    .fc-ph {
-      border: 1px dashed rgba(212, 132, 26, .12);
-      padding: 10px;
-      text-align: center
-    }
-
-    .fc-ph .phi {
-      font-size: 28px;
-      display: block;
-      opacity: .07;
-      margin-bottom: 4px
-    }
-
-    .fc-ph p {
-      font-family: var(--M);
-      font-size: 7px;
-      letter-spacing: .12em;
-      color: rgba(212, 132, 26, .18);
-      line-height: 1.6
-    }
-
-    .fc-grad {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(4, 4, 4, .97) 0%, rgba(4, 4, 4, .3) 50%, transparent 100%);
-      z-index: 1;
-      transition: background .35s
-    }
-
-    .fleet-card:hover .fc-grad {
-      background: linear-gradient(to top, rgba(4, 4, 4, .99) 0%, rgba(4, 4, 4, .65) 100%)
-    }
-
-    /* Amber corner cut */
-    .fc-cut {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 0 40px 40px 0;
-      border-color: transparent var(--amber) transparent transparent;
-      z-index: 3;
-      opacity: 0;
-      transition: opacity .25s
-    }
-
-    .fleet-card:hover .fc-cut {
-      opacity: 1
-    }
-
-    /* Cert badge */
-    .fc-cert {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      z-index: 3;
-      padding: 5px 9px;
-      background: rgba(4, 4, 4, .88);
-      border: 1px solid rgba(212, 132, 26, .22);
-      font-family: var(--M);
-      font-size: 7px;
-      letter-spacing: .16em;
-      color: var(--amber);
-      text-transform: uppercase
-    }
-
-    /* Avail dot */
-    .fc-avail {
-      position: absolute;
-      top: 12px;
-      right: 48px;
-      z-index: 3;
-      display: flex;
-      align-items: center;
-      gap: 5px
-    }
-
-    .fc-avail .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #22c55e;
-      animation: blink 1.6s ease-in-out infinite
-    }
-
-    .fc-body {
-      position: absolute;
-      bottom: 0;
-      inset-inline: 0;
-      padding: 18px 20px;
-      z-index: 2;
-      transform: translateY(6px);
-      transition: transform .35s cubic-bezier(.16, 1, .3, 1)
-    }
-
-    .fleet-card:hover .fc-body {
-      transform: none
-    }
-
-    .fc-cat {
-      font-family: var(--M);
-      font-size: 7.5px;
-      letter-spacing: .2em;
-      color: var(--amber);
-      text-transform: uppercase;
-      margin-bottom: 3px
-    }
-
-    .fc-name {
-      font-family: var(--D);
-      font-size: 17px;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-      color: var(--w);
-      margin-bottom: 2px
-    }
-
-    .fc-spec {
-      font-family: var(--M);
-      font-size: 8.5px;
-      color: var(--g1);
-      margin-bottom: 12px
-    }
-
-    .fc-action {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 8px 16px;
-      background: var(--amber);
-      color: var(--bg);
-      font-family: var(--D);
-      font-size: 13px;
-      letter-spacing: .08em;
-      opacity: 0;
-      transform: translateY(6px);
-      transition: opacity .25s .05s, transform .32s cubic-bezier(.16, 1, .3, 1) .05s
-    }
-
-    .fleet-card:hover .fc-action {
-      opacity: 1;
-      transform: none
-    }
-
-    /* no results */
-    .no-results {
-      padding: 80px;
-      text-align: center;
-      font-family: var(--M);
-      font-size: 11px;
-      letter-spacing: .2em;
-      color: var(--g2);
-      text-transform: uppercase;
-      grid-column: 1/-1
-    }
-
-    /* CTA BOTTOM */
-    .fleet-cta {
-      background: var(--s1);
-      border-top: 1px solid var(--border);
-      padding: 80px 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 36px;
-      flex-wrap: wrap
-    }
-
-    .fc-h {
-      font-family: var(--D);
-      font-size: clamp(36px, 5vw, 72px);
-      letter-spacing: .02em;
-      text-transform: uppercase;
-      line-height: .9
-    }
-
-    .fc-sub {
-      font-size: 14px;
-      color: var(--g1);
-      margin-top: 12px;
-      line-height: 1.7;
-      max-width: 360px
-    }
-
-    .cta-row {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap
-    }
-
-    .btn-amber {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 16px 34px;
-      background: var(--amber);
-      color: var(--bg);
-      font-family: var(--D);
-      font-size: 18px;
-      letter-spacing: .08em;
-      clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
-      transition: background .2s, transform .2s
-    }
-
-    .btn-amber:hover {
-      background: var(--amber2);
-      transform: translateY(-2px)
-    }
-
-    .btn-ghost {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 15px 32px;
-      border: 1px solid var(--g2);
-      color: var(--w);
-      font-family: var(--D);
-      font-size: 18px;
-      letter-spacing: .08em;
-      transition: border-color .2s, color .2s, transform .2s
-    }
-
-    .btn-ghost:hover {
-      border-color: var(--amber);
-      color: var(--amber);
-      transform: translateY(-2px)
-    }
-
-    /* FOOTER */
-    footer {
-      background: var(--s1);
-      border-top: 1px solid var(--border);
-      padding: 52px 48px 32px
-    }
-
-    .foot-bot {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px
-    }
-
-    .foot-links {
-      display: flex;
-      gap: 32px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 36px
-    }
-
-    .foot-links a {
-      font-family: var(--M);
-      font-size: 9px;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: var(--g2);
-      transition: color .2s
-    }
-
-    .foot-links a:hover {
-      color: var(--amber)
-    }
-
-    .copy {
-      font-family: var(--M);
-      font-size: 9px;
-      letter-spacing: .12em;
-      color: var(--g2)
-    }
-
-    .legal {
-      display: flex;
-      gap: 22px
-    }
-
-    .legal a {
-      font-family: var(--M);
-      font-size: 9px;
-      letter-spacing: .12em;
-      color: var(--g2);
-      text-transform: uppercase;
-      transition: color .2s
-    }
-
-    .legal a:hover {
-      color: var(--g1)
-    }
-
-    @keyframes blink {
-
-      0%,
-      100% {
-        opacity: 1
-      }
-
-      50% {
-        opacity: .25
-      }
-    }
-
-    /* MODAL */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 3000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity .35s, visibility .35s
-    }
-
-    .modal-overlay.open {
-      opacity: 1;
-      visibility: visible
-    }
-
-    .modal-bg {
-      position: absolute;
-      inset: 0;
-      background: rgba(4, 4, 4, .94);
-      backdrop-filter: blur(16px);
-      cursor: pointer
-    }
-
-    .modal-box {
-      position: relative;
-      z-index: 1;
-      background: var(--s1);
-      border: 1px solid var(--borderamber);
-      width: 100%;
-      max-width: 960px;
-      max-height: 88vh;
-      overflow-y: auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr
-    }
-
-    .modal-img {
-      background: var(--s3);
-      position: relative;
-      min-height: 360px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden
-    }
-
-    .modal-img img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover
-    }
-
-    .modal-img-ph {
-      text-align: center;
-      padding: 32px
-    }
-
-    .miph-icon {
-      font-size: 56px;
-      opacity: .06;
-      display: block;
-      margin-bottom: 12px
-    }
-
-    .miph-txt {
-      font-family: var(--M);
-      font-size: 8px;
-      letter-spacing: .18em;
-      color: rgba(212, 132, 26, .2);
-      line-height: 1.8
-    }
-
-    .modal-avail {
-      position: absolute;
-      top: 14px;
-      left: 14px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 12px;
-      background: rgba(4, 4, 4, .9);
-      border: 1px solid rgba(34, 197, 94, .25)
-    }
-
-    .modal-avail .dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #22c55e;
-      animation: blink 1.4s ease-in-out infinite;
-      flex-shrink: 0
-    }
-
-    .modal-avail span {
-      font-family: var(--M);
-      font-size: 8px;
-      letter-spacing: .2em;
-      color: #22c55e;
-      text-transform: uppercase
-    }
-
-    .modal-nav {
-      position: absolute;
-      bottom: 14px;
-      right: 14px;
-      display: flex;
-      gap: 4px
-    }
-
-    .mnav-btn {
-      width: 36px;
-      height: 36px;
-      background: rgba(4, 4, 4, .85);
-      border: 1px solid var(--border);
-      color: var(--g1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all .2s
-    }
-
-    .mnav-btn:hover {
-      border-color: var(--amber);
-      color: var(--amber)
-    }
-
-    .modal-info {
-      padding: 48px 44px;
-      display: flex;
-      flex-direction: column
-    }
-
-    .modal-cat {
-      font-family: var(--M);
-      font-size: 9px;
-      letter-spacing: .22em;
-      color: var(--amber);
-      text-transform: uppercase;
-      margin-bottom: 8px
-    }
-
-    .modal-name {
-      font-family: var(--D);
-      font-size: clamp(26px, 3.5vw, 44px);
-      letter-spacing: .04em;
-      text-transform: uppercase;
-      line-height: .92;
-      color: var(--w);
-      margin-bottom: 10px
-    }
-
-    .modal-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 12px;
-      background: var(--amberdim);
-      border: 1px solid var(--borderamber);
-      font-family: var(--M);
-      font-size: 8px;
-      letter-spacing: .16em;
-      color: var(--amber);
-      text-transform: uppercase;
-      margin-bottom: 24px
-    }
-
-    .modal-desc {
-      font-size: 13px;
-      line-height: 1.85;
-      color: var(--g1);
-      margin-bottom: 28px
-    }
-
-    .spec-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      border: 1px solid var(--border);
-      margin-bottom: 28px
-    }
-
-    .sg-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 16px;
-      border-bottom: 1px solid var(--border)
-    }
-
-    .sg-row:last-child {
-      border-bottom: none
-    }
-
-    .sg-k {
-      font-family: var(--M);
-      font-size: 8.5px;
-      letter-spacing: .16em;
-      color: var(--g1);
-      text-transform: uppercase
-    }
-
-    .sg-v {
-      font-family: var(--D);
-      font-size: 18px;
-      letter-spacing: .05em;
-      color: var(--w)
-    }
-
-    .modal-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: auto
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      width: 36px;
-      height: 36px;
-      background: var(--s2);
-      border: 1px solid var(--border);
-      color: var(--g1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-family: var(--M);
-      font-size: 12px;
-      transition: all .2s;
-      z-index: 2
-    }
-
-    .close-btn:hover {
-      border-color: var(--amber);
-      color: var(--amber)
-    }
-
-    @media(max-width:1200px) {
-      .f-grid {
-        grid-template-columns: repeat(3, 1fr)
-      }
-    }
-
-    @media(max-width:900px) {
-      .modal-box {
-        grid-template-columns: 1fr
-      }
-
-      .modal-img {
-        min-height: 260px
-      }
-
-      .f-grid {
-        grid-template-columns: repeat(2, 1fr)
-      }
-    }
-
-    @media(max-width:700px) {
-      nav {
-        padding: 0 20px
-      }
-
-      .nav-links {
-        display: none
-      }
-
-      .page-hd {
-        padding: 100px 20px 48px
-      }
-
-      .filter-scroll {
-        padding: 12px 20px
-      }
-
-      .grid-wrap {
-        padding: 24px 20px
-      }
-
-      .fleet-cta {
-        padding: 60px 20px;
-        flex-direction: column
-      }
-
-      .f-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      footer {
-        padding: 40px 20px 24px
-      }
-    }
-
-    .wa-float {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      z-index: 8000
-    }
-
-    .wa-bubble {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: #25D366;
-      padding: 14px 20px;
-      clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
-      cursor: pointer;
-      transition: transform .2s;
-      text-decoration: none;
-      box-shadow: 0 4px 24px rgba(37, 211, 102, .3)
-    }
-
-    .wa-bubble:hover {
-      transform: translateY(-3px)
-    }
-
-    .wa-label {
-      font-family: var(--D);
-      font-size: 14px;
-      letter-spacing: .08em;
-      color: #fff;
-      white-space: nowrap
-    }
-
-    .wa-ping {
-      position: absolute;
-      top: -4px;
-      right: -4px;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #ff4444;
-      animation: waping 1.8s ease-in-out infinite
-    }
-
-    @keyframes waping {
-
-      0%,
-      100% {
-        transform: scale(1);
-        opacity: 1
-      }
-
-      50% {
-        transform: scale(1.5);
-        opacity: 0
-      }
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <div class="wa-float"><a href="https://wa.me/971551092200" class="wa-bubble" target="_blank" rel="noopener">
-      <div class="wa-ping"
-        style="position:absolute;top:-4px;right:-4px;width:12px;height:12px;border-radius:50%;background:#ff4444;animation:waping 1.8s ease-in-out infinite">
-      </div><svg width="22" height="22" viewBox="0 0 24 24" fill="white">
-        <path
-          d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37A9.86 9.86 0 01.16 11.89C.16 6.44 4.6 2 10.05 2c2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 012.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.81 11.81 0 0012.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 005.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 00-3.48-8.41" />
-      </svg><span class="wa-label">WhatsApp Us</span>
-    </a></div>
-  <div id="CUR"></div>
-  <div id="CUR2"></div>
 
-  <nav>
-    <a href="index.html" class="logo">
-      <img src="images/ui/logo.jpg" alt="Al Falak Transport Logo" style="height:40px;width:auto;display:block;">
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="https://alfalaktransport.com/static/img/logo.png" alt="Al Falak Transport">
+      <div class="nav-logo-text">Al Falak <span>Transport LLC</span></div>
     </a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
@@ -1111,318 +25,261 @@
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <a href="https://wa.me/971551092200" class="nav-cta">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-        <path
-          d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37A9.86 9.86 0 01.16 11.89C.16 6.44 4.6 2 10.05 2c2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 012.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.81 11.81 0 0012.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 005.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 00-3.48-8.41" />
-      </svg>
-      GET QUOTE
-    </a>
+    <div class="nav-right">
+      <a href="https://wa.me/971551092200" class="btn-primary" target="_blank" rel="noopener">Get Quote</a>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
   </nav>
-
-  <div class="page-hd">
-    <div class="ph-label">Strategic Arsenal</div>
-    <h1><span class="a">THE</span> <span class="stroke">FLEET</span></h1>
-    <div class="ph-meta">
-      <div class="pm-item">50+ Units Available</div>
-      <div class="pm-item">14 Categories</div>
-      <div class="pm-item">RTA Certified</div>
-      <div class="pm-item">24hr Deployment</div>
-    </div>
-    <div class="ph-ghost">ARSENAL</div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="fleet.html" class="active">Fleet Inventory</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://wa.me/971551092200" target="_blank" style="color:#25D366">WhatsApp Us</a>
   </div>
 
-  <div class="filter-bar">
-    <div class="filter-scroll" id="filters">
-      <button class="f-btn on" data-cat="all">All Units</button>
-      <button class="f-btn" data-cat="Spider Cranes">Spider Cranes</button>
-      <button class="f-btn" data-cat="Mobile Cranes">Mobile Cranes</button>
-      <button class="f-btn" data-cat="Boom Lifts">Boom Lifts</button>
-      <button class="f-btn" data-cat="Spider Lifts">Spider Lifts</button>
-      <button class="f-btn" data-cat="Scissor Lifts">Scissor Lifts</button>
-      <button class="f-btn" data-cat="Excavators">Excavators</button>
-      <button class="f-btn" data-cat="Mini Excavators">Mini Excavators</button>
-      <button class="f-btn" data-cat="Telehandlers">Telehandlers</button>
-      <button class="f-btn" data-cat="Forklifts">Forklifts</button>
-      <button class="f-btn" data-cat="Bobcat Skid Steer Loaders">Bobcat</button>
-      <button class="f-btn" data-cat="JCB Loaders">JCB Loaders</button>
-      <button class="f-btn" data-cat="Wheel Loaders">Wheel Loaders</button>
-      <button class="f-btn" data-cat="Generators">Generators</button>
-      <button class="f-btn" data-cat="Manlifts">Manlifts</button>
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-bg">
+      <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1800&auto=format&fit=crop" alt="" loading="eager">
+    </div>
+    <div class="page-hero-gradient"></div>
+    <div class="page-hero-content">
+      <p class="breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; <span>Fleet Inventory</span></p>
+      <div class="section-label fade-up d1">The Arsenal</div>
+      <h1 class="section-title fade-up d2" style="font-size: clamp(52px,7vw,96px);">Strategic Fleet<br>Inventory</h1>
+      <p class="section-desc fade-up d3">14 categories of heavy equipment — all maintained to manufacturer standards, third-party inspected, and ready for rapid deployment anywhere in the UAE.</p>
     </div>
   </div>
 
-  <div class="grid-wrap">
-    <div class="grid-info">
-      <div class="gi-count">Showing <strong id="countDisp">0</strong> units</div>
-    </div>
-    <div class="f-grid" id="fleetGrid"></div>
-  </div>
+  <!-- FLEET FULL GRID -->
+  <section style="padding: 80px 60px;">
+    <div class="fleet-full-grid">
 
-  <div class="fleet-cta">
+      <div id="boom-lifts" class="fleet-full-card reveal">
+        <div class="fleet-full-card-img">
+          <img src="http://res.cloudinary.com/dmkpvlwgw/image/upload/v1770993988/categories/kfricbmgzbwhkkepkf9e.webp" alt="Boom Lifts" loading="lazy">
+        </div>
+        <div class="fleet-full-card-body">
+          <h3>Boom Lifts</h3>
+          <p>Articulating and telescopic boom lifts for reaching elevated work areas on construction sites, maintenance projects, and industrial facilities.</p>
+          <a href="https://wa.me/971551092200?text=I'm%20interested%20in%20renting%20a%20Boom%20Lift" class="fleet-enquire" target="_blank" rel="noopener">Enquire on WhatsApp →</a>
+        </div>
+      </div>
+
+      <div id="scissor-lifts" class="fleet-full-card reveal">
+        <div class="fleet-full-card-img">
+          <img src="http://res.cloudinary.com/dmkpvlwgw/image/upload/v1770994054/categories/r8ujchc24xx1vrybc73f.avif" alt="Scissor Lifts" loading="lazy">
+        </div>
+        <div class="fleet-full-card-body">
+          <h3>Scissor Lifts</h3>
+          <p>Electric and diesel scissor lifts for indoor and outdoor vertical access. Ideal for warehousing, fit-out, and maintenance work at height.</p>
+          <a href="https://wa.me/971551092200?text=I'm%20interested%20in%20renting%20a%20Scissor%20Lift" class="fleet-enquire" target="_blank" rel="noopener">Enquire on WhatsApp →</a>
+        </div>
+      </div>
+
+      <div id="spider-lifts" class="fleet-full-card reveal">
+        <div class="fleet-full-card-img">
+          <img src="http://res.cloudinary.com/dmkpvlwgw/image/upload/v1770994747/categories/b6yr09yjtrsq8gm4slop.jpg" alt="Spider Lifts" loading="lazy">
+        </div>
+        <div class="fleet-full-card-body">
+          <h3>Spider Lifts</h3>
+          <p>Compact, track-mounted spider lifts capable of accessing confined and uneven terrain where conventional boom lifts cannot reach.</p>
+          <a href="https://wa.me/971551092200?text=I'm%20interested%20in%20renting%20a%20Spider%20Lift" class="fleet-enquire" target="_blank" rel="noopener">Enquire on WhatsApp →</a>
+        </div>
+      </div>
+
+      <div id="manlifts" class="fleet-full-card reveal">
+        <div class="fleet-full-card-img">
+          <img src="http://res.cloudinary.com/dmkpvlwgw/image/upload/v1770993920/categories/xbpddyloqe3m5i1vsbds.webp" alt="Manlifts" loading="lazy">
+        </div>
+        <div class="fleet-full-card-body">
+          <h3>Manlifts</h3>
+          <p>Vertical mast and push-around manlifts for narrow-aisle environments and light-duty aerial work inside buildings and facilities.</p>
+          <a href="https://wa.me/971551092200?text=I'm%20interested%20in%20renting%20a%20Manlift" class="fleet-enquire" target="_blank" rel="noopener">Enquire on WhatsApp →</a>
+        </div>
+      </div>
+
+      <div id="mobile-cranes" class="fleet-full-card reveal">
+        <div class="fleet-full-card-img">
+          <img src="http://res.cloudinary.com/dmkpvlwgw/image/upload/v1770994669/categories/qyil5d67hja2bh3lvnrl.jpg" alt="Mobile Cranes" loading="lazy">
+        </div>
+        <div class="fleet-full-card-body">
+          <h3>Mobile Cranes</h3>
+          <p>All-terrain and rough-terrain mobile cranes for heavy lifting operations on construction, oil & gas, and industrial project sites.</p>
+          <a href="https://wa.me/971551092200?text=I'm%20interested%20in%20renting%20a%20Mobile%20Crane" class="fleet-enquire" target="_blank" rel="noopener">Enquire on WhatsApp →</a>
+        </div>
+      </div>
+
+      <div id="spider-cranes" class="fleet-full-card reveal">
+        <div class="fleet-full-card-img">
+          <img src="http://res.cloudinary.com/dmkpvlwgw/image/upload/v1770994707/categories/u1zab8uiv9e76vcdkab4.webp" alt="Spider Cranes" loading="lazy">
+        </div>
+        <div class="fleet-full-card-body">
+          <h3>Spider Cranes</h3>
+          <p>Compact mini crawler cranes with outriggers for precision lifts in confined spaces — ideal for fit-outs, atria, and restricted access sites.</p>
+          <a href="https://wa.me/971551092200?text=I'm%20interested%20in%20renting%20a%20Spider%20Crane" class="fleet-enquire" target="_blank" rel="noopener">Enquire on WhatsApp →</a>
+        </div>
+      </div>
+
+      <div id="excavators" class="fleet-full-card reveal">
+        <div class="fleet-full-card-img">
+          <img src="http://res.cloudinary.com/dmkpvlwgw/image/upload/v1770994123/categories/ahphn8ildqbwewgqq3kf.jpg" alt="Excavators" loading="lazy">
+        </div>
+        <div class="fleet-full-card-body">
+          <h3>Excavators</h3>
+          <p>Standard excavators from 20T to 50T for bulk earthworks, trenching, and demolition operations across greenfield and brownfield sites.</p>
+          <a href="https://wa.me/971551092200?text=I'm%20interested%20in%20renting%20an%20Excavator" class="fleet-enquire" target="_blank" rel="noopener">Enquire on WhatsApp →</a>
+        </div>
+      </div>
+
+      <div id="mini-excavators" class="fleet-full-card reveal">
+        <div class="fleet-full-card-img">
+          <img src="http://res.cloudinary.com/dmkpvlwgw/image/upload/v1770994336/categories/drhhftrxgltteynu6kvv.webp" alt="Mini Excavators" loading="lazy">
+        </div>
+        <div class="fleet-full-card-body">
+          <h3>Mini Excavators</h3>
+          <p>Compact 1.5T–6T mini excavators for restricted urban sites, landscaping, utility trenching, and precision digging in tight spaces.</p>
+          <a href="https://wa.me/971551092200?text=I'm%20interested%20in%20renting%20a%20Mini%20Excavator" class="fleet-enquire" target="_blank" rel="noopener">Enquire on WhatsApp →</a>
+        </div>
+      </div>
+
+      <div id="wheel-loaders" class="fleet-full-card reveal">
+        <div class="fleet-full-card-img">
+          <img src="http://res.cloudinary.com/dmkpvlwgw/image/upload/v1770994168/categories/rkgbv0efjoqdb1pewmnq.jpg" alt="Wheel Loaders" loading="lazy">
+        </div>
+        <div class="fleet-full-card-body">
+          <h3>Wheel Loaders</h3>
+          <p>Front-end wheel loaders for bulk material handling, stockpile management, and aggregate loading at quarries and construction sites.</p>
+          <a href="https://wa.me/971551092200?text=I'm%20interested%20in%20renting%20a%20Wheel%20Loader" class="fleet-enquire" target="_blank" rel="noopener">Enquire on WhatsApp →</a>
+        </div>
+      </div>
+
+      <div id="bobcat" class="fleet-full-card reveal">
+        <div class="fleet-full-card-img">
+          <img src="http://res.cloudinary.com/dmkpvlwgw/image/upload/v1770994416/categories/bbxvfqtkjsz06o39t8jk.jpg" alt="Bobcat Skid Steer Loaders" loading="lazy">
+        </div>
+        <div class="fleet-full-card-body">
+          <h3>Bobcat Skid Steer</h3>
+          <p>Highly versatile skid steer loaders with quick-attach systems — perfect for material handling, grading, and site cleanup in confined areas.</p>
+          <a href="https://wa.me/971551092200?text=I'm%20interested%20in%20renting%20a%20Bobcat%20Skid%20Steer" class="fleet-enquire" target="_blank" rel="noopener">Enquire on WhatsApp →</a>
+        </div>
+      </div>
+
+      <div id="jcb-loaders" class="fleet-full-card reveal">
+        <div class="fleet-full-card-img">
+          <img src="http://res.cloudinary.com/dmkpvlwgw/image/upload/v1770994481/categories/fhyjtjq7zbd7z7og46oc.webp" alt="JCB Loaders" loading="lazy">
+        </div>
+        <div class="fleet-full-card-body">
+          <h3>JCB Loaders</h3>
+          <p>JCB backhoe loaders and telescopic handlers for versatile earthmoving, trenching, and multi-purpose construction site tasks.</p>
+          <a href="https://wa.me/971551092200?text=I'm%20interested%20in%20renting%20a%20JCB%20Loader" class="fleet-enquire" target="_blank" rel="noopener">Enquire on WhatsApp →</a>
+        </div>
+      </div>
+
+      <div id="telehandlers" class="fleet-full-card reveal">
+        <div class="fleet-full-card-img">
+          <img src="http://res.cloudinary.com/dmkpvlwgw/image/upload/v1770994620/categories/ughuypg4ysam5yfojlug.webp" alt="Telehandlers" loading="lazy">
+        </div>
+        <div class="fleet-full-card-body">
+          <h3>Telehandlers</h3>
+          <p>Telescopic handlers for high-reach material placement on multi-story construction sites, precast yards, and industrial facilities.</p>
+          <a href="https://wa.me/971551092200?text=I'm%20interested%20in%20renting%20a%20Telehandler" class="fleet-enquire" target="_blank" rel="noopener">Enquire on WhatsApp →</a>
+        </div>
+      </div>
+
+      <div id="forklifts" class="fleet-full-card reveal">
+        <div class="fleet-full-card-img">
+          <img src="http://res.cloudinary.com/dmkpvlwgw/image/upload/v1770994295/categories/vlwkkldmefsomoeygt2w.jpg" alt="Forklifts" loading="lazy">
+        </div>
+        <div class="fleet-full-card-body">
+          <h3>Forklifts</h3>
+          <p>Counterbalance and reach forklifts from 2.5T to 16T for warehouse operations, manufacturing plants, and construction material handling.</p>
+          <a href="https://wa.me/971551092200?text=I'm%20interested%20in%20renting%20a%20Forklift" class="fleet-enquire" target="_blank" rel="noopener">Enquire on WhatsApp →</a>
+        </div>
+      </div>
+
+      <div id="generators" class="fleet-full-card reveal">
+        <div class="fleet-full-card-img">
+          <img src="http://res.cloudinary.com/dmkpvlwgw/image/upload/v1770994216/categories/ocqpolpwwhoud8qkrcqq.webp" alt="Generators" loading="lazy">
+        </div>
+        <div class="fleet-full-card-body">
+          <h3>Generators</h3>
+          <p>Diesel generators from 20kVA to 1000kVA for temporary power supply on construction sites, events, and emergency backup applications.</p>
+          <a href="https://wa.me/971551092200?text=I'm%20interested%20in%20renting%20a%20Generator" class="fleet-enquire" target="_blank" rel="noopener">Enquire on WhatsApp →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <div class="cta-banner reveal">
     <div>
-      <div class="fc-h">NEED A CUSTOM<br><span style="color:var(--amber)">SOLUTION?</span></div>
-      <p class="fc-sub">Tell our engineers what you need — we'll build the right fleet deployment plan for your specific
-        site.</p>
+      <h2>Don't See<br>What You Need?</h2>
+      <p>We source specialist equipment for any project requirement — contact our team.</p>
     </div>
-    <div class="cta-row">
-      <a href="https://wa.me/971551092200" class="btn-amber">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-          <path
-            d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37A9.86 9.86 0 01.16 11.89C.16 6.44 4.6 2 10.05 2c2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 012.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.81 11.81 0 0012.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 005.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 00-3.48-8.41" />
-        </svg>
-        WhatsApp Engineers
-      </a>
-      <a href="contact.html" class="btn-ghost">Request Quote</a>
-    </div>
+    <a href="https://wa.me/971551092200" class="btn-dark" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      Contact Our Team
+    </a>
   </div>
 
+  <!-- FOOTER -->
   <footer>
-    <div class="foot-links">
-      <a href="index.html">Home</a><a href="fleet.html">Fleet</a><a href="services.html">Services</a><a
-        href="about.html">About</a><a href="contact.html">Contact</a>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html"><img src="https://alfalaktransport.com/static/img/logo.png" alt="Al Falak Transport"></a>
+        <p>The operational backbone for Dubai's infrastructure. We deliver integrated heavy equipment solutions, not just rentals.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="fleet.html">Fleet Inventory</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Fleet</h4>
+        <ul>
+          <li><a href="#boom-lifts">Boom Lifts</a></li>
+          <li><a href="#excavators">Excavators</a></li>
+          <li><a href="#mobile-cranes">Mobile Cranes</a></li>
+          <li><a href="#forklifts">Forklifts</a></li>
+          <li><a href="#telehandlers">Telehandlers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-row">
+          <span class="footer-contact-icon">📍</span>
+          <p>Dubai Investment Park 2,<br>Dubai, UAE</p>
+        </div>
+        <div class="footer-contact-row">
+          <span class="footer-contact-icon">📞</span>
+          <p><a href="tel:+971551092200">+971 55 109 2200</a></p>
+        </div>
+        <div class="footer-contact-row">
+          <span class="footer-contact-icon">✉️</span>
+          <p><a href="mailto:info@alfalaktransport.com">info@alfalaktransport.com</a></p>
+        </div>
+      </div>
     </div>
-    <div class="foot-bot">
-      <div class="copy">© 2026 Al Falak Transport LLC. All rights reserved.</div>
-      <div class="legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Sitemap</a></div>
+    <div class="footer-bottom">
+      <p>© 2026 Al Falak Transport LLC. All rights reserved.</p>
+      <div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
     </div>
   </footer>
 
-  <!-- MODAL -->
-  <div class="modal-overlay" id="modal">
-    <div class="modal-bg" onclick="closeModal()"></div>
-    <div class="modal-box">
-      <div class="modal-img" id="mImg">
-        <div class="modal-img-ph">
-          <span class="miph-icon">⚙️</span>
-          <div class="miph-txt" id="mImgName"></div>
-        </div>
-        <div class="modal-avail"><span class="dot"></span><span>Available Now</span></div>
-        <div class="modal-nav">
-          <button class="mnav-btn" onclick="navModal(-1)" title="Previous">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M19 12H5M12 5l-7 7 7 7" />
-            </svg>
-          </button>
-          <button class="mnav-btn" onclick="navModal(1)" title="Next">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
-      </div>
-      <div class="modal-info">
-        <button class="close-btn" onclick="closeModal()">✕</button>
-        <div class="modal-cat" id="mCat"></div>
-        <div class="modal-name" id="mName"></div>
-        <div class="modal-badge" id="mCert"></div>
-        <p class="modal-desc" id="mDesc"></p>
-        <div class="spec-grid" id="mSpecs"></div>
-        <div class="modal-actions">
-          <a id="mWA" href="#" class="btn-amber" style="padding:13px 26px;font-size:16px">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37A9.86 9.86 0 01.16 11.89C.16 6.44 4.6 2 10.05 2c2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 012.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.81 11.81 0 0012.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 005.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 00-3.48-8.41" />
-            </svg>
-            Request Quote
-          </a>
-          <a href="contact.html" class="btn-ghost" style="padding:12px 24px;font-size:16px">Contact Us</a>
-        </div>
-      </div>
-    </div>
-  </div>
+  <a href="https://wa.me/971551092200" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
 
-  <script>
-    // Cursor
-    const cur = document.getElementById('CUR'), cur2 = document.getElementById('CUR2');
-    let mx = 0, my = 0, rx = 0, ry = 0;
-    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cur.style.left = mx + 'px'; cur.style.top = my + 'px'; });
-    (function l() { rx += (mx - rx) * .12; ry += (my - ry) * .12; cur2.style.left = rx + 'px'; cur2.style.top = ry + 'px'; requestAnimationFrame(l); })();
-    document.querySelectorAll('a,button').forEach(el => { el.addEventListener('mouseenter', () => document.body.classList.add('hov')); el.addEventListener('mouseleave', () => document.body.classList.remove('hov')); });
-
-    // Fleet data — full 48-unit list
-    const ALL = [
-      { id: 0, n: 'URW706 Spider Crane', c: 'Spider Cranes', s: '6.0t × 3.0m', cert: 'RTA / 3rd Party', img: 'urw706_spider_crane.jpg', desc: 'Our most powerful spider crane for restricted access environments. Handles the heaviest urban and indoor lifting where conventional cranes cannot operate.', specs: { 'Capacity': '6.0 Ton', 'Radius': '3.0m', 'Brand': 'UNIC', 'Cert': 'RTA / 3rd Party' } },
-      { id: 1, n: 'URW506 Spider Crane', c: 'Spider Cranes', s: '3.0t × 3.4m', cert: 'RTA / 3rd Party', img: 'urw506_spider_crane.jpg', desc: 'Heavy-duty spider crane with extended reach. Precision control for urban construction, indoor lifts, and confined site access.', specs: { 'Capacity': '3.0 Ton', 'Radius': '3.4m', 'Brand': 'UNIC', 'Cert': 'RTA / 3rd Party' } },
-      { id: 2, n: 'URW376 Spider Crane', c: 'Spider Cranes', s: '2.9t × 2.5m', cert: 'RTA / 3rd Party', img: 'urw376_spider_crane.jpg', desc: 'Mid-range spider crane with excellent access capability. Ideal for retrofit projects and indoor heavy lifts.', specs: { 'Capacity': '2.9 Ton', 'Radius': '2.5m', 'Brand': 'UNIC', 'Cert': 'RTA / 3rd Party' } },
-      { id: 3, n: 'URW295 Spider Crane', c: 'Spider Cranes', s: '2.9t × 1.4m', cert: 'RTA / 3rd Party', img: 'urw295_spider_crane.jpg', desc: 'Compact spider crane for tight-access indoor and urban work. Low ground pressure with fold-down stabilizers.', specs: { 'Capacity': '2.9 Ton', 'Radius': '1.4m', 'Brand': 'UNIC', 'Cert': 'RTA / 3rd Party' } },
-      { id: 4, n: 'URW245 Spider Crane', c: 'Spider Cranes', s: '2.4t × 1.5m', cert: 'RTA / 3rd Party', img: 'urw245_spider_crane.jpg', desc: 'Versatile spider crane for medium-duty urban and indoor lifting. Folds for elevator transport to upper floors.', specs: { 'Capacity': '2.4 Ton', 'Radius': '1.5m', 'Brand': 'UNIC', 'Cert': 'RTA / 3rd Party' } },
-      { id: 5, n: 'URW095 Spider Crane', c: 'Spider Cranes', s: '0.995t × 3.5m', cert: 'RTA / 3rd Party', img: 'urw095_spider_crane.jpg', desc: 'Smallest and most agile spider crane. Passes through standard doorways and operates in extremely tight spaces.', specs: { 'Capacity': '0.995 Ton', 'Radius': '3.5m', 'Brand': 'UNIC', 'Cert': 'RTA / 3rd Party' } },
-      { id: 6, n: '250 Ton Mobile Crane', c: 'Mobile Cranes', s: '250 Ton', cert: 'RTA Certified', img: '250t_mobile_crane.jpg', desc: 'Flagship heavy-lift crane for the most demanding infrastructure projects. Bridge beams, heavy plant, and major structural steel.', specs: { 'Capacity': '250 Ton', 'Type': 'All-terrain', 'Cert': 'RTA Certified' } },
-      { id: 7, n: '160 Ton Mobile Crane', c: 'Mobile Cranes', s: '160 Ton', cert: 'RTA Certified', img: '160t_mobile_crane.jpg', desc: 'High-capacity all-terrain crane for large construction, industrial, and heavy infrastructure operations.', specs: { 'Capacity': '160 Ton', 'Type': 'All-terrain', 'Cert': 'RTA Certified' } },
-      { id: 8, n: '100 Ton Mobile Crane', c: 'Mobile Cranes', s: '100 Ton', cert: 'RTA Certified', img: '100t_mobile_crane.jpg', desc: 'Versatile 100-tonne crane for mid-scale industrial lifting, structural steel erection, and heavy plant installation.', specs: { 'Capacity': '100 Ton', 'Type': 'All-terrain', 'Cert': 'RTA Certified' } },
-      { id: 9, n: '50 Ton Mobile Crane', c: 'Mobile Cranes', s: '50 Ton', cert: 'RTA Certified', img: '50t_mobile_crane.jpg', desc: 'Workhorse crane for construction sites. Fast setup and high mobility for productive daily lifting cycles.', specs: { 'Capacity': '50 Ton', 'Type': 'All-terrain', 'Cert': 'RTA Certified' } },
-      { id: 10, n: '25 Ton Mobile Crane', c: 'Mobile Cranes', s: '25 Ton', cert: 'RTA Certified', img: '25t_mobile_crane.jpg', desc: 'Compact and agile mobile crane for frequent-cycle work, prefab installation, and general construction lifting.', specs: { 'Capacity': '25 Ton', 'Type': 'All-terrain', 'Cert': 'RTA Certified' } },
-      { id: 11, n: '57M Telescopic Boom Lift', c: 'Boom Lifts', s: '57m Height', cert: 'RTA Certified', img: '57m_telescopic_boom.jpg', desc: 'Maximum reach for high-rise facade work and elevated operations on Dubai\'s tallest projects.', specs: { 'Working Height': '57m', 'Type': 'Telescopic', 'Power': 'Diesel', 'Cert': 'RTA Certified' } },
-      { id: 12, n: '48M Telescopic Boom Lift', c: 'Boom Lifts', s: '48.33m Height', cert: 'RTA Certified', img: '48m_telescopic_boom.jpg', desc: 'High-reach telescopic boom for major construction and maintenance operations at significant height.', specs: { 'Working Height': '48.33m', 'Type': 'Telescopic', 'Power': 'Diesel', 'Cert': 'RTA Certified' } },
-      { id: 13, n: '28M Telescopic Boom Lift', c: 'Boom Lifts', s: '27.91m Height', cert: 'RTA Certified', img: '28m_telescopic_boom.jpg', desc: 'Mid-range telescopic boom for construction, HVAC, and structural work at height.', specs: { 'Working Height': '27.91m', 'Type': 'Telescopic', 'Power': 'Diesel', 'Cert': 'RTA Certified' } },
-      { id: 14, n: '16M Telescopic Boom Lift', c: 'Boom Lifts', s: '16.02m Height', cert: 'RTA Certified', img: '16m_telescopic_boom.jpg', desc: 'Compact telescopic boom for lower-height construction, signage, and general elevated access.', specs: { 'Working Height': '16.02m', 'Type': 'Telescopic', 'Power': 'Diesel', 'Cert': 'RTA Certified' } },
-      { id: 15, n: '43M Articulated Boom Lift', c: 'Boom Lifts', s: '43.15m Height', cert: 'RTA Certified', img: '43m_articulated_boom.jpg', desc: 'Articulated boom with up-and-over capability for complex access around obstacles on busy sites.', specs: { 'Working Height': '43.15m', 'Type': 'Articulated', 'Power': 'Diesel', 'Cert': 'RTA Certified' } },
-      { id: 16, n: '26M Articulated Boom Lift', c: 'Boom Lifts', s: '26m Height', cert: 'RTA Certified', img: '26m_articulated_boom.jpg', desc: 'Versatile articulated boom for general construction elevated access with flexible positioning.', specs: { 'Working Height': '26m', 'Type': 'Articulated', 'Power': 'Diesel', 'Cert': 'RTA Certified' } },
-      { id: 17, n: '20M Articulated Boom Lift', c: 'Boom Lifts', s: '20m Height', cert: 'RTA Certified', img: '20m_articulated_boom.jpg', desc: 'Compact articulated boom for mid-height work. Good maneuverability on active construction sites.', specs: { 'Working Height': '20m', 'Type': 'Articulated', 'Power': 'Diesel', 'Cert': 'RTA Certified' } },
-      { id: 18, n: '52M Spider Lift', c: 'Spider Lifts', s: '52m Height', cert: 'RTA Certified', img: '52m_spider_lift.jpg', desc: 'Tallest spider lift in fleet. Track-mounted with narrow footprint — perfect for sensitive surfaces and indoor access at height.', specs: { 'Working Height': '52m', 'Type': 'Spider Lift', 'Power': 'Electric/Diesel', 'Cert': 'RTA Certified' } },
-      { id: 19, n: '32M Spider Lift', c: 'Spider Lifts', s: '32m Height', cert: 'RTA Certified', img: '32m_spider_lift.jpg', desc: 'Mid-height spider lift for difficult access. Excellent for atria, bridges, and urban structures.', specs: { 'Working Height': '32m', 'Type': 'Spider Lift', 'Power': 'Electric/Diesel', 'Cert': 'RTA Certified' } },
-      { id: 20, n: '23M Spider Lift', c: 'Spider Lifts', s: '23m Height', cert: 'RTA Certified', img: '23m_spider_lift.jpg', desc: 'Compact spider lift for lower-height restricted access work on sensitive and indoor surfaces.', specs: { 'Working Height': '23m', 'Type': 'Spider Lift', 'Power': 'Electric/Diesel', 'Cert': 'RTA Certified' } },
-      { id: 21, n: '19M Spider Lift', c: 'Spider Lifts', s: '19m Height', cert: 'RTA Certified', img: '19m_spider_lift.jpg', desc: 'Entry-level spider lift for indoor and sensitive surface work at moderate height.', specs: { 'Working Height': '19m', 'Type': 'Spider Lift', 'Power': 'Electric/Diesel', 'Cert': 'RTA Certified' } },
-      { id: 22, n: '23M Diesel Scissor Lift', c: 'Scissor Lifts', s: '23m Height', cert: 'RTA Certified', img: '23m_diesel_scissor.jpg', desc: 'Heavy-duty diesel scissor lift for outdoor construction. Wide platform for multiple workers and materials.', specs: { 'Working Height': '23m', 'Power': 'Diesel', 'Platform': 'Large', 'Cert': 'RTA Certified' } },
-      { id: 23, n: '18M Electric Scissor Lift', c: 'Scissor Lifts', s: '18m Height', cert: 'RTA Certified', img: '18m_electric_scissor.jpg', desc: 'Electric scissor lift for indoor or outdoor use. Zero emissions and low noise for sensitive environments.', specs: { 'Working Height': '18m', 'Power': 'Electric', 'Platform': 'Large', 'Cert': 'RTA Certified' } },
-      { id: 24, n: '15M Diesel Scissor Lift', c: 'Scissor Lifts', s: '15m Height', cert: 'RTA Certified', img: '15m_diesel_scissor.jpg', desc: 'Diesel scissor for outdoor elevated work. Robust and reliable on rough terrain.', specs: { 'Working Height': '15m', 'Power': 'Diesel', 'Cert': 'RTA Certified' } },
-      { id: 25, n: '12M Diesel Scissor Lift', c: 'Scissor Lifts', s: '12m Height', cert: 'RTA Certified', img: '12m_diesel_scissor.jpg', desc: 'Popular mid-range diesel scissor for outdoor construction and maintenance access.', specs: { 'Working Height': '12m', 'Power': 'Diesel', 'Cert': 'RTA Certified' } },
-      { id: 26, n: '12M Electric Scissor Lift', c: 'Scissor Lifts', s: '12m Height', cert: 'RTA Certified', img: '12m_electric_scissor.jpg', desc: 'Indoor-capable electric scissor for warehouse, data centre, and interior fit-out work.', specs: { 'Working Height': '12m', 'Power': 'Electric', 'Cert': 'RTA Certified' } },
-      { id: 27, n: '10M Electric Scissor Lift', c: 'Scissor Lifts', s: '10m Height', cert: 'RTA Certified', img: '10m_electric_scissor.jpg', desc: 'Compact electric scissor for warehouses and indoor commercial fit-out access.', specs: { 'Working Height': '10m', 'Power': 'Electric', 'Cert': 'RTA Certified' } },
-      { id: 28, n: '8M Electric Scissor Lift', c: 'Scissor Lifts', s: '8m Height', cert: 'RTA Certified', img: '8m_electric_scissor.jpg', desc: 'Narrow electric scissor for tight indoor environments. Fits standard doorways and aisles.', specs: { 'Working Height': '8m', 'Power': 'Electric', 'Cert': 'RTA Certified' } },
-      { id: 29, n: '30 Ton Excavator', c: 'Excavators', s: '30 Ton', cert: 'RTA Certified', img: '30t_excavator.jpg', desc: 'Heavy-duty excavator for large earthworks, demolition, and deep excavation on major projects.', specs: { 'Op. Weight': '30 Ton', 'Bucket': '1.4m³', 'Cert': 'RTA Certified' } },
-      { id: 30, n: '20 Ton Excavator', c: 'Excavators', s: '20 Ton', cert: 'RTA Certified', img: '20t_excavator.jpg', desc: 'Productive mid-size excavator for earthmoving, site preparation, and pipeline excavation.', specs: { 'Op. Weight': '20 Ton', 'Cert': 'RTA Certified' } },
-      { id: 31, n: '1.5 Ton Mini Excavator', c: 'Excavators', s: '1.5 Ton', cert: 'RTA Certified', img: '1-5t_mini_excavator.jpg', desc: 'Compact excavator for tight access excavation, landscaping, and utility trenching.', specs: { 'Op. Weight': '1.5 Ton', 'Cert': 'RTA Certified' } },
-      { id: 32, n: '5 Ton Mini Excavator', c: 'Mini Excavators', s: '5 Ton', cert: 'RTA Certified', img: '5t_mini_excavator.jpg', desc: 'Versatile mini excavator for confined site work, building foundations, and drainage.', specs: { 'Op. Weight': '5 Ton', 'Cert': 'RTA Certified' } },
-      { id: 33, n: '3 Ton Mini Excavator', c: 'Mini Excavators', s: '3 Ton', cert: 'RTA Certified', img: '3t_mini_excavator.jpg', desc: 'Nimble mini excavator for urban and indoor earthworks. Low swing radius for tight spaces.', specs: { 'Op. Weight': '3 Ton', 'Cert': 'RTA Certified' } },
-      { id: 34, n: '2 Ton Mini Excavator', c: 'Mini Excavators', s: '2 Ton', cert: 'RTA Certified', img: '2t_mini_excavator.jpg', desc: 'Our smallest excavator for the tightest site conditions. Can operate inside buildings.', specs: { 'Op. Weight': '2 Ton', 'Cert': 'RTA Certified' } },
-      { id: 35, n: '17M Telehandler', c: 'Telehandlers', s: '4 Ton / 17m', cert: 'RTA Certified', img: '17m_telehandler.jpg', desc: 'High-reach telehandler for placing materials at height on demanding construction sites.', specs: { 'Capacity': '4 Ton', 'Reach': '17m', 'Cert': 'RTA Certified' } },
-      { id: 36, n: '14M Telehandler', c: 'Telehandlers', s: '3.5 Ton / 14m', cert: 'RTA Certified', img: '14m_telehandler.jpg', desc: 'Workhorse telehandler for material handling, pallet placement, and elevated loading.', specs: { 'Capacity': '3.5 Ton', 'Reach': '14m', 'Cert': 'RTA Certified' } },
-      { id: 37, n: '5 Ton Diesel Forklift', c: 'Forklifts', s: '5 Ton', cert: 'RTA Certified', img: '5t_diesel_forklift.jpg', desc: 'Heavy-duty outdoor diesel forklift for warehouse, port, and construction logistics.', specs: { 'Capacity': '5 Ton', 'Power': 'Diesel', 'Cert': 'RTA Certified' } },
-      { id: 38, n: '3 Ton Diesel Forklift', c: 'Forklifts', s: '3 Ton', cert: 'RTA Certified', img: '3t_diesel_forklift.jpg', desc: 'Reliable mid-range diesel forklift for yard and construction site material handling.', specs: { 'Capacity': '3 Ton', 'Power': 'Diesel', 'Cert': 'RTA Certified' } },
-      { id: 39, n: 'S770 Skid Steer Loader', c: 'Bobcat Skid Steer Loaders', s: '92 HP', cert: 'RTA Certified', img: 's770_skid_steer.jpg', desc: 'High-performance Bobcat for heavy material moving, grading, and demolition clearance.', specs: { 'Power': '92 HP', 'Brand': 'Bobcat', 'Cert': 'RTA Certified' } },
-      { id: 40, n: 'S450 Skid Steer Loader', c: 'Bobcat Skid Steer Loaders', s: '49 HP', cert: 'RTA Certified', img: 's450_skid_steer.jpg', desc: 'Compact Bobcat for tight site work, landscaping, and interior demolition clearance.', specs: { 'Power': '49 HP', 'Brand': 'Bobcat', 'Cert': 'RTA Certified' } },
-      { id: 41, n: 'JCB 4CX Backhoe Loader', c: 'JCB Loaders', s: 'Heavy Duty', cert: 'RTA Certified', img: 'jcb4cx_backhoe.jpg', desc: 'Heavy-duty backhoe loader for excavation, loading, and general civil construction work.', specs: { 'Model': 'JCB 4CX', 'Type': 'Heavy Duty', 'Cert': 'RTA Certified' } },
-      { id: 42, n: 'JCB 3CX Backhoe Loader', c: 'JCB Loaders', s: 'Standard', cert: 'RTA Certified', img: 'jcb3cx_backhoe.jpg', desc: 'Industry-standard backhoe for versatile dig-and-load operations across civil projects.', specs: { 'Model': 'JCB 3CX', 'Type': 'Standard', 'Cert': 'RTA Certified' } },
-      { id: 43, n: 'CAT 950 Wheel Loader', c: 'Wheel Loaders', s: '3.5m³ Bucket', cert: 'RTA Certified', img: 'cat950_wheel_loader.jpg', desc: 'Heavy-duty CAT wheel loader for bulk material handling, aggregate loading, and site prep.', specs: { 'Bucket': '3.5m³', 'Brand': 'Caterpillar', 'Cert': 'RTA Certified' } },
-      { id: 44, n: '500 kVA Diesel Generator', c: 'Generators', s: '500 kVA', cert: 'Certified', img: '500kva_generator.jpg', desc: 'High-output power generation for large construction sites, events, and emergency backup.', specs: { 'Output': '500 kVA', 'Power': 'Diesel', 'Type': 'Standby/Prime' } },
-      { id: 45, n: '100 kVA Diesel Generator', c: 'Generators', s: '100 kVA', cert: 'Certified', img: '100kva_generator.jpg', desc: 'Reliable power supply for construction sites and facilities requiring steady electrical output.', specs: { 'Output': '100 kVA', 'Power': 'Diesel', 'Type': 'Standby/Prime' } },
-      { id: 46, n: 'Star 10 Vertical Lift', c: 'Manlifts', s: '10m Height', cert: 'RTA Certified', img: 'star10_manlift.jpg', desc: 'Vertical personnel lift for indoor maintenance and installation work at moderate height.', specs: { 'Working Height': '10m', 'Type': 'Vertical Manlift', 'Cert': 'RTA Certified' } },
-      { id: 47, n: 'Toucan 12E Plus', c: 'Manlifts', s: '12m Height', cert: 'RTA Certified', img: 'toucan12e_manlift.jpg', desc: 'Compact indoor manlift with excellent maneuverability. Ideal for facilities, retail, and warehouse work.', specs: { 'Working Height': '12m', 'Type': 'Mast Manlift', 'Cert': 'RTA Certified' } },
-    ];
-
-    let currentIdx = 0, filteredList = [...ALL];
-
-    function render(list) {
-      filteredList = list;
-      document.getElementById('countDisp').textContent = list.length;
-      if (!list.length) {
-        document.getElementById('fleetGrid').innerHTML = '<div class="no-results">No units in this category</div>';
-        return;
-      }
-      document.getElementById('fleetGrid').innerHTML = list.map((f, i) => `
-    <div class="fleet-card" onclick="openM(${i})" style="animation:fadeInCard .4s ease ${(i % 8) * .05}s both">
-      <div class="fc-img">
-        <img src="images/fleet/${f.img}" alt="${f.n}" loading="lazy" onerror="this.parentNode.innerHTML='<div class=\'fc-ph\'><span class=\'phi\'>⚙️</span><p>'+this.alt+'</p></div>'">
-      </div>
-      <div class="fc-grad"></div>
-      <div class="fc-cut"></div>
-      <div class="fc-cert">${f.cert}</div>
-      <div class="fc-avail"><span class="dot"></span></div>
-      <div class="fc-body">
-        <div class="fc-cat">${f.c}</div>
-        <div class="fc-name">${f.n}</div>
-        <div class="fc-spec">${f.s}</div>
-        <div class="fc-action">View Specs <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </div>
-    </div>
-  `).join('');
-    }
-
-    function openM(i) {
-      currentIdx = i;
-      const f = filteredList[i];
-      document.getElementById('mCat').textContent = f.c;
-      document.getElementById('mName').textContent = f.n;
-      document.getElementById('mCert').textContent = '✓ ' + f.cert;
-      document.getElementById('mDesc').textContent = f.desc;
-      document.getElementById('mImgName').textContent = f.img;
-      document.getElementById('mSpecs').innerHTML = Object.entries(f.specs).map(([k, v]) => `<div class="sg-row"><span class="sg-k">${k}</span><span class="sg-v">${v}</span></div>`).join('');
-      document.getElementById('mWA').href = 'https://wa.me/971551092200?text=Inquiry for: ' + encodeURIComponent(f.n);
-      document.getElementById('modal').classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeModal() { document.getElementById('modal').classList.remove('open'); document.body.style.overflow = ''; }
-    function navModal(dir) {
-      const newI = (currentIdx + dir + filteredList.length) % filteredList.length;
-      openM(newI);
-    }
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') closeModal();
-      if (e.key === 'ArrowRight' && document.getElementById('modal').classList.contains('open')) navModal(1);
-      if (e.key === 'ArrowLeft' && document.getElementById('modal').classList.contains('open')) navModal(-1);
-    });
-
-    render(ALL);
-    document.getElementById('filters').addEventListener('click', e => {
-      const b = e.target.closest('.f-btn'); if (!b) return;
-      document.querySelectorAll('.f-btn').forEach(x => x.classList.remove('on'));
-      b.classList.add('on');
-      const c = b.dataset.cat;
-      render(c === 'all' ? ALL : ALL.filter(f => f.c === c));
-    });
-  </script>
-  <style>
-    @keyframes fadeInCard {
-      from {
-        opacity: 0;
-        transform: translateY(16px)
-      }
-
-      to {
-        opacity: 1;
-        transform: none
-      }
-    }
-
-    .wa-float {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      z-index: 8000
-    }
-
-    .wa-bubble {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: #25D366;
-      padding: 14px 20px;
-      clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
-      cursor: pointer;
-      transition: transform .2s;
-      text-decoration: none;
-      box-shadow: 0 4px 24px rgba(37, 211, 102, .3)
-    }
-
-    .wa-bubble:hover {
-      transform: translateY(-3px)
-    }
-
-    .wa-label {
-      font-family: var(--D);
-      font-size: 14px;
-      letter-spacing: .08em;
-      color: #fff;
-      white-space: nowrap
-    }
-
-    .wa-ping {
-      position: absolute;
-      top: -4px;
-      right: -4px;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #ff4444;
-      animation: waping 1.8s ease-in-out infinite
-    }
-
-    @keyframes waping {
-
-      0%,
-      100% {
-        transform: scale(1);
-        opacity: 1
-      }
-
-      50% {
-        transform: scale(1.5);
-        opacity: 0
-      }
-    }
-  </style>
+  <script src="main.js" defer></script>
 </body>
-
 </html>
